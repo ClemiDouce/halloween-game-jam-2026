@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UnitRessource" format=3 uid="uid://l0m3pssrbkug"]
+
+[ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="1_l8t0w"]
+
+[resource]
+script = ExtResource("1_l8t0w")
+health = 50
+damage = 2
+speed = 20.0
+attack_range = 30.0
+cost = 100
+metadata/_custom_type_script = "uid://ctxaornc1ibjt"
