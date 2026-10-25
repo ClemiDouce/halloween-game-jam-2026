@@ -28,3 +28,12 @@ func get_build_slot(x: int, y: int) -> BuildingSlot:
 	if index < 0 or index >= building_slots.size():
 		return null
 	return building_slots[index]
+
+
+## Get the grid position from the BuildingSlot object
+func get_grid_pos(slot: BuildingSlot) -> Vector2i:
+	for x in range(BUILDING_GRID_X):
+		for y in range(BUILDING_GRID_Y):
+			if get_build_slot(x, y) == slot:
+				return Vector2i(x, y)
+	return Vector2i.ZERO
