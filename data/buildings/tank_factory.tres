@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://dd8teimdeenv4"]
+
+[ext_resource type="Script" uid="uid://byl1qp26ywmec" path="res://scripts/data/building.gd" id="1_2f3vs"]
+[ext_resource type="Texture2D" uid="uid://dqynw23cvcrts" path="res://assets/art/placeholder/building_placeholder_2.png" id="1_ob3md"]
+[ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="3_xi2ec"]
+[ext_resource type="Resource" uid="uid://l0m3pssrbkug" path="res://data/units/gun_soldier.tres" id="4_ti5y2"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_e1w6c"]
+device = -1
+keycode = 66
+unicode = 98
+
+[resource]
+script = ExtResource("1_2f3vs")
+input_keyboard = SubResource("InputEventKey_e1w6c")
+building_texture = ExtResource("1_ob3md")
+units = Array[ExtResource("3_xi2ec")]([ExtResource("4_ti5y2")])
+metadata/_custom_type_script = "uid://byl1qp26ywmec"

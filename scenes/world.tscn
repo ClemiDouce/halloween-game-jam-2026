@@ -118,9 +118,10 @@ unique_name_in_owner = true
 
 [node name="BaseView" type="CanvasLayer" parent="." unique_id=408365964]
 
-[node name="Control" parent="BaseView" unique_id=526506978 instance=ExtResource("2_4wyf3")]
+[node name="Control" parent="BaseView" unique_id=526506978 node_paths=PackedStringArray("player") instance=ExtResource("2_4wyf3")]
 size_flags_horizontal = 3
 size_flags_vertical = 3
+player = NodePath("../../PlayerController")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=869438757]
 layer = -64
@@ -132,3 +133,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="BaseManager" type="Node" parent="." unique_id=441521287 node_paths=PackedStringArray("paths", "overworld")]
+script = ExtResource("4_71j4m")
+paths = [NodePath("")]
+overworld = NodePath("../Overworld")
+metadata/_custom_type_script = "uid://d3nq8uvycb5nh"
+
+[node name="PlayerController" type="Node" parent="." unique_id=1060732579 node_paths=PackedStringArray("controlling_base")]
+script = ExtResource("5_71j4m")
+controlling_base = NodePath("../BaseManager")
+metadata/_custom_type_script = "uid://cu76jeby58c7o"

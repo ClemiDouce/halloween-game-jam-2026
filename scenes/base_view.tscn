@@ -1,14 +1,20 @@
 [gd_scene format=3 uid="uid://dk1sgrxi5yepn"]
 
-[ext_resource type="Texture2D" uid="uid://bcu1spn1h5pkp" path="res://assets/art/placeholder/building_placeholder.png" id="1_igef5"]
+[ext_resource type="Script" uid="uid://clj2qdxe3u2pk" path="res://scripts/base_building/base_visualizer.gd" id="1_x54rt"]
+[ext_resource type="Texture2D" uid="uid://duwdpq6jhvhra" path="res://assets/art/placeholder/building_placeholder_blueprint.png" id="2_kjc6i"]
+[ext_resource type="Texture2D" uid="uid://cymqvgc48ra4m" path="res://assets/art/placeholder/select_arrow.png" id="3_aylgq"]
 
-[node name="BaseView" type="Control" unique_id=526506978]
+[node name="BaseView" type="Control" unique_id=526506978 node_paths=PackedStringArray("slot_holder")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x54rt")
+empty_building_slot_texture = ExtResource("2_kjc6i")
+selection_cursor_texture = ExtResource("3_aylgq")
+slot_holder = NodePath("Control")
 
 [node name="Control" type="PanelContainer" parent="." unique_id=2087092193]
 layout_mode = 1
@@ -16,39 +22,3 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 640.0
 grow_vertical = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=792148257]
-position = Vector2(192, 480)
-texture = ExtResource("1_igef5")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=880380372]
-position = Vector2(320, 480)
-texture = ExtResource("1_igef5")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Control" unique_id=236546712]
-position = Vector2(448, 480)
-texture = ExtResource("1_igef5")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Control" unique_id=591915949]
-position = Vector2(192, 608)
-texture = ExtResource("1_igef5")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Control" unique_id=276495230]
-position = Vector2(320, 608)
-texture = ExtResource("1_igef5")
-
-[node name="Sprite2D6" type="Sprite2D" parent="Control" unique_id=809069653]
-position = Vector2(448, 608)
-texture = ExtResource("1_igef5")
-
-[node name="Sprite2D7" type="Sprite2D" parent="Control" unique_id=1046402220]
-position = Vector2(192, 736)
-texture = ExtResource("1_igef5")
-
-[node name="Sprite2D8" type="Sprite2D" parent="Control" unique_id=1146779256]
-position = Vector2(320, 736)
-texture = ExtResource("1_igef5")
-
-[node name="Sprite2D9" type="Sprite2D" parent="Control" unique_id=1807918704]
-position = Vector2(448, 736)
-texture = ExtResource("1_igef5")
