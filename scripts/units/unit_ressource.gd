@@ -5,6 +5,7 @@ class_name UnitResource extends Resource
 
 @export var health: int
 @export var damage : int
+@export var rate_of_fire : float
 @export var speed : float
 @export var attack_range : float
 @export var cost : int

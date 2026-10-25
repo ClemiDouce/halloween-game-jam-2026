@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dnq0x8ta4eayy" path="res://scripts/units/unit_entity.gd" id="1_oir76"]
 [ext_resource type="Texture2D" uid="uid://suvn2sac2fe1" path="res://assets/art/placeholder/unit_placeholder.png" id="2_qq2lh"]
+[ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="3_0uryg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_x7n8s"]
-radius = 20.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_n45qs"]
+radius = 25.0
 
 [node name="UnitEntity" type="Node2D" unique_id=1639145294]
 script = ExtResource("1_oir76")
@@ -16,13 +17,18 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 texture = ExtResource("2_qq2lh")
 
-[node name="AttackArea" type="Area2D" parent="." unique_id=209689706]
+[node name="Hitbox" parent="." unique_id=957708440 instance=ExtResource("3_0uryg")]
 unique_name_in_owner = true
-collision_layer = 0
-collision_mask = 0
+monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=2011141330]
+[node name="AttackArea" type="Area2D" parent="." unique_id=999397715]
 unique_name_in_owner = true
-shape = SubResource("CircleShape2D_x7n8s")
+monitorable = false
 
+[node name="AttackShape" type="CollisionShape2D" parent="AttackArea" unique_id=1184875121]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_n45qs")
+debug_color = Color(0.90472734, 0.2984467, 0.1780119, 0.41960785)
+
+[connection signal="hurt" from="Hitbox" to="." method="_on_hitbox_hurt"]
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
