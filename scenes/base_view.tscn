@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dk1sgrxi5yepn"]
 
 [ext_resource type="Script" uid="uid://clj2qdxe3u2pk" path="res://scripts/base_building/base_visualizer.gd" id="1_x54rt"]
+[ext_resource type="Texture2D" uid="uid://duwdpq6jhvhra" path="res://assets/art/placeholder/building_placeholder_blueprint.png" id="2_kjc6i"]
+[ext_resource type="Texture2D" uid="uid://cymqvgc48ra4m" path="res://assets/art/placeholder/select_arrow.png" id="3_aylgq"]
 
 [node name="BaseView" type="Control" unique_id=526506978 node_paths=PackedStringArray("slot_holder")]
 layout_mode = 3
@@ -10,6 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x54rt")
+empty_building_slot_texture = ExtResource("2_kjc6i")
+selection_cursor_texture = ExtResource("3_aylgq")
 slot_holder = NodePath("Control")
 
 [node name="Control" type="PanelContainer" parent="." unique_id=2087092193]

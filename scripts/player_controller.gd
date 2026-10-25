@@ -27,8 +27,34 @@ var _selected_building: BuildingSlot = null:
 		return _selected_building
 
 
+var _path_index: int = 0
+
 func _process(_delta: float) -> void:
 	_handle_building_selection()
+
+
+func _input(event: InputEvent) -> void:
+	_handle_selected_building_slot(event)
+
+
+func _handle_selected_building_slot(event: InputEvent) -> void:
+	if not _selected_building:
+		return
+
+	if _selected_building.has_building():
+		for unit in _selected_building.get_unit_options():
+			if unit.input_keyboard && unit.input_keyboard.is_match(event):
+				_selected_building.queue_unit(unit, _path_index)
+		return
+
+	for building_type in controlling_base.get_building_types():
+		if (
+			(building_type.input_keyboard && building_type.input_keyboard.is_match(event))
+			or (building_type.input_gamepad && building_type.input_gamepad.is_match(event))
+		):
+			_selected_building.build(building_type)
+			print("Built building at %s" % [_selected_building])
+			return
 
 
 func _handle_building_selection():

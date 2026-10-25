@@ -9,3 +9,4 @@ class_name UnitResource extends Resource
 @export var attack_range : float
 @export var cost : int
 @export var texture : Texture2D
+@export var input_keyboard: InputEventKey

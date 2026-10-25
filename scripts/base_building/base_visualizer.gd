@@ -47,8 +47,13 @@ func _on_building_selected(_slot: BuildingSlot, grid_pos: Vector2i) -> void:
 	_cursor.position = _get_world_from_grid(grid_pos.x, grid_pos.y, building_padding) + _origin
 
 
-func _on_slot_updated(grid_x: int, grid_y: int) -> void:
-	var sprite = _get_sprite_from_grid_pos(grid_x, grid_y)
+func _on_slot_updated(slot: BuildingSlot) -> void:
+	var slot_pos = _get_base().get_grid_pos(slot)
+	var sprite = _get_sprite_from_grid_pos(slot_pos.x, slot_pos.y)
+	if slot.has_building():
+		sprite.texture = slot.get_texture()
+	else:
+		sprite.texture = empty_building_slot_texture
 
 
 func _get_world_from_grid(grid_x: int, grid_y: int, padding: Vector2) -> Vector2:
