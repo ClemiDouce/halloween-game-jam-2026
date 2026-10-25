@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="5_q5onr"]
 [ext_resource type="Script" uid="uid://dg0e1uqw3m52s" path="res://scripts/path/paths_manager.gd" id="6_jhx03"]
 [ext_resource type="Script" uid="uid://b53fi0c8w7xjc" path="res://scripts/path/unit_path.gd" id="7_o8fc1"]
+[ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="9_7r4gi"]
+[ext_resource type="Script" uid="uid://cu76jeby58c7o" path="res://scripts/player_controller.gd" id="10_w7kh3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eab5i"]
 texture = ExtResource("1_4mrxx")
@@ -135,12 +137,10 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="BaseManager" type="Node" parent="." unique_id=441521287 node_paths=PackedStringArray("paths", "overworld")]
-script = ExtResource("4_71j4m")
-paths = [NodePath("")]
+script = ExtResource("9_7r4gi")
+paths = [NodePath("../Overworld/Paths/UnitPath"), NodePath("../Overworld/Paths/UnitPath2"), NodePath("../Overworld/Paths/UnitPath3")]
 overworld = NodePath("../Overworld")
-metadata/_custom_type_script = "uid://d3nq8uvycb5nh"
 
 [node name="PlayerController" type="Node" parent="." unique_id=1060732579 node_paths=PackedStringArray("controlling_base")]
-script = ExtResource("5_71j4m")
+script = ExtResource("10_w7kh3")
 controlling_base = NodePath("../BaseManager")
-metadata/_custom_type_script = "uid://cu76jeby58c7o"
