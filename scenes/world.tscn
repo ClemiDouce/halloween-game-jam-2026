@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="5_q5onr"]
 [ext_resource type="Script" uid="uid://dg0e1uqw3m52s" path="res://scripts/path/paths_manager.gd" id="6_jhx03"]
 [ext_resource type="Script" uid="uid://b53fi0c8w7xjc" path="res://scripts/path/unit_path.gd" id="7_o8fc1"]
+[ext_resource type="Texture2D" uid="uid://cymqvgc48ra4m" path="res://assets/art/placeholder/select_arrow.png" id="8_jhx03"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="9_7r4gi"]
+[ext_resource type="Texture2D" uid="uid://dp1w5tnapcxuh" path="res://assets/art/placeholder/building_selection.png" id="9_e3hyu"]
+[ext_resource type="Script" uid="uid://civsi113hopgn" path="res://scripts/ui/path_cursor.gd" id="9_o8fc1"]
 [ext_resource type="Script" uid="uid://cu76jeby58c7o" path="res://scripts/player_controller.gd" id="10_w7kh3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eab5i"]
@@ -118,12 +121,19 @@ position = Vector2(592, 112)
 [node name="Entities" type="Node2D" parent="Overworld" unique_id=1141889639]
 unique_name_in_owner = true
 
+[node name="PathCursor" type="Sprite2D" parent="Overworld" unique_id=2080418494 node_paths=PackedStringArray("base_manager")]
+z_index = 1
+texture = ExtResource("8_jhx03")
+script = ExtResource("9_o8fc1")
+base_manager = NodePath("../../BaseManager")
+
 [node name="BaseView" type="CanvasLayer" parent="." unique_id=408365964]
 
 [node name="Control" parent="BaseView" unique_id=526506978 node_paths=PackedStringArray("player") instance=ExtResource("2_4wyf3")]
 size_flags_horizontal = 3
 size_flags_vertical = 3
 player = NodePath("../../PlayerController")
+selection_cursor_texture = ExtResource("9_e3hyu")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=869438757]
 layer = -64

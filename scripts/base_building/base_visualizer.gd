@@ -25,7 +25,7 @@ func _ready() -> void:
 	_cursor = Sprite2D.new()
 	_cursor.name = "Cursor"
 	_cursor.texture = selection_cursor_texture
-	_cursor.z_index = 50
+	_cursor.z_index = -1
 	slot_holder.add_child(_cursor)
 
 	_origin = Vector2(slot_holder.size.x / 2, slot_holder.size.y / 2)

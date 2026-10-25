@@ -17,6 +17,7 @@ selection_cursor_texture = ExtResource("3_aylgq")
 slot_holder = NodePath("Control")
 
 [node name="Control" type="PanelContainer" parent="." unique_id=2087092193]
+z_index = -2
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0

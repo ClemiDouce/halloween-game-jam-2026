@@ -27,10 +27,12 @@ var _selected_building: BuildingSlot = null:
 		return _selected_building
 
 
-var _path_index: int = 0
 
 func _process(_delta: float) -> void:
 	_handle_building_selection()
+	
+	if Input.is_action_just_pressed("next_path"):
+		controlling_base.next_path()
 
 
 func _input(event: InputEvent) -> void:
@@ -44,7 +46,7 @@ func _handle_selected_building_slot(event: InputEvent) -> void:
 	if _selected_building.has_building():
 		for unit in _selected_building.get_unit_options():
 			if unit.input_keyboard && unit.input_keyboard.is_match(event):
-				_selected_building.queue_unit(unit, _path_index)
+				_selected_building.queue_unit(unit)
 		
 		if Input.is_action_just_pressed("destroy_building"):
 			_selected_building.destroy()

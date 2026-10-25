@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://b53fi0c8w7xjc" path="res://scripts/path/unit_path.gd" id="5_3gvrs"]
 [ext_resource type="Script" uid="uid://dg0e1uqw3m52s" path="res://scripts/path/paths_manager.gd" id="5_eab5i"]
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="5_fkyvp"]
+[ext_resource type="Texture2D" uid="uid://cymqvgc48ra4m" path="res://assets/art/placeholder/select_arrow.png" id="8_e184d"]
+[ext_resource type="Script" uid="uid://civsi113hopgn" path="res://scripts/ui/path_cursor.gd" id="9_nesqq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eab5i"]
 texture = ExtResource("1_u2ss0")
@@ -112,3 +114,8 @@ position = Vector2(592, 112)
 
 [node name="Entities" type="Node2D" parent="." unique_id=1141889639]
 unique_name_in_owner = true
+
+[node name="PathCursor" type="Sprite2D" parent="." unique_id=1119328275]
+z_index = 1
+texture = ExtResource("8_e184d")
+script = ExtResource("9_nesqq")
