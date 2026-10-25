@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_l8t0w")
 health = 50
-damage = 2
+damage = 20
+rate_of_fire = 1.0
 speed = 100.0
 attack_range = 30.0
 cost = 100

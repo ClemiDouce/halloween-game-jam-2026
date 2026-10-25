@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://4xdk3ew3ullj" path="res://assets/art/placeholder/tiles/blocking_tile.png" id="2_356oe"]
 [ext_resource type="Texture2D" uid="uid://dna8vy1odnywb" path="res://assets/art/placeholder/tiles/path_tile.png" id="3_3gvrs"]
 [ext_resource type="Texture2D" uid="uid://bwixqfjjdkttj" path="res://assets/art/placeholder/tiles/base.png" id="4_356oe"]
+[ext_resource type="Script" uid="uid://b53fi0c8w7xjc" path="res://scripts/path/unit_path.gd" id="5_3gvrs"]
+[ext_resource type="Script" uid="uid://dg0e1uqw3m52s" path="res://scripts/path/paths_manager.gd" id="5_eab5i"]
+[ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="5_fkyvp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eab5i"]
 texture = ExtResource("1_u2ss0")
@@ -45,6 +48,9 @@ texture = ExtResource("4_356oe")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BasePlaceholder" unique_id=361224945]
 shape = SubResource("RectangleShape2D_7c0x3")
 
+[node name="EntityHitbox" parent="BasePlaceholder" unique_id=957708440 instance=ExtResource("5_fkyvp")]
+collision_layer = 16
+
 [node name="BasePlaceholder2" type="StaticBody2D" parent="." unique_id=475325350]
 position = Vector2(336, 112)
 metadata/_edit_group_ = true
@@ -55,6 +61,54 @@ texture = ExtResource("4_356oe")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BasePlaceholder2" unique_id=1034658570]
 shape = SubResource("RectangleShape2D_7c0x3")
 
+[node name="EntityHitbox" parent="BasePlaceholder2" unique_id=926788461 instance=ExtResource("5_fkyvp")]
+collision_layer = 32
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=261588572]
 position = Vector2(192, 320)
 zoom = Vector2(1.67, 1.68)
+
+[node name="Paths" type="Node" parent="." unique_id=374898457]
+script = ExtResource("5_eab5i")
+
+[node name="UnitPath" type="Node" parent="Paths" unique_id=954546401 node_paths=PackedStringArray("point_list")]
+script = ExtResource("5_3gvrs")
+point_list = [NodePath("../../BasePlaceholder"), NodePath("../../BasePlaceholder2")]
+metadata/_custom_type_script = "uid://b53fi0c8w7xjc"
+
+[node name="UnitPath2" type="Node" parent="Paths" unique_id=1313563350 node_paths=PackedStringArray("point_list")]
+script = ExtResource("5_3gvrs")
+point_list = [NodePath("../../BasePlaceholder"), NodePath("Node2D"), NodePath("Node2D2"), NodePath("../../BasePlaceholder2")]
+metadata/_custom_type_script = "uid://b53fi0c8w7xjc"
+
+[node name="Node2D" type="Node2D" parent="Paths/UnitPath2" unique_id=1084946953]
+position = Vector2(144, 528)
+
+[node name="Node2D2" type="Node2D" parent="Paths/UnitPath2" unique_id=1091729631]
+position = Vector2(144, 112)
+
+[node name="UnitPath3" type="Node" parent="Paths" unique_id=1828546251 node_paths=PackedStringArray("point_list")]
+script = ExtResource("5_3gvrs")
+point_list = [NodePath("../../BasePlaceholder"), NodePath("Node2D"), NodePath("Node2D2"), NodePath("Node2D3"), NodePath("Node2D4"), NodePath("Node2D5"), NodePath("Node2D6"), NodePath("../../BasePlaceholder2")]
+metadata/_custom_type_script = "uid://b53fi0c8w7xjc"
+
+[node name="Node2D" type="Node2D" parent="Paths/UnitPath3" unique_id=716191559]
+position = Vector2(592, 528)
+
+[node name="Node2D2" type="Node2D" parent="Paths/UnitPath3" unique_id=260990684]
+position = Vector2(592, 368)
+
+[node name="Node2D3" type="Node2D" parent="Paths/UnitPath3" unique_id=1376228813]
+position = Vector2(496, 368)
+
+[node name="Node2D4" type="Node2D" parent="Paths/UnitPath3" unique_id=315820647]
+position = Vector2(496, 272)
+
+[node name="Node2D5" type="Node2D" parent="Paths/UnitPath3" unique_id=969464890]
+position = Vector2(592, 272)
+
+[node name="Node2D6" type="Node2D" parent="Paths/UnitPath3" unique_id=276502925]
+position = Vector2(592, 112)
+
+[node name="Entities" type="Node2D" parent="." unique_id=1141889639]
+unique_name_in_owner = true
