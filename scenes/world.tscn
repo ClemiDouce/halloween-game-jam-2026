@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cs30anugoy8la"]
+
+[ext_resource type="PackedScene" uid="uid://cthj6pcpappnu" path="res://scenes/overworld.tscn" id="1_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://dk1sgrxi5yepn" path="res://scenes/base_view.tscn" id="2_4wyf3"]
+
+[node name="World" type="Node" unique_id=1617731920]
+
+[node name="Overworld" parent="." unique_id=85780177 instance=ExtResource("1_rwgxs")]
+
+[node name="BaseView" type="CanvasLayer" parent="." unique_id=408365964]
+
+[node name="Control" parent="BaseView" unique_id=526506978 instance=ExtResource("2_4wyf3")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=869438757]
+layer = -64
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer" unique_id=947556380]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
