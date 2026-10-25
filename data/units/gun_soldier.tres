@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="UnitRessource" format=3 uid="uid://l0m3pssrbkug"]
+[gd_resource type="Resource" script_class="UnitResource" format=3 uid="uid://l0m3pssrbkug"]
 
 [ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="1_l8t0w"]
+[ext_resource type="Texture2D" uid="uid://suvn2sac2fe1" path="res://assets/art/placeholder/unit_placeholder.png" id="2_1g1w0"]
 
 [resource]
 script = ExtResource("1_l8t0w")
 health = 50
 damage = 2
-speed = 20.0
+speed = 100.0
 attack_range = 30.0
 cost = 100
+texture = ExtResource("2_1g1w0")
 metadata/_custom_type_script = "uid://ctxaornc1ibjt"
