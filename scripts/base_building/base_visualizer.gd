@@ -16,6 +16,10 @@ const BUILDING_TILE_HEIGHT = 16
 @export var axis_label_textures: Array[Texture2D] = []
 @export var axis_label_active_textures: Array[Texture2D] = []
 
+@export_category("Tilemap")
+@export var base_tilemap: TileMapLayer
+@export var base_center_tile: Vector2i = Vector2i(2, 12)
+
 @export_category("UI Buttons")
 @export var button_holder: GridContainer
 @export var button_template: PackedScene
@@ -26,7 +30,6 @@ var _y_axis_sprites: Array[Sprite2D] = []
 
 var _building_sprites: Array[Sprite2D] = []
 var _cursor: Sprite2D = null
-var _origin: Vector2
 var _hotkey_buttons: Array[HotkeyButton] = []
 
 func _get_base() -> BaseManager:
@@ -37,17 +40,19 @@ func _ready() -> void:
 	_cursor = Sprite2D.new()
 	_cursor.name = "Cursor"
 	_cursor.texture = selection_cursor_texture
-	_cursor.z_index = -1
+	_cursor.z_index = 31
 	slot_holder.add_child(_cursor)
 	_cursor.hide()
 
-	_origin = Vector2(slot_holder.size.x / 2, slot_holder.size.y / 4)
 	for x in range(BaseManager.BUILDING_GRID_X):
 		for y in range(BaseManager.BUILDING_GRID_Y):
 			var sprite = Sprite2D.new()
 			sprite.name = "Building (%d, %d)" % [x, y]
 			sprite.texture = empty_building_slot_texture
-			sprite.position = _get_world_from_grid(x, y, building_padding) + _origin
+			sprite.scale = base_tilemap.scale
+			sprite.offset.y = -16
+			sprite.z_index = 32
+			sprite.position = _get_building_slot_pos(x, y)
 			slot_holder.add_child(sprite)
 			_building_sprites.append(sprite)
 
@@ -62,9 +67,8 @@ func _on_selection_stage_changed(stage: PlayerController.SelectionStage) -> void
 	if stage == PlayerController.SelectionStage.SELECTING:
 		selection_line.show()
 		var row = player.get_selection_row()
-		var first_pos = _get_world_from_grid(row, 0, building_padding)
-		var last_pos = _get_world_from_grid(row, 2, building_padding)
-		selection_line.position = _origin
+		var first_pos = _get_building_slot_pos(row, 0)
+		var last_pos = _get_building_slot_pos(row, 2)
 		selection_line.points = [first_pos, last_pos]
 
 		for i in range(_x_axis_sprites.size()):
@@ -80,7 +84,7 @@ func _on_selection_stage_changed(stage: PlayerController.SelectionStage) -> void
 
 func _on_building_selected(_slot: BuildingSlot, grid_pos: Vector2i) -> void:
 	print("Selected %s" % [grid_pos])
-	_cursor.position = _get_world_from_grid(grid_pos.x, grid_pos.y, building_padding) + _origin
+	_cursor.position = _get_building_slot_pos(grid_pos.x, grid_pos.y)
 	_cursor.show()
 	
 	_update_hotkey_buttons(_slot)
@@ -98,11 +102,14 @@ func _on_slot_updated(slot: BuildingSlot) -> void:
 		_update_hotkey_buttons(slot)
 
 
+func _get_building_slot_pos(grid_x: float, grid_y: float) -> Vector2:
+	grid_x = (grid_x - 0.5 ) * 2
+	grid_y = (grid_y - 0.5) * 2
+	return base_tilemap.map_to_local(Vector2i(grid_x, grid_y) + base_center_tile - Vector2i(1,1)) * base_tilemap.scale
 
-func _get_world_from_grid(grid_x: float, grid_y: float, padding: Vector2) -> Vector2:
-	var iso_x: float = (grid_x - grid_y) * (BUILDING_TILE_WIDTH * 0.5 + padding.x)
-	var iso_y: float = (grid_x + grid_y) * (BUILDING_TILE_HEIGHT * 0.5 + padding.y)
-	return Vector2(iso_x, iso_y)
+
+func _get_world_from_grid(grid_x: float, grid_y: float) -> Vector2:
+	return base_tilemap.map_to_local(Vector2i(grid_x, grid_y) + base_center_tile - Vector2i(1,1)) * base_tilemap.scale
 
 
 func _get_sprite_from_grid_pos(grid_x: int, grid_y: int) -> Sprite2D:
@@ -141,13 +148,13 @@ func _generate_label_sprites() -> void:
 		var x_sprite := Sprite2D.new()
 		x_sprite.name = "XLabel%d" % i
 		x_sprite.texture = axis_label_textures[i]
-		x_sprite.position = (_get_world_from_grid(i, -0.5, building_padding) + _origin)
+		x_sprite.position = (_get_world_from_grid(i, -1))
 		slot_holder.add_child(x_sprite)
 		_x_axis_sprites.append(x_sprite)
 
 		var y_sprite := Sprite2D.new()
 		y_sprite.name = "YLabel%d" % i
 		y_sprite.texture = axis_label_textures[i]
-		y_sprite.position = (_get_world_from_grid(-0.5, i, building_padding) + _origin)
+		y_sprite.position = (_get_world_from_grid(-1, i))
 		slot_holder.add_child(y_sprite)
 		_y_axis_sprites.append(y_sprite)
