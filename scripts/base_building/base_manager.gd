@@ -12,12 +12,10 @@ const UNIT_ENTITY = preload("uid://bybp5w4ae511b")
 const BUILDING_GRID_X: int = 3
 const BUILDING_GRID_Y: int = 3
 
-
 static var _buildings: Array[Building] = [preload("res://data/buildings/tank_factory.tres")]
 
-@export var paths: Array[UnitPath]
-@export var overworld: Node2D
-@export var entity_parent: Node2D
+var paths: Array[UnitPath]
+var entity_parent: Node2D
 
 var building_slots: Array[BuildingSlot] = []
 var unit_queue: UnitQueue = UnitQueue.new()
@@ -31,7 +29,6 @@ var _selected_path: UnitPath:
 		return _selected_path
 
 func _ready() -> void:
-	_selected_path = paths[0]
 	self.unit_queue.unit_ready.connect(func(unit_type, path):
 		var unit = UNIT_ENTITY.instantiate() as UnitEntity
 		entity_parent.add_child.call_deferred(unit)
@@ -40,6 +37,11 @@ func _ready() -> void:
 	)
 	
 	_generate_building_slots()
+
+func connect_to_level(level_paths: Array[UnitPath], level_entity_parent: Node2D):
+	paths = level_paths
+	entity_parent = level_entity_parent
+	_selected_path = paths[0]
 
 func _process(delta: float) -> void:
 	unit_queue._process(delta)

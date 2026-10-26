@@ -24,6 +24,8 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 base=""
+player=""
+hostile=""
 
 [input]
 
