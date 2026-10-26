@@ -41,5 +41,5 @@ func get_unit_options() -> Array[UnitResource]:
 func queue_unit(unit_resource: UnitResource) -> void:
 	if not has_building() or unit_resource not in _building.units:
 		return
-	print("Unit queued: %s" % [unit_resource.damage])
+	#print("Unit queued: %s" % [unit_resource.damage])
 	queue.add_to_queue(unit_resource)
