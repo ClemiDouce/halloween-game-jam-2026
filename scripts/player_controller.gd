@@ -30,8 +30,10 @@ var _selected_building: BuildingSlot = null:
 func get_selection_row() -> int:
 	return _selection_row
 
+
 func get_selected() -> BuildingSlot:
 	return _selected_building
+
 
 func _process(_delta: float) -> void:
 	_handle_building_selection()
@@ -57,9 +59,11 @@ func _handle_selected_building_slot(event: InputEvent) -> void:
 				and event.echo == false
 			):
 				_selected_building.queue_unit(unit)
+				self._selection_stage = SelectionStage.NONE
 
 		if Input.is_action_just_pressed("destroy_building"):
 			_selected_building.destroy()
+			self._selection_stage = SelectionStage.NONE
 		return
 
 	for building_type in controlling_base.get_building_types():
@@ -68,6 +72,7 @@ func _handle_selected_building_slot(event: InputEvent) -> void:
 			or (building_type.input_gamepad && building_type.input_gamepad.is_match(event))
 		):
 			_selected_building.build(building_type)
+			self._selection_stage = SelectionStage.NONE
 			print("Built building at %s" % [_selected_building])
 			return
 
