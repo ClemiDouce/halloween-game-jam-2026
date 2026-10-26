@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://byl1qp26ywmec" path="res://scripts/data/building.gd" id="1_tt5rx"]
 [ext_resource type="Texture2D" uid="uid://cjnqw6s32kjop" path="res://assets/art/icons/infantry_barracks_icon.png" id="2_nq4hi"]
 [ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="2_nu282"]
+[ext_resource type="Resource" uid="uid://l0m3pssrbkug" path="res://data/units/gun_soldier.tres" id="5_mywlt"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_nq4hi"]
 device = -1
@@ -15,5 +16,6 @@ script = ExtResource("1_tt5rx")
 input_keyboard = SubResource("InputEventKey_nq4hi")
 building_name = "Infantry Barracks"
 building_texture = ExtResource("1_nu282")
+units = Array[ExtResource("2_nu282")]([ExtResource("5_mywlt")])
 button_icon = ExtResource("2_nq4hi")
 metadata/_custom_type_script = "uid://byl1qp26ywmec"

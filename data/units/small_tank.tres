@@ -1,15 +1,25 @@
 [gd_resource type="Resource" script_class="UnitResource" format=3 uid="uid://dm0mjpsku7osy"]
 
+[ext_resource type="Texture2D" uid="uid://pypw5hc7r04a" path="res://assets/art/icons/hover_tank_icon.png" id="1_nw6ky"]
 [ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="1_qqo2i"]
+[ext_resource type="Texture2D" uid="uid://ceyc2ap5qhyvp" path="res://assets/art/units/hover_tank.png" id="2_6kr5u"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_6kr5u"]
+device = -1
+keycode = 84
+unicode = 116
 
 [resource]
 script = ExtResource("1_qqo2i")
+speed = 50.0
+texture = ExtResource("2_6kr5u")
+input_keyboard = SubResource("InputEventKey_6kr5u")
+button_icon = ExtResource("1_nw6ky")
 unit_name = "Light Tank"
 health = 50
-speed = 50.0
-body_type = 1
-damage_type = 1
 damage = 20
 attack_range = 30.0
 rate_of_fire = 1.0
+body_type = 1
+damage_type = 1
 metadata/_custom_type_script = "uid://ctxaornc1ibjt"
