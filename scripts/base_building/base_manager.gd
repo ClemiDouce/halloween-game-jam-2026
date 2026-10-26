@@ -12,7 +12,11 @@ const UNIT_ENTITY = preload("uid://bybp5w4ae511b")
 const BUILDING_GRID_X: int = 3
 const BUILDING_GRID_Y: int = 3
 
-static var _buildings: Array[Building] = [preload("res://data/buildings/tank_factory.tres")]
+
+static var _buildings: Array[Building] = [
+	preload("res://data/buildings/tank_factory.tres"),
+	preload("res://data/buildings/infantry_barracks.tres")
+]
 
 var paths: Array[UnitPath]
 var entity_parent: Node2D
