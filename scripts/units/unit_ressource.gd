@@ -15,3 +15,6 @@ class_name UnitResource extends Resource
 @export var time_to_build : float # seconds
 @export var texture : Texture2D
 @export var input_keyboard: InputEventKey
+
+# UI
+@export var button_icon: Texture2D

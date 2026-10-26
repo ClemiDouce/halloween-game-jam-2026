@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cxa3eu2633xsj" path="res://assets/art/placeholder/1_icon_0001.png" id="7_6bjk0"]
 [ext_resource type="Texture2D" uid="uid://xoucdo8pr1b3" path="res://assets/art/placeholder/2_icon_0001.png" id="8_grwde"]
 [ext_resource type="Texture2D" uid="uid://drf5cfa2h6jd0" path="res://assets/art/placeholder/3_icon_0001.png" id="9_5836b"]
+[ext_resource type="Texture2D" uid="uid://cwhxv0s7getl4" path="res://assets/art/icons/building_icon.png" id="10_5836b"]
 [ext_resource type="Texture2D" uid="uid://buk3ugop4ljdx" path="res://assets/art/icons/empty_icon.png" id="10_grwde"]
+[ext_resource type="Script" uid="uid://co7f846sc2qot" path="res://scripts/ui/hotkey_button.gd" id="11_nygv8"]
 
 [node name="BaseView" type="Control" unique_id=526506978 node_paths=PackedStringArray("slot_holder", "selection_line")]
 layout_mode = 3
@@ -44,12 +46,13 @@ columns = 3
 layout_mode = 2
 tooltip_text = "Creates a building"
 button_mask = 0
-icon = ExtResource("10_grwde")
+icon = ExtResource("10_5836b")
 flat = true
 alignment = 0
 icon_alignment = 1
+script = ExtResource("11_nygv8")
 
-[node name="Label" type="Label" parent="Control/GridContainer/Sprite2D" unique_id=1231529286]
+[node name="HotkeyLabel" type="Label" parent="Control/GridContainer/Sprite2D" unique_id=1231529286]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
