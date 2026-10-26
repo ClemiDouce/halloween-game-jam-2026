@@ -45,7 +45,7 @@ func _handle_selected_building_slot(event: InputEvent) -> void:
 
 	if _selected_building.has_building():
 		for unit in _selected_building.get_unit_options():
-			if unit.input_keyboard && unit.input_keyboard.is_match(event):
+			if unit.input_keyboard && unit.input_keyboard.is_match(event) and event.is_pressed() and event.echo == false:
 				_selected_building.queue_unit(unit)
 		
 		if Input.is_action_just_pressed("destroy_building"):
