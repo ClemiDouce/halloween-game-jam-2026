@@ -8,6 +8,7 @@ extends Node
 func _ready():
 	for base_entity in get_tree().get_nodes_in_group("base"):
 		base_entity.destroyed.connect(_on_base_destroyed)
+	overworld.setup_level(base_manager)
 	base_manager.connect_to_level(overworld.paths, overworld.entity_parent)
 	foreground_layer.fade_in()
 		
