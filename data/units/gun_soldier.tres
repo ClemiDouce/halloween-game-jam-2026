@@ -10,14 +10,14 @@ unicode = 103
 
 [resource]
 script = ExtResource("1_l8t0w")
-unit_name = "Gun"
-health = 50
 speed = 100.0
-damage = 20
-attack_range = 30.0
-rate_of_fire = 1.0
 cost = 100
 time_to_build = 0.5
 texture = ExtResource("2_1g1w0")
 input_keyboard = SubResource("InputEventKey_1g1w0")
+unit_name = "Gun"
+health = 50
+damage = 20
+attack_range = 30.0
+rate_of_fire = 1.0
 metadata/_custom_type_script = "uid://ctxaornc1ibjt"
