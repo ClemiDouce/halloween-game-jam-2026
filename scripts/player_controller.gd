@@ -30,6 +30,8 @@ var _selected_building: BuildingSlot = null:
 func get_selection_row() -> int:
 	return _selection_row
 
+func get_selected() -> BuildingSlot:
+	return _selected_building
 
 func _process(_delta: float) -> void:
 	_handle_building_selection()
