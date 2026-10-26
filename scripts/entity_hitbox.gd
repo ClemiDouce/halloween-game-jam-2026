@@ -8,5 +8,5 @@ signal hurt(value: int)
 func set_radius(new_radius: float) -> void:
 	shape.radius = new_radius
 	
-func get_damage(value: int) -> void:
-	hurt.emit(value)
+func get_damage(attacker: UnitResource) -> void:
+	hurt.emit(attacker)

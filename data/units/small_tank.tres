@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitResource" format=3 uid="uid://dm0mjpsku7osy"]
+
+[ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="1_qqo2i"]
+
+[resource]
+script = ExtResource("1_qqo2i")
+unit_name = "Light Tank"
+health = 50
+speed = 50.0
+body_type = 1
+damage_type = 1
+damage = 20
+attack_range = 30.0
+rate_of_fire = 1.0
+metadata/_custom_type_script = "uid://ctxaornc1ibjt"

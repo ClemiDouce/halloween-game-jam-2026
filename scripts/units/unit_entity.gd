@@ -30,6 +30,7 @@ var state : UnitState = UnitState.MOVING
 
 func set_unit(unit: UnitResource, _path: UnitPath, _player_team: bool):
 	unit_data = unit
+	health = unit.health
 	#shape.radius = unit.attack_range
 	is_player = _player_team
 	sprite.texture = unit.texture
@@ -80,7 +81,7 @@ func _physics_process(delta: float) -> void:
 			attack_timer += delta
 			if attack_timer >= unit_data.rate_of_fire:
 				attack_timer -= unit_data.rate_of_fire
-				attack_target.get_damage(unit_data.damage)
+				attack_target.get_damage(self.unit_data)
 
 
 func _on_attack_area_area_entered(area: Area2D) -> void:
@@ -93,9 +94,11 @@ func _on_attack_area_area_entered(area: Area2D) -> void:
 	state = UnitState.ATTACKING
 
 
-func _on_hitbox_hurt(value: int) -> void:
-	health -= max(0, health - value)
-	if health == 0:
+func _on_hitbox_hurt(attacker: UnitResource) -> void:
+	var damage = AttackCalculator.get_attack_damage(attacker, unit_data)
+	health = max(0, health - damage)
+	print("%s received %s damage from %s. Current health : %s" % [unit_data.unit_name, damage, attacker.unit_name, health])
+	if health <= 0:
 		#TODO Death Animation
 		queue_free()
 	else:
