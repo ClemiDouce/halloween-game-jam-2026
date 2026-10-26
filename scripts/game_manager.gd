@@ -2,11 +2,14 @@ class_name GameManager
 extends Node
 
 @onready var foreground_layer: CanvasLayer = %ForegroundLayer
+@onready var overworld: Level = %Overworld
+@onready var base_manager: BaseManager = $BaseManager
 
 func _ready():
 	for base_entity in get_tree().get_nodes_in_group("base"):
 		base_entity.destroyed.connect(_on_base_destroyed)
-		
+	overworld.setup_level(base_manager)
+	base_manager.connect_to_level(overworld.paths, overworld.entity_parent)
 	foreground_layer.fade_in()
 		
 		
@@ -23,7 +26,6 @@ func _on_base_destroyed(base_data: BaseData):
 		
 		if hostiles_base.size() == 0:
 			# WIN !
-			print("Win !")
 			_on_player_win()
 		else:
 			print("Not Yet, %s bases remain up" % hostiles_base.size())
