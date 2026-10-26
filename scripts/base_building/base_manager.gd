@@ -13,7 +13,10 @@ const BUILDING_GRID_X: int = 3
 const BUILDING_GRID_Y: int = 3
 
 
-static var _buildings: Array[Building] = [preload("res://data/buildings/tank_factory.tres")]
+static var _buildings: Array[Building] = [
+	preload("res://data/buildings/tank_factory.tres"),
+	preload("res://data/buildings/infantry_barracks.tres")
+]
 
 @export var paths: Array[UnitPath]
 @export var overworld: Node2D
