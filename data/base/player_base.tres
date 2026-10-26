@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BaseData" format=3 uid="uid://b4tm7uajg4ggb"]
+
+[ext_resource type="Script" uid="uid://dlpfa2ms4acpk" path="res://scripts/data/base_data.gd" id="1_ub686"]
+
+[resource]
+script = ExtResource("1_ub686")
+unit_name = "Player Base"
+health = 200
+damage = 10
+attack_range = 50.0
+rate_of_fire = 3.0
+body_type = 2
+metadata/_custom_type_script = "uid://dlpfa2ms4acpk"

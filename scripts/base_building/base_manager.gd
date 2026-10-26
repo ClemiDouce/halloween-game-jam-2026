@@ -36,7 +36,7 @@ func _ready() -> void:
 		var unit = UNIT_ENTITY.instantiate() as UnitEntity
 		entity_parent.add_child.call_deferred(unit)
 		await unit.ready
-		unit.set_unit(unit_type, path, true)
+		unit.set_unit(unit_type, path, CombatData.Team.PLAYER)
 	)
 	
 	_generate_building_slots()

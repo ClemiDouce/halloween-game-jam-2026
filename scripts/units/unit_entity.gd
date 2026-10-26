@@ -7,9 +7,6 @@ class_name UnitEntity extends Node2D
 @onready var root: Node2D = %Root
 @onready var hitbox: Hitbox = %Hitbox
 
-const PLAYER_COLLISION_LAYER = 16
-const HOSTILE_COLLISION_LAYER = 32
-
 
 var team : CombatData.Team
 # Unit Stats
@@ -43,8 +40,8 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 		global_position = path.get_end_position()
 		target_position = path.get_previous_point(path_index)
 	
-	hitbox.collision_layer = PLAYER_COLLISION_LAYER if team == CombatData.Team.PLAYER else HOSTILE_COLLISION_LAYER
-	attack_area.collision_mask = HOSTILE_COLLISION_LAYER if team == CombatData.Team.PLAYER else PLAYER_COLLISION_LAYER
+	hitbox.collision_layer = CombatData.PLAYER_COLLISION_LAYER if team == CombatData.Team.PLAYER else CombatData.HOSTILE_COLLISION_LAYER
+	attack_area.collision_mask = CombatData.HOSTILE_COLLISION_LAYER if team == CombatData.Team.PLAYER else CombatData.PLAYER_COLLISION_LAYER
 	
 func _physics_process(delta: float) -> void:
 	match(state):
