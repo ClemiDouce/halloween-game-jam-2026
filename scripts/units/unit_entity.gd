@@ -91,7 +91,7 @@ func _on_attack_area_area_entered(area: Area2D) -> void:
 	state = UnitState.ATTACKING
 
 
-func _on_hitbox_hurt(attacker: UnitResource) -> void:
+func _on_hitbox_hurt(attacker: EntityData) -> void:
 	var damage = AttackCalculator.get_attack_damage(attacker, unit_data)
 	health = max(0, health - damage)
 	print("%s received %s damage from %s. Current health : %s" % [unit_data.unit_name, damage, attacker.unit_name, health])
