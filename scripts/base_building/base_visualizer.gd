@@ -35,7 +35,7 @@ func _ready() -> void:
 	slot_holder.add_child(_cursor)
 	_cursor.hide()
 
-	_origin = Vector2(slot_holder.size.x / 2, slot_holder.size.y / 2)
+	_origin = Vector2(slot_holder.size.x / 2, slot_holder.size.y / 4)
 	for x in range(BaseManager.BUILDING_GRID_X):
 		for y in range(BaseManager.BUILDING_GRID_Y):
 			var sprite = Sprite2D.new()

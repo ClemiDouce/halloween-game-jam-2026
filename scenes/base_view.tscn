@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cxa3eu2633xsj" path="res://assets/art/placeholder/1_icon_0001.png" id="7_6bjk0"]
 [ext_resource type="Texture2D" uid="uid://xoucdo8pr1b3" path="res://assets/art/placeholder/2_icon_0001.png" id="8_grwde"]
 [ext_resource type="Texture2D" uid="uid://drf5cfa2h6jd0" path="res://assets/art/placeholder/3_icon_0001.png" id="9_5836b"]
+[ext_resource type="Texture2D" uid="uid://buk3ugop4ljdx" path="res://assets/art/icons/empty_icon.png" id="10_grwde"]
 
 [node name="BaseView" type="Control" unique_id=526506978 node_paths=PackedStringArray("slot_holder", "selection_line")]
 layout_mode = 3
@@ -32,6 +33,97 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 640.0
 grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control" unique_id=2126558715]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+columns = 3
+
+[node name="Sprite2D" type="Button" parent="Control/GridContainer" unique_id=1446235235]
+layout_mode = 2
+tooltip_text = "Creates a building"
+button_mask = 0
+icon = ExtResource("10_grwde")
+flat = true
+alignment = 0
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Control/GridContainer/Sprite2D" unique_id=1231529286]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -31.0
+offset_right = 48.0
+offset_bottom = -8.0
+grow_vertical = 0
+text = "B"
+
+[node name="Sprite2D2" type="Button" parent="Control/GridContainer" unique_id=470758843]
+layout_mode = 2
+button_mask = 0
+icon = ExtResource("10_grwde")
+flat = true
+alignment = 0
+icon_alignment = 1
+
+[node name="Sprite2D3" type="Button" parent="Control/GridContainer" unique_id=1483870162]
+layout_mode = 2
+button_mask = 0
+icon = ExtResource("10_grwde")
+flat = true
+alignment = 0
+icon_alignment = 1
+
+[node name="Sprite2D4" type="Button" parent="Control/GridContainer" unique_id=972515254]
+layout_mode = 2
+button_mask = 0
+icon = ExtResource("10_grwde")
+flat = true
+alignment = 0
+icon_alignment = 1
+
+[node name="Sprite2D5" type="Button" parent="Control/GridContainer" unique_id=829682967]
+layout_mode = 2
+button_mask = 0
+icon = ExtResource("10_grwde")
+flat = true
+alignment = 0
+icon_alignment = 1
+
+[node name="Sprite2D6" type="Button" parent="Control/GridContainer" unique_id=404323449]
+layout_mode = 2
+button_mask = 0
+icon = ExtResource("10_grwde")
+flat = true
+alignment = 0
+icon_alignment = 1
+
+[node name="Sprite2D7" type="Button" parent="Control/GridContainer" unique_id=1017890876]
+layout_mode = 2
+button_mask = 0
+icon = ExtResource("10_grwde")
+flat = true
+alignment = 0
+icon_alignment = 1
+
+[node name="Sprite2D8" type="Button" parent="Control/GridContainer" unique_id=705986057]
+layout_mode = 2
+button_mask = 0
+icon = ExtResource("10_grwde")
+flat = true
+alignment = 0
+icon_alignment = 1
+
+[node name="Sprite2D9" type="Button" parent="Control/GridContainer" unique_id=1891903887]
+layout_mode = 2
+button_mask = 0
+icon = ExtResource("10_grwde")
+flat = true
+alignment = 0
+icon_alignment = 1
 
 [node name="Line2D" type="Line2D" parent="." unique_id=505038245]
 width = 16.0
