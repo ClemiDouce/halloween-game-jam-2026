@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cqmjrfjljj68n"]
+
+[ext_resource type="Texture2D" uid="uid://cwhxv0s7getl4" path="res://assets/art/icons/building_icon.png" id="1_ggp36"]
+[ext_resource type="Script" uid="uid://co7f846sc2qot" path="res://scripts/ui/hotkey_button.gd" id="2_bxi46"]
+[ext_resource type="Texture2D" uid="uid://buk3ugop4ljdx" path="res://assets/art/icons/empty_icon.png" id="3_8xxyh"]
+
+[node name="HotkeyButton" type="Button" unique_id=1626433124 node_paths=PackedStringArray("hotkey_label")]
+tooltip_text = "Creates a building"
+button_mask = 0
+icon = ExtResource("1_ggp36")
+flat = true
+alignment = 0
+icon_alignment = 1
+script = ExtResource("2_bxi46")
+hotkey_label = NodePath("HotkeyLabel")
+empty_icon_texture = ExtResource("3_8xxyh")
+
+[node name="HotkeyLabel" type="Label" parent="." unique_id=2014696690]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -31.0
+offset_right = 48.0
+offset_bottom = -8.0
+grow_vertical = 0
+text = "B"

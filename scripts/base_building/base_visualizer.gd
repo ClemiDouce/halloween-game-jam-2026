@@ -15,13 +15,19 @@ const BUILDING_TILE_HEIGHT = 16
 
 @export var axis_label_textures: Array[Texture2D] = []
 @export var axis_label_active_textures: Array[Texture2D] = []
+
+@export_category("UI Buttons")
+@export var button_holder: GridContainer
+@export var button_template: PackedScene
+@export var button_grid_size: Vector2i = Vector2i(3,3)
+
 var _x_axis_sprites: Array[Sprite2D] = []
 var _y_axis_sprites: Array[Sprite2D] = []
 
 var _building_sprites: Array[Sprite2D] = []
 var _cursor: Sprite2D = null
 var _origin: Vector2
-
+var _hotkey_buttons: Array[HotkeyButton] = []
 
 func _get_base() -> BaseManager:
 	return player.controlling_base
@@ -46,6 +52,7 @@ func _ready() -> void:
 			_building_sprites.append(sprite)
 
 	_generate_label_sprites()
+	_generate_hotkey_buttons()
 	_get_base().slot_updated.connect(_on_slot_updated)
 	player.building_selected.connect(_on_building_selected)
 	player.selection_stage_changed.connect(_on_selection_stage_changed)
@@ -75,6 +82,8 @@ func _on_building_selected(_slot: BuildingSlot, grid_pos: Vector2i) -> void:
 	print("Selected %s" % [grid_pos])
 	_cursor.position = _get_world_from_grid(grid_pos.x, grid_pos.y, building_padding) + _origin
 	_cursor.show()
+	
+	_update_hotkey_buttons(_slot)
 
 
 func _on_slot_updated(slot: BuildingSlot) -> void:
@@ -84,6 +93,10 @@ func _on_slot_updated(slot: BuildingSlot) -> void:
 		sprite.texture = slot.get_texture()
 	else:
 		sprite.texture = empty_building_slot_texture
+
+	if player.get_selected() == slot:
+		_update_hotkey_buttons(slot)
+
 
 
 func _get_world_from_grid(grid_x: float, grid_y: float, padding: Vector2) -> Vector2:
@@ -95,6 +108,33 @@ func _get_world_from_grid(grid_x: float, grid_y: float, padding: Vector2) -> Vec
 func _get_sprite_from_grid_pos(grid_x: int, grid_y: int) -> Sprite2D:
 	return slot_holder.get_node("Building (%d, %d)" % [grid_x, grid_y])
 
+func _generate_hotkey_buttons() -> void:
+	button_holder.columns = button_grid_size.x
+	for x in range(button_grid_size.x):
+		for y in range(button_grid_size.y):
+			var hotkey_button: HotkeyButton = button_template.instantiate()
+			_hotkey_buttons.append(hotkey_button)
+			button_holder.add_child(hotkey_button)
+
+func _update_hotkey_buttons(slot: BuildingSlot) -> void:
+	for button in _hotkey_buttons:
+		button.clear()
+	
+	if slot.has_building():
+		var unit_options := slot.get_unit_options()
+		for i in range(unit_options.size()):
+			_hotkey_buttons[i].assign_unit(unit_options[i])
+		
+		for action in InputMap.action_get_events("destroy_building"):
+			if action is InputEventKey:
+				_hotkey_buttons[_hotkey_buttons.size() - 1].assign_action(
+					action.as_text_physical_keycode(), "Destroy"
+				)
+				break
+	else:
+		var building_types = _get_base().get_building_types()
+		for i in range(building_types.size()):
+			_hotkey_buttons[i].assign_building(building_types[i])
 
 func _generate_label_sprites() -> void:
 	for i in range(axis_label_textures.size()):

@@ -10,7 +10,7 @@ unicode = 103
 
 [resource]
 script = ExtResource("1_l8t0w")
-unit_name = "GunSoldier"
+unit_name = "Gun"
 health = 50
 speed = 100.0
 damage = 20
