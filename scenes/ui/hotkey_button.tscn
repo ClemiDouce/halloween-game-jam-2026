@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://co7f846sc2qot" path="res://scripts/ui/hotkey_button.gd" id="2_bxi46"]
 [ext_resource type="Texture2D" uid="uid://buk3ugop4ljdx" path="res://assets/art/icons/empty_icon.png" id="3_8xxyh"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_8xxyh"]
+outline_size = 8
+outline_color = Color(0.07058824, 0.09019608, 0.23921569, 1)
+
 [node name="HotkeyButton" type="Button" unique_id=1626433124 node_paths=PackedStringArray("hotkey_label")]
 tooltip_text = "Creates a building"
 button_mask = 0
@@ -20,9 +24,11 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
+offset_left = 12.0
 offset_top = -31.0
-offset_right = 48.0
+offset_right = 52.0
 offset_bottom = -8.0
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.75686276, 0.8509804, 0.9490196, 1)
 text = "B"
+label_settings = SubResource("LabelSettings_8xxyh")

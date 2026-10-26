@@ -1,0 +1,591 @@
+{
+  "ai_spend": {
+    "generation_count": 0,
+    "last_updated": "2026-10-26T19:39:46Z",
+    "total_credits": 0.0,
+    "total_usd": 0.0
+  },
+  "app_version": "1.7.1",
+  "autosave_id": "yy9lns27",
+  "canvas": {
+    "pan_x": 60.21234130859375,
+    "pan_y": 137.5341339111328,
+    "ui_scale": 1.0,
+    "zoom": 0.6209211349487305
+  },
+  "color_tag": {
+    "authored_mode": "32bit",
+    "ocio_config_id": "studio-config-v4.0.0_aces-v2.0_ocio-v2.5",
+    "working_space": "linear"
+  },
+  "connections": [
+    {
+      "from_node": 3,
+      "from_pin": 4,
+      "id": 10,
+      "to_node": 5,
+      "to_pin": 6
+    },
+    {
+      "from_node": 1,
+      "from_pin": 2,
+      "id": 26,
+      "to_node": 19,
+      "to_pin": 23
+    },
+    {
+      "from_node": 1,
+      "from_pin": 2,
+      "id": 33,
+      "to_node": 28,
+      "to_pin": 30
+    },
+    {
+      "from_node": 71,
+      "from_pin": 73,
+      "id": 75,
+      "to_node": 19,
+      "to_pin": 20
+    },
+    {
+      "from_node": 5,
+      "from_pin": 8,
+      "id": 86,
+      "to_node": 83,
+      "to_pin": 84
+    },
+    {
+      "from_node": 83,
+      "from_pin": 85,
+      "id": 87,
+      "to_node": 28,
+      "to_pin": 29
+    },
+    {
+      "from_node": 28,
+      "from_pin": 31,
+      "id": 94,
+      "to_node": 71,
+      "to_pin": 72
+    },
+    {
+      "from_node": 19,
+      "from_pin": 21,
+      "id": 97,
+      "to_node": 95,
+      "to_pin": 96
+    }
+  ],
+  "created": "2026-10-26T19:39:46Z",
+  "current_brush": {
+    "color": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "def": {
+      "dynamics": [],
+      "engine": "stamp_v1",
+      "grain": {
+        "blend": "multiply_alpha",
+        "brightness": 0.0,
+        "contrast": 0.0,
+        "invert": false,
+        "mode": "none",
+        "offset_random_per_stroke": false,
+        "offset_x": 0.0,
+        "offset_y": 0.0,
+        "rotation": 0.0,
+        "scale": 1.0,
+        "source_ref": {
+          "channels": 0,
+          "compressed_size_bytes": 0,
+          "content_hash": "",
+          "embed_mode": "embedded",
+          "embedded_png_base64": "",
+          "file_path": "",
+          "height": 0,
+          "watch_file": false,
+          "width": 0
+        },
+        "strength": 1.0
+      },
+      "name": "Quick Brush",
+      "render": {
+        "flow": 1.0,
+        "mode": 0,
+        "opacity": 1.0
+      },
+      "schema_version": 1,
+      "source": "legacy",
+      "stroke_path": {
+        "count": 1,
+        "flow_taper_in": 0.0,
+        "flow_taper_out": 0.0,
+        "jitter": 0.0,
+        "scatter": 0.0,
+        "size_taper_in": 0.0,
+        "size_taper_out": 0.0,
+        "spacing": 0.25,
+        "stabilization": 0.0
+      },
+      "tip": {
+        "angle_deg": 0.0,
+        "base_size_px": 20.0,
+        "filtering": "linear",
+        "flip_scope": "per_stamp",
+        "flip_x_random": false,
+        "flip_y_random": false,
+        "hardness": 1.0,
+        "mode": "procedural",
+        "precision": "standard",
+        "recolor_color_image": false,
+        "rotation_policy": "fixed",
+        "roundness": 1.0,
+        "shape": "round",
+        "softness_curve": "smoothstep",
+        "source_ref": {
+          "channels": 0,
+          "compressed_size_bytes": 0,
+          "content_hash": "",
+          "embed_mode": "embedded",
+          "embedded_png_base64": "",
+          "file_path": "",
+          "height": 0,
+          "watch_file": false,
+          "width": 0
+        }
+      },
+      "uuid": ""
+    }
+  },
+  "document_uuid": "ej7t9858",
+  "format_version": 23,
+  "groups": [],
+  "label_counters": {
+    "Arrange": 2,
+    "Bevel": 2,
+    "Black and White": 2,
+    "Color Remap": 3,
+    "Crop": 2,
+    "Drop Shadow": 2,
+    "Export Batch": 3,
+    "Image Folder": 2,
+    "Image In": 2,
+    "Layer": 2,
+    "Outline": 2,
+    "Pad": 2,
+    "Palette": 2,
+    "Palette From Image": 2,
+    "Palette Remap": 2,
+    "Resize": 2,
+    "Trim": 2
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "input_pins": [],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 2,
+          "name": "image",
+          "required": false,
+          "type": "PIXELS"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 6415881008966841623,
+          "input_fps": {},
+          "output_fp": 6415881008966841623,
+          "params_fp": 11112233266436117808
+        },
+        "custom_size": false,
+        "exif_orientation": true,
+        "exr_alpha": 1,
+        "file_path": "~/Projects/halloween-game-jam-2026/assets/art/icons/empty_icon.png",
+        "filter": 1,
+        "fit_mode": 0,
+        "height": 512,
+        "output_format": 0,
+        "output_grayscale_from": 0,
+        "watch_file": false,
+        "width": 512
+      },
+      "position": {
+        "x": -24.0,
+        "y": -15.0
+      },
+      "suffix_index": 1,
+      "type": "IMAGE_IN",
+      "uuid": "pqeaysv1"
+    },
+    {
+      "id": 3,
+      "input_pins": [],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 4,
+          "name": "batch",
+          "required": false,
+          "type": "BATCH"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 2672800747170796065,
+          "input_fps": {},
+          "output_fp": 15608344204148580049,
+          "params_fp": 9096523757111745182
+        },
+        "exif_orientation": true,
+        "exr_alpha": 1,
+        "filter": "*.png;*.jpg;*.jpeg;*.webp;*.tif;*.tiff;*.bmp;*.tga;*.exr;*.hdr;*.svg;*.psd;*.psb",
+        "folder_path": "~/Projects/halloween-game-jam-2026/assets/art/buildings",
+        "limit": 0,
+        "output_format": 0,
+        "output_grayscale_from": 0,
+        "recursive": false,
+        "reverse_order": false,
+        "sort_mode": 0
+      },
+      "position": {
+        "x": -70.0,
+        "y": 387.0
+      },
+      "suffix_index": 1,
+      "type": "IMAGE_FOLDER",
+      "uuid": "zc8u47mj"
+    },
+    {
+      "id": 5,
+      "input_pins": [
+        {
+          "id": 6,
+          "name": "image",
+          "required": true,
+          "type": "surface"
+        },
+        {
+          "id": 7,
+          "name": "size_ref",
+          "required": false,
+          "type": "SIZE_REF"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 8,
+          "name": "image",
+          "required": false,
+          "type": "surface"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 5923885993060371800,
+          "input_fps": {
+            "input:image": 2672800747170796065
+          },
+          "output_fp": 3117240604207851119,
+          "params_fp": 10682726484534808222
+        },
+        "filter": 0,
+        "fit_mode": 0,
+        "lock_scale": true,
+        "match_axis": 0,
+        "out_h": 1024,
+        "out_w": 1024,
+        "resize_mode": 1,
+        "scale_x": 50.0,
+        "scale_y": 50.0
+      },
+      "position": {
+        "x": 245.0,
+        "y": 333.0
+      },
+      "suffix_index": 1,
+      "type": "RESIZE",
+      "uuid": "sv9q9z8c"
+    },
+    {
+      "id": 19,
+      "input_pins": [
+        {
+          "id": 20,
+          "name": "image_1",
+          "required": false,
+          "type": "IMAGE"
+        },
+        {
+          "id": 23,
+          "name": "image_2",
+          "required": false,
+          "type": "IMAGE"
+        },
+        {
+          "id": 25,
+          "name": "image_3",
+          "required": false,
+          "type": "IMAGE"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 21,
+          "name": "image",
+          "required": false,
+          "type": "IMAGE"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 9101854850601012949,
+          "input_fps": {
+            "array:image/1": 17689354726476530540,
+            "array:image/2": 6415881008966841623
+          },
+          "output_fp": 15827201442040298397,
+          "params_fp": 1145826604701944425
+        },
+        "layers": [
+          {
+            "blend": 0,
+            "opacity": 1.0,
+            "visible": true
+          },
+          {
+            "blend": 0,
+            "opacity": 1.0,
+            "visible": true
+          }
+        ],
+        "output_anchor": 1,
+        "output_size": 0
+      },
+      "position": {
+        "x": 649.8316650390625,
+        "y": 60.000091552734375
+      },
+      "suffix_index": 1,
+      "type": "LAYER",
+      "uuid": "i2bkiinh"
+    },
+    {
+      "id": 28,
+      "input_pins": [
+        {
+          "id": 29,
+          "name": "image",
+          "required": true,
+          "type": "surface"
+        },
+        {
+          "id": 30,
+          "name": "size_ref",
+          "required": false,
+          "type": "SIZE_REF"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 31,
+          "name": "image",
+          "required": false,
+          "type": "surface"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 2862159468554018051,
+          "input_fps": {
+            "input:image": 17862509282210827294,
+            "input:size_ref": 6415881008966841623
+          },
+          "output_fp": 15678609332659182305,
+          "params_fp": 16075434531687552448
+        },
+        "anchor": 4,
+        "fill_a": 0,
+        "fill_b": 0,
+        "fill_g": 0,
+        "fill_r": 0,
+        "mask_fill": 0,
+        "mode": 0,
+        "out_h": 512,
+        "out_w": 512,
+        "pad_bot": 0,
+        "pad_left": 0,
+        "pad_right": 0,
+        "pad_top": 0,
+        "uniform": true
+      },
+      "position": {
+        "x": 501.4731140136719,
+        "y": 656.74462890625
+      },
+      "suffix_index": 1,
+      "type": "PAD",
+      "uuid": "51uuo8eb"
+    },
+    {
+      "id": 71,
+      "input_pins": [
+        {
+          "id": 72,
+          "name": "image",
+          "required": true,
+          "type": "IMAGE"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 73,
+          "name": "image",
+          "required": false,
+          "type": "IMAGE"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 17689354726476530540,
+          "input_fps": {
+            "input:image": 2862159468554018051
+          },
+          "output_fp": 16926527875298986456,
+          "params_fp": 18036102500887151989
+        },
+        "color_a": 1.0,
+        "color_b": 0.44520124793052673,
+        "color_g": 0.17464739084243774,
+        "color_r": 0.14702728390693665,
+        "only_outline": false,
+        "position": 0,
+        "smoothing": 1,
+        "thickness": 1,
+        "threshold": 128
+      },
+      "position": {
+        "x": 649.8316650390625,
+        "y": 358.0000915527344
+      },
+      "suffix_index": 1,
+      "type": "OUTLINE",
+      "uuid": "e4pfj7hy"
+    },
+    {
+      "id": 83,
+      "input_pins": [
+        {
+          "id": 84,
+          "name": "image",
+          "required": true,
+          "type": "surface"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 85,
+          "name": "image",
+          "required": false,
+          "type": "surface"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 17862509282210827294,
+          "input_fps": {
+            "input:image": 5923885993060371800
+          },
+          "output_fp": 4927742003775417413,
+          "params_fp": 7769655208606650023
+        },
+        "mode": 0,
+        "padding": 0,
+        "threshold": 30
+      },
+      "position": {
+        "x": 217.43687438964844,
+        "y": 721.9859619140625
+      },
+      "suffix_index": 1,
+      "type": "TRIM",
+      "uuid": "00kp6dsd"
+    },
+    {
+      "id": 95,
+      "input_pins": [
+        {
+          "id": 96,
+          "name": "batch",
+          "required": true,
+          "type": "BATCH"
+        }
+      ],
+      "label": "",
+      "output_pins": [],
+      "params": {
+        "_export_ok_msg": "2 frames exported to icons (38 ms)",
+        "_export_output_fp": 14427036340185415770,
+        "_export_paths_fp": 4556262389734916641,
+        "_fp_state": {
+          "content_fp": 9101854850601012949,
+          "input_fps": {
+            "input:batch": 9101854850601012949
+          },
+          "output_fp": 15827201442040298397,
+          "params_fp": 15411675293994170397
+        },
+        "embed_recipe": false,
+        "export_color_intent": -1,
+        "export_depth_mode": 0,
+        "filename_template": "{name}_icon",
+        "format": 0,
+        "hd_output_cs": "",
+        "matte_b": 255,
+        "matte_g": 255,
+        "matte_r": 255,
+        "output_channels": 0,
+        "output_dir": "~/Projects/halloween-game-jam-2026/assets/art/icons",
+        "output_grayscale_from": 0,
+        "png_compress": 6,
+        "private_paths": true,
+        "quality": 90,
+        "sheet_bg_a": 0,
+        "sheet_bg_b": 0,
+        "sheet_bg_g": 0,
+        "sheet_bg_r": 0,
+        "sheet_border_padding": 0,
+        "sheet_columns": 4,
+        "sheet_extrude": 1,
+        "sheet_filename_template": "{this.label|or:this.id}_sheet",
+        "sheet_max_height": 4096,
+        "sheet_max_width": 4096,
+        "sheet_pack_mode": 1,
+        "sheet_padding": 0,
+        "sheet_show_outlines": false,
+        "sheet_size_mode": 0,
+        "sheet_trim": true,
+        "sheet_trim_threshold": 1,
+        "sprite_sheet": false,
+        "tga_rle": true,
+        "tiff_compress": 0,
+        "webp_lossless": false
+      },
+      "position": {
+        "x": 975.6273803710938,
+        "y": 60.000091552734375
+      },
+      "suffix_index": 2,
+      "type": "EXPORT_BATCH",
+      "uuid": "9tk46h6e"
+    }
+  ]
+}

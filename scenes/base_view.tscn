@@ -61,7 +61,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, -32)
+offset_transform_position = Vector2(0, -80)
 columns = 3
 
 [node name="Line2D" type="Line2D" parent="." unique_id=505038245]

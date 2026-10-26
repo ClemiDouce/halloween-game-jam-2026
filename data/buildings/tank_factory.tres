@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://byl1qp26ywmec" path="res://scripts/data/building.gd" id="1_2f3vs"]
 [ext_resource type="Texture2D" uid="uid://cxfa2cw3p1aj" path="res://assets/art/buildings/tank_factory.png" id="1_ti5y2"]
-[ext_resource type="Texture2D" uid="uid://cwhxv0s7getl4" path="res://assets/art/icons/building_icon.png" id="2_ti5y2"]
+[ext_resource type="Texture2D" uid="uid://bwugaikus7mhn" path="res://assets/art/icons/tank_factory_icon.png" id="2_ti5y2"]
 [ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="3_xi2ec"]
 [ext_resource type="Resource" uid="uid://l0m3pssrbkug" path="res://data/units/gun_soldier.tres" id="4_ti5y2"]
 

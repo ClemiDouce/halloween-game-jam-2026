@@ -135,7 +135,8 @@ func _update_hotkey_buttons(slot: BuildingSlot) -> void:
 		for action in InputMap.action_get_events("destroy_building"):
 			if action is InputEventKey:
 				_hotkey_buttons[_hotkey_buttons.size() - 1].assign_action(
-					action.as_text_physical_keycode(), "Destroy"
+					action.as_text_physical_keycode(), "Destroy",
+					preload("res://assets/art/icons/destroy_icon.png")
 				)
 				break
 	else:
