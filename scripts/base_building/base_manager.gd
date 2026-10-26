@@ -41,6 +41,9 @@ func _ready() -> void:
 	
 	_generate_building_slots()
 
+func _process(delta: float) -> void:
+	unit_queue._process(delta)
+
 func next_path() -> void:
 	var index = paths.find(_selected_path)
 	if index + 1 >= paths.size():
