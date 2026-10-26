@@ -11,7 +11,7 @@ const PLAYER_COLLISION_LAYER = 16
 const HOSTILE_COLLISION_LAYER = 32
 
 
-var is_player: bool
+var team : CombatData.Team
 # Unit Stats
 var health : int
 
@@ -28,23 +28,23 @@ var attack_timer : float = 0.
 enum UnitState {IDLE, MOVING, ATTACKING}
 var state : UnitState = UnitState.MOVING
 
-func set_unit(unit: UnitResource, _path: UnitPath, _player_team: bool):
+func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 	unit_data = unit
 	health = unit.health
-	#shape.radius = unit.attack_range
-	is_player = _player_team
+	shape.radius = unit.attack_range
+	team = _team
 	sprite.texture = unit.texture
 	path = _path
-	if is_player:
+	if team == CombatData.Team.PLAYER:
 		global_position = path.get_start_position()
 		target_position = path.get_next_point(path_index)
-	else:
+	elif team == CombatData.Team.HOSTILE:
 		path_index = path.end_index
 		global_position = path.get_end_position()
 		target_position = path.get_previous_point(path_index)
 	
-	hitbox.collision_layer = PLAYER_COLLISION_LAYER if _player_team else HOSTILE_COLLISION_LAYER
-	attack_area.collision_mask = HOSTILE_COLLISION_LAYER if _player_team else PLAYER_COLLISION_LAYER
+	hitbox.collision_layer = PLAYER_COLLISION_LAYER if team == CombatData.Team.PLAYER else HOSTILE_COLLISION_LAYER
+	attack_area.collision_mask = HOSTILE_COLLISION_LAYER if team == CombatData.Team.PLAYER else PLAYER_COLLISION_LAYER
 	
 func _physics_process(delta: float) -> void:
 	match(state):
@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 			pass
 		UnitState.MOVING:
 			if self.global_position.is_equal_approx(target_position):
-				if is_player:
+				if team == CombatData.Team.PLAYER:
 					path_index += 1
 					target_position = path.get_next_point(path_index)
 				else:
