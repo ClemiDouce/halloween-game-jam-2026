@@ -13,11 +13,11 @@ const SMALL_TANK = preload("uid://dm0mjpsku7osy")
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_down"):
-		_spawn_unit(true, SMALL_TANK, CombatData.Team.PLAYER)
+		_spawn_unit(SMALL_TANK, CombatData.Team.PLAYER)
 	elif Input.is_action_just_pressed("ui_up"):
-		_spawn_unit(false, GUN_SOLDIER, CombatData.Team.HOSTILE)
+		_spawn_unit(GUN_SOLDIER, CombatData.Team.HOSTILE)
 		
-func _spawn_unit(player: bool, unit_type: UnitResource, team: CombatData.Team):
+func _spawn_unit(unit_type: UnitResource, team: CombatData.Team):
 	var unit = UNIT_ENTITY.instantiate() as UnitEntity
 	entities.add_child.call_deferred(unit)
 	await unit.ready
