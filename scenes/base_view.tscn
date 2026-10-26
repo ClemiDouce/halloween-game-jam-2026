@@ -3,8 +3,14 @@
 [ext_resource type="Script" uid="uid://clj2qdxe3u2pk" path="res://scripts/base_building/base_visualizer.gd" id="1_x54rt"]
 [ext_resource type="Texture2D" uid="uid://duwdpq6jhvhra" path="res://assets/art/placeholder/building_placeholder_blueprint.png" id="2_kjc6i"]
 [ext_resource type="Texture2D" uid="uid://cymqvgc48ra4m" path="res://assets/art/placeholder/select_arrow.png" id="3_aylgq"]
+[ext_resource type="Texture2D" uid="uid://d0t3rsok3gmum" path="res://assets/art/placeholder/1_icon_0002.png" id="4_t1api"]
+[ext_resource type="Texture2D" uid="uid://c8p4rvl16j6qg" path="res://assets/art/placeholder/2_icon_0002.png" id="5_c0dj4"]
+[ext_resource type="Texture2D" uid="uid://ddi8gr6ybod7a" path="res://assets/art/placeholder/3_icon_0002.png" id="6_l8ppo"]
+[ext_resource type="Texture2D" uid="uid://cxa3eu2633xsj" path="res://assets/art/placeholder/1_icon_0001.png" id="7_6bjk0"]
+[ext_resource type="Texture2D" uid="uid://xoucdo8pr1b3" path="res://assets/art/placeholder/2_icon_0001.png" id="8_grwde"]
+[ext_resource type="Texture2D" uid="uid://drf5cfa2h6jd0" path="res://assets/art/placeholder/3_icon_0001.png" id="9_5836b"]
 
-[node name="BaseView" type="Control" unique_id=526506978 node_paths=PackedStringArray("slot_holder")]
+[node name="BaseView" type="Control" unique_id=526506978 node_paths=PackedStringArray("slot_holder", "selection_line")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +21,9 @@ script = ExtResource("1_x54rt")
 empty_building_slot_texture = ExtResource("2_kjc6i")
 selection_cursor_texture = ExtResource("3_aylgq")
 slot_holder = NodePath("Control")
+selection_line = NodePath("Line2D")
+axis_label_textures = Array[Texture2D]([ExtResource("4_t1api"), ExtResource("5_c0dj4"), ExtResource("6_l8ppo")])
+axis_label_active_textures = Array[Texture2D]([ExtResource("7_6bjk0"), ExtResource("8_grwde"), ExtResource("9_5836b")])
 
 [node name="Control" type="PanelContainer" parent="." unique_id=2087092193]
 z_index = -2
@@ -23,3 +32,9 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 640.0
 grow_vertical = 2
+
+[node name="Line2D" type="Line2D" parent="." unique_id=505038245]
+width = 16.0
+default_color = Color(0.54901963, 0.85490197, 1, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
