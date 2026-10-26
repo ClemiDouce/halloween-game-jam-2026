@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_gcnxr"]
 radius = 25.0
 
-[node name="BasePlaceholder" type="Node2D" unique_id=72275687]
+[node name="BaseEntity" type="Node2D" unique_id=72275687 groups=["base"]]
 script = ExtResource("1_gcnxr")
 base_data = ExtResource("2_qtj7x")
 metadata/_edit_group_ = true

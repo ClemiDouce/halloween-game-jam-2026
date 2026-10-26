@@ -8,6 +8,7 @@ extends Node2D
 
 @export var base_data : BaseData
 
+signal destroyed(data: BaseData)
 
 var health : int
 var attack_target: Hitbox
@@ -28,6 +29,7 @@ func _on_entity_hitbox_hurt(attacker: EntityData) -> void:
 	print("%s received %s damage from %s. Current health : %s" % [base_data.unit_name, damage, attacker.unit_name, health])
 	if health <= 0:
 		#TODO Death Animation
+		destroyed.emit(base_data)
 		queue_free()
 	else:
 		#TODO Hurt Animation
