@@ -146,10 +146,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="BaseManager" type="Node" parent="." unique_id=441521287 node_paths=PackedStringArray("paths", "overworld")]
+[node name="BaseManager" type="Node" parent="." unique_id=441521287 node_paths=PackedStringArray("paths", "overworld", "entity_parent")]
 script = ExtResource("9_7r4gi")
 paths = [NodePath("../Overworld/Paths/UnitPath"), NodePath("../Overworld/Paths/UnitPath2"), NodePath("../Overworld/Paths/UnitPath3")]
 overworld = NodePath("../Overworld")
+entity_parent = NodePath("../Overworld/Entities")
 
 [node name="PlayerController" type="Node" parent="." unique_id=1060732579 node_paths=PackedStringArray("controlling_base")]
 script = ExtResource("10_w7kh3")

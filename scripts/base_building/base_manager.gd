@@ -4,13 +4,20 @@ extends Node
 signal slot_updated(slot: BuildingSlot)
 signal path_selected(path: UnitPath)
 
+# Unit Spawn
+const GUN_SOLDIER = preload("uid://l0m3pssrbkug")
+const UNIT_ENTITY = preload("uid://bybp5w4ae511b")
+
+# Building
 const BUILDING_GRID_X: int = 3
 const BUILDING_GRID_Y: int = 3
+
 
 static var _buildings: Array[Building] = [preload("res://data/buildings/tank_factory.tres")]
 
 @export var paths: Array[UnitPath]
 @export var overworld: Node2D
+@export var entity_parent: Node2D
 
 var building_slots: Array[BuildingSlot] = []
 var unit_queue: UnitQueue = UnitQueue.new()
@@ -26,7 +33,10 @@ var _selected_path: UnitPath:
 func _ready() -> void:
 	_selected_path = paths[0]
 	self.unit_queue.unit_ready.connect(func(unit_type, path):
-		print("spawning unit")
+		var unit = UNIT_ENTITY.instantiate() as UnitEntity
+		entity_parent.add_child.call_deferred(unit)
+		await unit.ready
+		unit.set_unit(unit_type, path, true)
 	)
 	
 	_generate_building_slots()
