@@ -4,7 +4,7 @@ class_name AIController extends Node
 @export var wave: Wave
 @export var base_entity: BaseEntity
 
-var decision_delay : float = 1.2
+var decision_delay : float = 2.5
 var decision_timer := 0.
 
 var started := false
