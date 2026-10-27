@@ -12,6 +12,7 @@ const UNIT_ENTITY = preload("uid://bybp5w4ae511b")
 const BUILDING_GRID_X: int = 3
 const BUILDING_GRID_Y: int = 3
 
+var team : CombatData.Team
 
 static var _buildings: Array[Building] = [
 	preload("res://data/buildings/tank_factory.tres"),
@@ -37,7 +38,7 @@ func _ready() -> void:
 		var unit = UNIT_ENTITY.instantiate() as UnitEntity
 		entity_parent.add_child.call_deferred(unit)
 		await unit.ready
-		unit.set_unit(unit_type, path, CombatData.Team.PLAYER)
+		unit.set_unit(unit_type, path, team)
 	)
 	
 	_generate_building_slots()
@@ -58,6 +59,10 @@ func next_path() -> void:
 		index += 1
 	_selected_path = paths[index]
 
+func select_path_by_index(path_index: int) -> void:
+	if path_index < 0 or path_index >= paths.size():
+		return
+	_selected_path = paths[path_index]
 
 func get_building_types() -> Array[Building]:
 	return _buildings
