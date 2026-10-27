@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d27p1ao2a5woy"
-path="res://.godot/imported/bullets_0001.png-4d95c02f005d1fb558de02a910e60c96.ctex"
+uid="uid://bpqwjwsc666xu"
+path="res://.godot/imported/missile_truck_red.png-cfbbac97af69907e4f9a96067d7fa313.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/units/bullets_0001.png"
-dest_files=["res://.godot/imported/bullets_0001.png-4d95c02f005d1fb558de02a910e60c96.ctex"]
+source_file="res://assets/art/processed_units/missile_truck_red.png"
+dest_files=["res://.godot/imported/missile_truck_red.png-cfbbac97af69907e4f9a96067d7fa313.ctex"]
 
 [params]
 

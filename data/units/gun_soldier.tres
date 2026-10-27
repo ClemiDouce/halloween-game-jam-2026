@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="UnitResource" format=3 uid="uid://l0m3pssrbkug"]
 
+[ext_resource type="Texture2D" uid="uid://cad8g3xo7ffw7" path="res://assets/art/icons/mech_icon.png" id="1_7vips"]
 [ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="1_l8t0w"]
 [ext_resource type="Texture2D" uid="uid://lhh4j5y73nxr" path="res://assets/art/processed_units/mech_blue.png" id="2_x1ny7"]
 [ext_resource type="Texture2D" uid="uid://duf7vy5tiapfb" path="res://assets/art/processed_units/mech_red.png" id="3_7vips"]
@@ -27,6 +28,7 @@ texture = Dictionary[int, Texture]({
 1: SubResource("AtlasTexture_tmmt3")
 })
 input_keyboard = SubResource("InputEventKey_1g1w0")
+button_icon = ExtResource("1_7vips")
 unit_name = "Gun"
 health = 50
 damage = 20

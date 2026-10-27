@@ -10,12 +10,20 @@ device = -1
 keycode = 84
 unicode = 116
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gab0"]
+atlas = ExtResource("3_nw6ky")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2mna"]
+atlas = ExtResource("4_dvkc8")
+region = Rect2(0, 0, 16, 16)
+
 [resource]
 script = ExtResource("1_qqo2i")
 speed = 50.0
 texture = Dictionary[int, Texture]({
-0: ExtResource("3_nw6ky"),
-1: ExtResource("4_dvkc8")
+0: SubResource("AtlasTexture_6gab0"),
+1: SubResource("AtlasTexture_e2mna")
 })
 input_keyboard = SubResource("InputEventKey_6kr5u")
 button_icon = ExtResource("1_nw6ky")

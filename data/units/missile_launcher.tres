@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="UnitResource" format=3 uid="uid://jxlk5ecgk1cq"]
+
+[ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="1_3e65l"]
+[ext_resource type="Texture2D" uid="uid://8h3qbmq6rhc" path="res://assets/art/icons/missile_truck_icon.png" id="1_36fec"]
+[ext_resource type="Texture2D" uid="uid://cwiewhf2ek82m" path="res://assets/art/processed_units/missile_truck_blue.png" id="3_niakb"]
+[ext_resource type="Texture2D" uid="uid://bpqwjwsc666xu" path="res://assets/art/processed_units/missile_truck_red.png" id="4_gwmud"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_xeb85"]
+device = -1
+keycode = 77
+unicode = 109
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvkc8"]
+atlas = ExtResource("3_niakb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flxeg"]
+atlas = ExtResource("4_gwmud")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_3e65l")
+speed = 25.0
+cost = 100
+texture = Dictionary[int, Texture]({
+0: SubResource("AtlasTexture_dvkc8"),
+1: SubResource("AtlasTexture_flxeg")
+})
+input_keyboard = SubResource("InputEventKey_xeb85")
+button_icon = ExtResource("1_36fec")
+unit_name = "Missile Launcher"
+health = 10
+damage = 20
+attack_range = 150.0
+rate_of_fire = 2.0
+body_type = 1
+damage_type = 1
+metadata/_custom_type_script = "uid://ctxaornc1ibjt"
