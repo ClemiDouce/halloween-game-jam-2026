@@ -11,9 +11,11 @@ const MISSING_TEXTURE = preload("res://assets/art/placeholder/unit_placeholder.p
 @onready var move_trail: Trail2D = $MoveTrail
 @onready var flash_component: FlashComponent = %FlashComponent
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var bullet_sprite: BulletAnimation = %BulletSprite
 
 
 var team : CombatData.Team
+var dead := false
 # Unit Stats
 var health : int
 
@@ -38,6 +40,7 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 	health = unit.health
 	shape.radius = unit.attack_range
 	team = _team
+	bullet_sprite.texture = unit.bullet_texture
 
 	if _team in unit.texture:
 		if unit.texture[_team] is AtlasTexture:
@@ -61,8 +64,8 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 	attack_area.collision_mask = CombatData.HOSTILE_COLLISION_LAYER if team == CombatData.Team.PLAYER else CombatData.PLAYER_COLLISION_LAYER
 	# Offset
 	root.position = Vector2(
-		randi_range(-5, 5),
-		randi_range(-5, 5)
+		randi_range(-10, 10),
+		randi_range(-10, 10)
 	)
 	var pop_tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	pop_tween.tween_property(root, "scale", Vector2(1.3,1.3), 0.2).from(Vector2(0.6, 0.4))
@@ -111,6 +114,7 @@ func _physics_process(delta: float) -> void:
 				attack_timer += delta
 				if attack_timer >= unit_data.rate_of_fire:
 					attack_timer -= unit_data.rate_of_fire
+					bullet_sprite.shoot(attack_target.sprite.global_position)
 					attack_target.get_damage(self.unit_data)
 					animation_player.play("squish")
 				
@@ -144,15 +148,20 @@ func _on_hitbox_hurt(attacker: EntityData) -> void:
 	health = max(0, health - damage)
 	print("%s received %s damage from %s. Current health : %s" % [unit_data.unit_name, damage, attacker.unit_name, health])
 	if health <= 0:
-		#TODO Death Animation
-		queue_free()
+		if dead:
+			return
+		dead = true
+		hitbox.monitorable = false
+		hitbox.monitoring = false
+		death_animation()
 	else:
 		flash_component.flash()
 
-#func _draw() -> void:
-	#if target_position != Vector2.INF:
-		#draw_circle(target_position, 10, Color.RED, true)
-		
-		
-		
-		
+func death_animation():
+	animation_player.stop()
+	var death_tween = create_tween()
+	death_tween.tween_property(root, "scale", Vector2(1.3,1.3), 0.2)
+	death_tween.tween_property(root, "rotation_degrees", 360, 0.5).as_relative().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	death_tween.parallel().tween_property(root, "scale", Vector2(0.1, 0.1), 0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	await death_tween.finished
+	queue_free()

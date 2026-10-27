@@ -1,13 +1,20 @@
 [gd_scene format=3 uid="uid://bybp5w4ae511b"]
 
 [ext_resource type="Script" uid="uid://dnq0x8ta4eayy" path="res://scripts/units/unit_entity.gd" id="1_oir76"]
+[ext_resource type="Texture2D" uid="uid://d12qvn8l0n47v" path="res://assets/art/processed_units/hover_tank_red.png" id="2_gnti6"]
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="3_0uryg"]
 [ext_resource type="Script" uid="uid://th76u6xf6i43" path="res://scripts/component/trail2d.gd" id="3_m0sb2"]
-[ext_resource type="Texture2D" uid="uid://ceyc2ap5qhyvp" path="res://assets/art/units/hover_tank.png" id="3_mcm0o"]
 [ext_resource type="Script" uid="uid://crsfuur24ulp1" path="res://scripts/component/squish_component.gd" id="6_5q6hg"]
 [ext_resource type="Script" uid="uid://dj2pkpuo0ajdu" path="res://scripts/component/flash_component.gd" id="6_mcm0o"]
+[ext_resource type="Script" uid="uid://dlo6w10dedy5" path="res://scripts/bullet_animation.gd" id="7_5q6hg"]
+[ext_resource type="Texture2D" uid="uid://b8dgiga47nslb" path="res://assets/art/bullets/bullet_0003.png" id="7_gnti6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsky2"]
+atlas = ExtResource("2_gnti6")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n45qs"]
+resource_local_to_scene = true
 radius = 25.0
 
 [sub_resource type="Curve" id="Curve_m0sb2"]
@@ -41,6 +48,9 @@ tracks/1/keys = {
 "values": [1.0]
 }
 
+[sub_resource type="Animation" id="Animation_cbjl1"]
+resource_name = "death"
+
 [sub_resource type="Animation" id="Animation_7opfq"]
 resource_name = "squish"
 length = 0.2
@@ -72,6 +82,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cbjl1"]
 _data = {
 &"RESET": SubResource("Animation_gnti6"),
+&"death": SubResource("Animation_cbjl1"),
 &"squish": SubResource("Animation_7opfq")
 }
 
@@ -83,11 +94,12 @@ unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Root" unique_id=1701573652]
 unique_name_in_owner = true
-texture = ExtResource("3_mcm0o")
+texture = SubResource("AtlasTexture_lsky2")
 
-[node name="Hitbox" parent="." unique_id=957708440 instance=ExtResource("3_0uryg")]
+[node name="Hitbox" parent="." unique_id=957708440 node_paths=PackedStringArray("sprite") instance=ExtResource("3_0uryg")]
 unique_name_in_owner = true
 monitoring = false
+sprite = NodePath("../Root/Sprite2D")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=999397715]
 unique_name_in_owner = true
@@ -124,6 +136,12 @@ metadata/_custom_type_script = "uid://crsfuur24ulp1"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1007054200]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_cbjl1")
+
+[node name="BulletSprite" type="Sprite2D" parent="." unique_id=99488253]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("7_gnti6")
+script = ExtResource("7_5q6hg")
 
 [connection signal="hurt" from="Hitbox" to="." method="_on_hitbox_hurt"]
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]

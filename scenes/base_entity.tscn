@@ -21,9 +21,10 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1063533838]
 texture = ExtResource("3_qga7x")
 
-[node name="Hitbox" parent="." unique_id=957708440 instance=ExtResource("3_qtj7x")]
+[node name="Hitbox" parent="." unique_id=957708440 node_paths=PackedStringArray("sprite") instance=ExtResource("3_qtj7x")]
 unique_name_in_owner = true
 collision_layer = 16
+sprite = NodePath("../Sprite2D")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1735343630]
 unique_name_in_owner = true

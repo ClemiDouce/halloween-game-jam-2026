@@ -15,10 +15,10 @@
 [sub_resource type="Resource" id="Resource_x7n8s"]
 script = ExtResource("6_fuc0k")
 team = 1
-health = 200
+health = 1000
 damage = 30
 attack_range = 50.0
-rate_of_fire = 3.0
+rate_of_fire = 2.0
 body_type = 2
 metadata/_custom_type_script = "uid://dlpfa2ms4acpk"
 
