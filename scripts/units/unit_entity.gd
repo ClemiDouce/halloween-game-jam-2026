@@ -1,5 +1,7 @@
 class_name UnitEntity extends Node2D
 
+const MISSING_TEXTURE = preload("res://assets/art/placeholder/unit_placeholder.png")
+
 @onready var attack_area: Area2D = %AttackArea
 @onready var attack_shape : CollisionShape2D = %AttackShape
 @onready var shape : CircleShape2D = attack_shape.shape
@@ -31,7 +33,7 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 	health = unit.health
 	shape.radius = unit.attack_range
 	team = _team
-	sprite.texture = unit.texture
+	sprite.texture = unit.texture[_team] if _team in unit.texture else MISSING_TEXTURE
 	path = _path
 	if team == CombatData.Team.PLAYER:
 		global_position = path.get_start_position()
