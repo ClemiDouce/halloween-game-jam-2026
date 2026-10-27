@@ -7,6 +7,7 @@ extends Node2D
 @onready var hitbox: Hitbox = %Hitbox
 
 @export var base_data : BaseData
+@export var texture: Dictionary[CombatData.Team, Texture]
 
 signal destroyed(data: BaseData)
 
@@ -22,6 +23,8 @@ func set_data() -> void:
 	shape.radius = base_data.attack_range
 	hitbox.collision_layer = CombatData.PLAYER_COLLISION_LAYER if base_data.team == CombatData.Team.PLAYER else CombatData.HOSTILE_COLLISION_LAYER
 	attack_area.collision_mask = CombatData.HOSTILE_COLLISION_LAYER if base_data.team == CombatData.Team.PLAYER else CombatData.PLAYER_COLLISION_LAYER
+	if base_data.team in texture:
+		$Sprite2D.texture = texture[base_data.team]
 
 func _on_entity_hitbox_hurt(attacker: EntityData) -> void:
 	var damage = AttackCalculator.get_attack_damage(attacker, base_data)

@@ -1,17 +1,17 @@
 {
   "ai_spend": {
     "generation_count": 0,
-    "last_updated": "2026-10-26T19:39:46Z",
+    "last_updated": "2026-10-27T13:59:36Z",
     "total_credits": 0.0,
     "total_usd": 0.0
   },
   "app_version": "1.7.1",
   "autosave_id": "yy9lns27",
   "canvas": {
-    "pan_x": 60.21234130859375,
-    "pan_y": 137.5341339111328,
+    "pan_x": 172.04132080078125,
+    "pan_y": 576.3804931640625,
     "ui_scale": 1.0,
-    "zoom": 0.6209211349487305
+    "zoom": 0.2896641790866852
   },
   "color_tag": {
     "authored_mode": "32bit",
@@ -62,21 +62,175 @@
       "to_pin": 29
     },
     {
-      "from_node": 28,
-      "from_pin": 31,
-      "id": 94,
-      "to_node": 71,
-      "to_pin": 72
-    },
-    {
       "from_node": 19,
       "from_pin": 21,
       "id": 97,
       "to_node": 95,
       "to_pin": 96
+    },
+    {
+      "from_node": 1,
+      "from_pin": 2,
+      "id": 109,
+      "to_node": 104,
+      "to_pin": 106
+    },
+    {
+      "from_node": 104,
+      "from_pin": 107,
+      "id": 123,
+      "to_node": 120,
+      "to_pin": 121
+    },
+    {
+      "from_node": 28,
+      "from_pin": 31,
+      "id": 125,
+      "to_node": 120,
+      "to_pin": 124
+    },
+    {
+      "from_node": 120,
+      "from_pin": 122,
+      "id": 127,
+      "to_node": 71,
+      "to_pin": 72
+    },
+    {
+      "from_node": 98,
+      "from_pin": 99,
+      "id": 132,
+      "to_node": 128,
+      "to_pin": 129
+    },
+    {
+      "from_node": 128,
+      "from_pin": 131,
+      "id": 133,
+      "to_node": 104,
+      "to_pin": 105
+    },
+    {
+      "from_node": 199,
+      "from_pin": 200,
+      "id": 201,
+      "to_node": 191,
+      "to_pin": 193
+    },
+    {
+      "from_node": 191,
+      "from_pin": 195,
+      "id": 212,
+      "to_node": 204,
+      "to_pin": 205
+    },
+    {
+      "from_node": 202,
+      "from_pin": 203,
+      "id": 213,
+      "to_node": 204,
+      "to_pin": 206
+    },
+    {
+      "from_node": 204,
+      "from_pin": 208,
+      "id": 223,
+      "to_node": 216,
+      "to_pin": 217
+    },
+    {
+      "from_node": 214,
+      "from_pin": 215,
+      "id": 224,
+      "to_node": 216,
+      "to_pin": 218
+    },
+    {
+      "from_node": 214,
+      "from_pin": 215,
+      "id": 235,
+      "to_node": 229,
+      "to_pin": 231
+    },
+    {
+      "from_node": 216,
+      "from_pin": 220,
+      "id": 236,
+      "to_node": 229,
+      "to_pin": 230
+    },
+    {
+      "from_node": 227,
+      "from_pin": 228,
+      "id": 244,
+      "to_node": 237,
+      "to_pin": 239
+    },
+    {
+      "from_node": 229,
+      "from_pin": 233,
+      "id": 245,
+      "to_node": 237,
+      "to_pin": 238
+    },
+    {
+      "from_node": 246,
+      "from_pin": 248,
+      "id": 291,
+      "to_node": 289,
+      "to_pin": 290
+    },
+    {
+      "from_node": 279,
+      "from_pin": 281,
+      "id": 288,
+      "to_node": 246,
+      "to_pin": 247
+    },
+    {
+      "from_node": 299,
+      "from_pin": 301,
+      "id": 305,
+      "to_node": 279,
+      "to_pin": 280
+    },
+    {
+      "from_node": 98,
+      "from_pin": 99,
+      "id": 309,
+      "to_node": 306,
+      "to_pin": 307
+    },
+    {
+      "from_node": 306,
+      "from_pin": 308,
+      "id": 310,
+      "to_node": 191,
+      "to_pin": 192
+    },
+    {
+      "from_node": 306,
+      "from_pin": 308,
+      "id": 311,
+      "to_node": 299,
+      "to_pin": 300
+    },
+    {
+      "from_node": 312,
+      "from_pin": 314,
+      "id": 317,
+      "to_node": 279,
+      "to_pin": 283
+    },
+    {
+      "from_node": 237,
+      "from_pin": 241,
+      "id": 318,
+      "to_node": 312,
+      "to_pin": 313
     }
   ],
-  "created": "2026-10-26T19:39:46Z",
+  "created": "2026-10-27T13:59:36Z",
   "current_brush": {
     "color": [
       0.0,
@@ -166,20 +320,33 @@
     "Arrange": 2,
     "Bevel": 2,
     "Black and White": 2,
+    "Chroma Key": 2,
+    "Collect": 3,
     "Color Remap": 3,
     "Crop": 2,
+    "Despill": 2,
+    "Dither": 2,
     "Drop Shadow": 2,
-    "Export Batch": 3,
-    "Image Folder": 2,
-    "Image In": 2,
+    "Edge Detect": 2,
+    "Export Batch": 4,
+    "Export Data": 2,
+    "High Pass": 2,
+    "Image Folder": 4,
+    "Image In": 3,
     "Layer": 2,
-    "Outline": 2,
-    "Pad": 2,
-    "Palette": 2,
-    "Palette From Image": 2,
-    "Palette Remap": 2,
-    "Resize": 2,
-    "Trim": 2
+    "Luma Key": 2,
+    "Merge": 3,
+    "Outline": 4,
+    "Pad": 3,
+    "Palette": 7,
+    "Palette From Image": 4,
+    "Palette Remap": 10,
+    "Quantize": 2,
+    "Resize": 3,
+    "Tag": 5,
+    "Trim": 2,
+    "Trim Sheet": 2,
+    "Upscale": 2
   },
   "nodes": [
     {
@@ -286,12 +453,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 5923885993060371800,
+          "content_fp": 7274409296637882255,
           "input_fps": {
             "input:image": 2672800747170796065
           },
-          "output_fp": 3117240604207851119,
-          "params_fp": 10682726484534808222
+          "output_fp": 1417995678723593807,
+          "params_fp": 6567872608784797874
         },
         "filter": 0,
         "fit_mode": 0,
@@ -300,8 +467,8 @@
         "out_h": 1024,
         "out_w": 1024,
         "resize_mode": 1,
-        "scale_x": 50.0,
-        "scale_y": 50.0
+        "scale_x": 75.0,
+        "scale_y": 75.0
       },
       "position": {
         "x": 245.0,
@@ -344,12 +511,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 9101854850601012949,
+          "content_fp": 6653939124752109726,
           "input_fps": {
-            "array:image/1": 17689354726476530540,
+            "array:image/1": 10861141802101840494,
             "array:image/2": 6415881008966841623
           },
-          "output_fp": 15827201442040298397,
+          "output_fp": 1377182887780496976,
           "params_fp": 1145826604701944425
         },
         "layers": [
@@ -368,8 +535,8 @@
         "output_size": 0
       },
       "position": {
-        "x": 649.8316650390625,
-        "y": 60.000091552734375
+        "x": 947.9855346679688,
+        "y": -15.0
       },
       "suffix_index": 1,
       "type": "LAYER",
@@ -402,12 +569,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 2862159468554018051,
+          "content_fp": 6680836213148830800,
           "input_fps": {
-            "input:image": 17862509282210827294,
+            "input:image": 124857064201217512,
             "input:size_ref": 6415881008966841623
           },
-          "output_fp": 15678609332659182305,
+          "output_fp": 1052745008761324408,
           "params_fp": 16075434531687552448
         },
         "anchor": 4,
@@ -454,12 +621,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 17689354726476530540,
+          "content_fp": 10861141802101840494,
           "input_fps": {
-            "input:image": 2862159468554018051
+            "input:image": 9474692701422224144
           },
-          "output_fp": 16926527875298986456,
-          "params_fp": 18036102500887151989
+          "output_fp": 2755393700751569423,
+          "params_fp": 5073558225027826191
         },
         "color_a": 1.0,
         "color_b": 0.44520124793052673,
@@ -468,12 +635,12 @@
         "only_outline": false,
         "position": 0,
         "smoothing": 1,
-        "thickness": 1,
-        "threshold": 128
+        "thickness": 2,
+        "threshold": 127
       },
       "position": {
-        "x": 649.8316650390625,
-        "y": 358.0000915527344
+        "x": 947.9855346679688,
+        "y": 283.0
       },
       "suffix_index": 1,
       "type": "OUTLINE",
@@ -500,11 +667,11 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 17862509282210827294,
+          "content_fp": 124857064201217512,
           "input_fps": {
-            "input:image": 5923885993060371800
+            "input:image": 7274409296637882255
           },
-          "output_fp": 4927742003775417413,
+          "output_fp": 12291271656522697419,
           "params_fp": 7769655208606650023
         },
         "mode": 0,
@@ -532,15 +699,15 @@
       "label": "",
       "output_pins": [],
       "params": {
-        "_export_ok_msg": "2 frames exported to icons (38 ms)",
-        "_export_output_fp": 14427036340185415770,
-        "_export_paths_fp": 4556262389734916641,
+        "_export_ok_msg": "3 frames exported to icons (40 ms)",
+        "_export_output_fp": 1377182887780496976,
+        "_export_paths_fp": 3621022401614682935,
         "_fp_state": {
-          "content_fp": 9101854850601012949,
+          "content_fp": 6653939124752109726,
           "input_fps": {
-            "input:batch": 9101854850601012949
+            "input:batch": 6653939124752109726
           },
-          "output_fp": 15827201442040298397,
+          "output_fp": 1377182887780496976,
           "params_fp": 15411675293994170397
         },
         "embed_recipe": false,
@@ -580,12 +747,1018 @@
         "webp_lossless": false
       },
       "position": {
-        "x": 975.6273803710938,
-        "y": 60.000091552734375
+        "x": 1273.78125,
+        "y": -15.0
       },
       "suffix_index": 2,
       "type": "EXPORT_BATCH",
       "uuid": "9tk46h6e"
+    },
+    {
+      "id": 98,
+      "input_pins": [],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 99,
+          "name": "batch",
+          "required": false,
+          "type": "BATCH"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 9407016988820615202,
+          "input_fps": {},
+          "output_fp": 14282327666759873774,
+          "params_fp": 3962301082518157995
+        },
+        "exif_orientation": true,
+        "exr_alpha": 1,
+        "filter": "*.png;*.jpg;*.jpeg;*.webp;*.tif;*.tiff;*.bmp;*.tga;*.exr;*.hdr;*.svg;*.psd;*.psb",
+        "folder_path": "~/Projects/halloween-game-jam-2026/assets/art/units",
+        "limit": 0,
+        "output_format": 0,
+        "output_grayscale_from": 0,
+        "recursive": false,
+        "reverse_order": false,
+        "sort_mode": 0
+      },
+      "position": {
+        "x": -733.2839965820313,
+        "y": -514.0001220703125
+      },
+      "suffix_index": 2,
+      "type": "IMAGE_FOLDER",
+      "uuid": "zsmqrece"
+    },
+    {
+      "id": 104,
+      "input_pins": [
+        {
+          "id": 105,
+          "name": "image",
+          "required": true,
+          "type": "surface"
+        },
+        {
+          "id": 106,
+          "name": "size_ref",
+          "required": false,
+          "type": "SIZE_REF"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 107,
+          "name": "image",
+          "required": false,
+          "type": "surface"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 1269874933828641533,
+          "input_fps": {
+            "input:image": 13221651991169814361,
+            "input:size_ref": 6415881008966841623
+          },
+          "output_fp": 1269874933828641533,
+          "params_fp": 18129138821646727338
+        },
+        "filter": 0,
+        "fit_mode": 0,
+        "lock_scale": true,
+        "match_axis": 0,
+        "out_h": 1024,
+        "out_w": 1024,
+        "resize_mode": 1,
+        "scale_x": 175.0,
+        "scale_y": 175.0
+      },
+      "position": {
+        "x": 245.0,
+        "y": -514.0001220703125
+      },
+      "suffix_index": 2,
+      "type": "RESIZE",
+      "uuid": "2qo4g2rs"
+    },
+    {
+      "id": 120,
+      "input_pins": [
+        {
+          "id": 121,
+          "name": "image_1",
+          "required": false,
+          "type": "IMAGE"
+        },
+        {
+          "id": 124,
+          "name": "image_2",
+          "required": false,
+          "type": "IMAGE"
+        },
+        {
+          "id": 126,
+          "name": "image_3",
+          "required": false,
+          "type": "IMAGE"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 122,
+          "name": "batch",
+          "required": false,
+          "type": "BATCH"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 9474692701422224144,
+          "input_fps": {
+            "array:image/1": 1269874933828641533,
+            "array:image/2": 6680836213148830800
+          },
+          "output_fp": 4021130630471688030,
+          "params_fp": 16455854924830336094
+        },
+        "frames": [
+          {
+            "name": "",
+            "slot_uuid": "njj1g3yo"
+          },
+          {
+            "name": "",
+            "slot_uuid": "sw4trf9l"
+          },
+          {
+            "name": ""
+          }
+        ]
+      },
+      "position": {
+        "x": 565.0772705078125,
+        "y": 202.79476928710938
+      },
+      "suffix_index": 1,
+      "type": "COLLECT",
+      "uuid": "v41yzvko"
+    },
+    {
+      "id": 128,
+      "input_pins": [
+        {
+          "id": 129,
+          "name": "image",
+          "required": true,
+          "type": "surface"
+        },
+        {
+          "id": 130,
+          "name": "size_ref",
+          "required": false,
+          "type": "SIZE_REF"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 131,
+          "name": "image",
+          "required": false,
+          "type": "surface"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 13221651991169814361,
+          "input_fps": {
+            "input:image": 9407016988820615202
+          },
+          "output_fp": 13221651991169814361,
+          "params_fp": 13920354501389922425
+        },
+        "anchor": 4,
+        "fill_a": 0,
+        "fill_b": 0,
+        "fill_g": 0,
+        "fill_r": 0,
+        "mask_fill": 0,
+        "mode": 0,
+        "out_h": 512,
+        "out_w": 512,
+        "pad_bot": 4,
+        "pad_bot_unit": 0,
+        "pad_left": 4,
+        "pad_left_unit": 0,
+        "pad_right": 4,
+        "pad_right_unit": 0,
+        "pad_top": 4,
+        "uniform": true
+      },
+      "position": {
+        "x": -70.0,
+        "y": -539.0001220703125
+      },
+      "suffix_index": 2,
+      "type": "PAD",
+      "uuid": "45igmwf2"
+    },
+    {
+      "id": 191,
+      "input_pins": [
+        {
+          "id": 192,
+          "name": "image",
+          "required": true,
+          "type": "IMAGE"
+        },
+        {
+          "id": 193,
+          "name": "palette",
+          "required": true,
+          "type": "PALETTE"
+        },
+        {
+          "id": 194,
+          "name": "mask",
+          "required": false,
+          "type": "MASK"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 195,
+          "name": "batch",
+          "required": false,
+          "type": "BATCH"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 14417265733922591372,
+          "input_fps": {
+            "input:image": 9407016988820615202,
+            "input:palette": 13904891611088952769
+          },
+          "output_fp": 8281901841653770989,
+          "params_fp": 12003003983309394536
+        },
+        "feather": 1.0,
+        "hue_tolerance": 1.0,
+        "mask_fit": 0,
+        "mask_source": 1,
+        "min_saturation": 0.0,
+        "preserve_luminance": false,
+        "source_b": 0.13843165338039398,
+        "source_g": 0.031896039843559265,
+        "source_r": 0.022173883393406868
+      },
+      "position": {
+        "x": 130.0280303955078,
+        "y": -1111.6640625
+      },
+      "suffix_index": 5,
+      "type": "PALETTE_REMAP",
+      "uuid": "0qorzrca"
+    },
+    {
+      "id": 199,
+      "input_pins": [],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 200,
+          "name": "palette",
+          "required": false,
+          "type": "PALETTE"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 13904891611088952769,
+          "input_fps": {},
+          "output_fp": 13904891611088952769,
+          "params_fp": 8994626671810973966
+        },
+        "palette_name": "My Palette",
+        "slots": [
+          {
+            "a": 255,
+            "b": 47,
+            "g": 28,
+            "name": "Slot 1",
+            "r": 114
+          }
+        ]
+      },
+      "position": {
+        "x": -218.312255859375,
+        "y": -888.1873779296875
+      },
+      "suffix_index": 2,
+      "type": "PALETTE",
+      "uuid": "1tvbly3b"
+    },
+    {
+      "id": 202,
+      "input_pins": [],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 203,
+          "name": "palette",
+          "required": false,
+          "type": "PALETTE"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 15363911679696917888,
+          "input_fps": {},
+          "output_fp": 15363911679696917888,
+          "params_fp": 13125564966381172415
+        },
+        "palette_name": "My Palette",
+        "slots": [
+          {
+            "a": 255,
+            "b": 60,
+            "g": 31,
+            "name": "Slot 1",
+            "r": 63
+          }
+        ]
+      },
+      "position": {
+        "x": -218.312255859375,
+        "y": -1065.0
+      },
+      "suffix_index": 3,
+      "type": "PALETTE",
+      "uuid": "6wilb9zz"
+    },
+    {
+      "id": 204,
+      "input_pins": [
+        {
+          "id": 205,
+          "name": "image",
+          "required": true,
+          "type": "IMAGE"
+        },
+        {
+          "id": 206,
+          "name": "palette",
+          "required": true,
+          "type": "PALETTE"
+        },
+        {
+          "id": 207,
+          "name": "mask",
+          "required": false,
+          "type": "MASK"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 208,
+          "name": "batch",
+          "required": false,
+          "type": "BATCH"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 14978743301173725525,
+          "input_fps": {
+            "input:image": 14417265733922591372,
+            "input:palette": 15363911679696917888
+          },
+          "output_fp": 14702735044704479802,
+          "params_fp": 1138748098291312585
+        },
+        "feather": 1.0,
+        "hue_tolerance": 1.0,
+        "mask_fit": 0,
+        "mask_source": 1,
+        "min_saturation": 0.0,
+        "preserve_luminance": false,
+        "source_b": 0.046665094792842865,
+        "source_g": 0.00856812484562397,
+        "source_r": 0.006048832554370165
+      },
+      "position": {
+        "x": 405.097900390625,
+        "y": -1111.6640625
+      },
+      "suffix_index": 6,
+      "type": "PALETTE_REMAP",
+      "uuid": "ni5w8txh"
+    },
+    {
+      "id": 214,
+      "input_pins": [],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 215,
+          "name": "palette",
+          "required": false,
+          "type": "PALETTE"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 4635285344895918689,
+          "input_fps": {},
+          "output_fp": 4635285344895918689,
+          "params_fp": 2191524806327760902
+        },
+        "palette_name": "My Palette",
+        "slots": [
+          {
+            "a": 255,
+            "b": 57,
+            "g": 38,
+            "name": "Slot 1",
+            "r": 165
+          }
+        ]
+      },
+      "position": {
+        "x": -218.312255859375,
+        "y": -1256.6640625
+      },
+      "suffix_index": 4,
+      "type": "PALETTE",
+      "uuid": "cwftkz94"
+    },
+    {
+      "id": 216,
+      "input_pins": [
+        {
+          "id": 217,
+          "name": "image",
+          "required": true,
+          "type": "IMAGE"
+        },
+        {
+          "id": 218,
+          "name": "palette",
+          "required": true,
+          "type": "PALETTE"
+        },
+        {
+          "id": 219,
+          "name": "mask",
+          "required": false,
+          "type": "MASK"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 220,
+          "name": "batch",
+          "required": false,
+          "type": "BATCH"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 7198458737849945690,
+          "input_fps": {
+            "input:image": 14978743301173725525,
+            "input:palette": 4635285344895918689
+          },
+          "output_fp": 9274685914376994211,
+          "params_fp": 7995981797878826821
+        },
+        "feather": 1.0,
+        "hue_tolerance": 1.0,
+        "mask_fit": 0,
+        "mask_source": 1,
+        "min_saturation": 0.0,
+        "preserve_luminance": false,
+        "source_b": 0.723055362701416,
+        "source_g": 0.34191444516181946,
+        "source_r": 0.2788943350315094
+      },
+      "position": {
+        "x": 657.864013671875,
+        "y": -1111.6640625
+      },
+      "suffix_index": 7,
+      "type": "PALETTE_REMAP",
+      "uuid": "qort98rx"
+    },
+    {
+      "id": 227,
+      "input_pins": [],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 228,
+          "name": "palette",
+          "required": false,
+          "type": "PALETTE"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 11601281576065360049,
+          "input_fps": {},
+          "output_fp": 11601281576065360049,
+          "params_fp": 11302291698599197477
+        },
+        "palette_name": "My Palette",
+        "slots": [
+          {
+            "a": 255,
+            "b": 69,
+            "g": 55,
+            "name": "Slot 1",
+            "r": 221
+          }
+        ]
+      },
+      "position": {
+        "x": -218.312255859375,
+        "y": -1435.1048583984375
+      },
+      "suffix_index": 6,
+      "type": "PALETTE",
+      "uuid": "wglm26qj"
+    },
+    {
+      "id": 229,
+      "input_pins": [
+        {
+          "id": 230,
+          "name": "image",
+          "required": true,
+          "type": "IMAGE"
+        },
+        {
+          "id": 231,
+          "name": "palette",
+          "required": true,
+          "type": "PALETTE"
+        },
+        {
+          "id": 232,
+          "name": "mask",
+          "required": false,
+          "type": "MASK"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 233,
+          "name": "batch",
+          "required": false,
+          "type": "BATCH"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 7947184617395484674,
+          "input_fps": {
+            "input:image": 7198458737849945690,
+            "input:palette": 4635285344895918689
+          },
+          "output_fp": 7898106826382394280,
+          "params_fp": 8189768992607489836
+        },
+        "feather": 1.0,
+        "hue_tolerance": 1.0,
+        "mask_fit": 0,
+        "mask_source": 1,
+        "min_saturation": 0.0,
+        "preserve_luminance": false,
+        "source_b": 0.26225072145462036,
+        "source_g": 0.07036010921001434,
+        "source_r": 0.06124607101082802
+      },
+      "position": {
+        "x": 910.6300659179688,
+        "y": -1123.7744140625
+      },
+      "suffix_index": 8,
+      "type": "PALETTE_REMAP",
+      "uuid": "opbqvpe5"
+    },
+    {
+      "id": 237,
+      "input_pins": [
+        {
+          "id": 238,
+          "name": "image",
+          "required": true,
+          "type": "IMAGE"
+        },
+        {
+          "id": 239,
+          "name": "palette",
+          "required": true,
+          "type": "PALETTE"
+        },
+        {
+          "id": 240,
+          "name": "mask",
+          "required": false,
+          "type": "MASK"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 241,
+          "name": "batch",
+          "required": false,
+          "type": "BATCH"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 1236034637287929012,
+          "input_fps": {
+            "input:image": 7947184617395484674,
+            "input:palette": 11601281576065360049
+          },
+          "output_fp": 8153108104794601943,
+          "params_fp": 8334318687822638035
+        },
+        "feather": 1.0,
+        "hue_tolerance": 1.0,
+        "mask_fit": 0,
+        "mask_source": 1,
+        "min_saturation": 0.0,
+        "preserve_luminance": false,
+        "source_b": 0.3719916343688965,
+        "source_g": 0.14691203832626343,
+        "source_r": 0.16166964173316956
+      },
+      "position": {
+        "x": 1163.9857177734375,
+        "y": -1123.7744140625
+      },
+      "suffix_index": 9,
+      "type": "PALETTE_REMAP",
+      "uuid": "8o0gbutt"
+    },
+    {
+      "id": 246,
+      "input_pins": [
+        {
+          "id": 247,
+          "name": "image",
+          "required": true,
+          "type": "IMAGE"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 248,
+          "name": "image",
+          "required": false,
+          "type": "IMAGE"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 13630553266692555907,
+          "input_fps": {
+            "input:image": 6169396457952928297
+          },
+          "output_fp": 15903958666702790868,
+          "params_fp": 7533969526336023370
+        },
+        "color_a": 255,
+        "color_b": 0,
+        "color_g": 0,
+        "color_r": 0,
+        "only_outline": false,
+        "position": 2,
+        "smoothing": 0,
+        "thickness": 1,
+        "threshold": 1
+      },
+      "position": {
+        "x": 1406.3277587890625,
+        "y": -497.0194091796875
+      },
+      "suffix_index": 3,
+      "type": "OUTLINE",
+      "uuid": "wylxg0te"
+    },
+    {
+      "id": 279,
+      "input_pins": [
+        {
+          "id": 280,
+          "name": "image_1",
+          "required": false,
+          "type": "IMAGE"
+        },
+        {
+          "id": 283,
+          "name": "image_2",
+          "required": false,
+          "type": "IMAGE"
+        },
+        {
+          "id": 285,
+          "name": "image_3",
+          "required": false,
+          "type": "IMAGE"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 281,
+          "name": "batch",
+          "required": false,
+          "type": "BATCH"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 6169396457952928297,
+          "input_fps": {
+            "array:image/1": 9407016988820615202,
+            "array:image/2": 1236034637287929012
+          },
+          "output_fp": 7923434093950710638,
+          "params_fp": 14233343741882769394
+        },
+        "frames": [
+          {
+            "name": "",
+            "slot_uuid": "jhu0o7eq"
+          },
+          {
+            "name": "",
+            "slot_uuid": "au3os1vn"
+          },
+          {
+            "name": ""
+          }
+        ]
+      },
+      "position": {
+        "x": 982.197998046875,
+        "y": -497.0194091796875
+      },
+      "suffix_index": 2,
+      "type": "COLLECT",
+      "uuid": "qb7i0tmh"
+    },
+    {
+      "id": 289,
+      "input_pins": [
+        {
+          "id": 290,
+          "name": "batch",
+          "required": true,
+          "type": "BATCH"
+        }
+      ],
+      "label": "",
+      "output_pins": [],
+      "params": {
+        "_export_ok_msg": "2 frames exported to processed_units (63 ms)",
+        "_export_output_fp": 15903958666702790868,
+        "_export_paths_fp": 11354133288309404746,
+        "_fp_state": {
+          "content_fp": 13630553266692555907,
+          "input_fps": {
+            "input:batch": 13630553266692555907
+          },
+          "output_fp": 15903958666702790868,
+          "params_fp": 10219483724912866070
+        },
+        "embed_recipe": false,
+        "export_color_intent": -1,
+        "export_depth_mode": 0,
+        "filename_template": "{name}_{tag:team}",
+        "format": 0,
+        "hd_output_cs": "",
+        "matte_b": 255,
+        "matte_g": 255,
+        "matte_r": 255,
+        "output_channels": 0,
+        "output_dir": "~/Projects/halloween-game-jam-2026/assets/art/processed_units",
+        "output_grayscale_from": 0,
+        "png_compress": 6,
+        "private_paths": true,
+        "quality": 90,
+        "sheet_bg_a": 0,
+        "sheet_bg_b": 0,
+        "sheet_bg_g": 0,
+        "sheet_bg_r": 0,
+        "sheet_border_padding": 0,
+        "sheet_columns": 2,
+        "sheet_extrude": 1,
+        "sheet_filename_template": "{this.label|or:this.id}_sheet",
+        "sheet_max_height": 4096,
+        "sheet_max_width": 4096,
+        "sheet_pack_mode": 1,
+        "sheet_padding": 0,
+        "sheet_show_outlines": false,
+        "sheet_size_mode": 0,
+        "sheet_trim": true,
+        "sheet_trim_threshold": 1,
+        "sprite_sheet": false,
+        "tga_rle": true,
+        "tiff_compress": 0,
+        "webp_lossless": false
+      },
+      "position": {
+        "x": 1816.5615234375,
+        "y": -497.0194091796875
+      },
+      "suffix_index": 3,
+      "type": "EXPORT_BATCH",
+      "uuid": "90zc3m6a"
+    },
+    {
+      "id": 299,
+      "input_pins": [
+        {
+          "id": 300,
+          "name": "input",
+          "required": false,
+          "type": "PIXELS"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 301,
+          "name": "output",
+          "required": false,
+          "type": "PIXELS"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 9407016988820615202,
+          "input_fps": {
+            "input:input": 9407016988820615202
+          },
+          "output_fp": 14282327666759873774,
+          "params_fp": 10611482578481914574
+        },
+        "overrides": {},
+        "rule": {
+          "find": "",
+          "match_case": true,
+          "method": "template",
+          "replace": "",
+          "template": "{name}"
+        },
+        "strict": false,
+        "swatch_b": 255,
+        "swatch_enabled": false,
+        "swatch_g": 255,
+        "swatch_overrides": {},
+        "swatch_r": 255,
+        "tag_overrides": {},
+        "tag_overrides_mode": "merge",
+        "tags": {
+          "team": "blue"
+        }
+      },
+      "position": {
+        "x": 621.097900390625,
+        "y": -497.0194091796875
+      },
+      "suffix_index": 2,
+      "type": "TAG",
+      "uuid": "pj629v1e"
+    },
+    {
+      "id": 306,
+      "input_pins": [
+        {
+          "id": 307,
+          "name": "input",
+          "required": false,
+          "type": "PIXELS"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 308,
+          "name": "output",
+          "required": false,
+          "type": "PIXELS"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 9407016988820615202,
+          "input_fps": {
+            "input:input": 9407016988820615202
+          },
+          "output_fp": 14282327666759873774,
+          "params_fp": 3044744103182561092
+        },
+        "overrides": {},
+        "rule": {
+          "find": "",
+          "match_case": true,
+          "method": "template",
+          "replace": "",
+          "template": "{name}"
+        },
+        "strict": false,
+        "swatch_b": 255,
+        "swatch_enabled": false,
+        "swatch_g": 255,
+        "swatch_overrides": {},
+        "swatch_r": 255,
+        "tag_overrides": {},
+        "tag_overrides_mode": "merge",
+        "tags": {
+          "original_name": "{name}"
+        }
+      },
+      "position": {
+        "x": -434.31219482421875,
+        "y": -450.71307373046875
+      },
+      "suffix_index": 3,
+      "type": "TAG",
+      "uuid": "j7n0rh8z"
+    },
+    {
+      "id": 312,
+      "input_pins": [
+        {
+          "id": 313,
+          "name": "input",
+          "required": false,
+          "type": "PIXELS"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 314,
+          "name": "output",
+          "required": false,
+          "type": "PIXELS"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 1236034637287929012,
+          "input_fps": {
+            "input:input": 1236034637287929012
+          },
+          "output_fp": 13707562784794052912,
+          "params_fp": 18376912760423885874
+        },
+        "overrides": {},
+        "rule": {
+          "find": "_Slot 1",
+          "match_case": true,
+          "method": "replace",
+          "replace": "",
+          "template": "{name}"
+        },
+        "strict": false,
+        "swatch_b": 255,
+        "swatch_enabled": false,
+        "swatch_g": 255,
+        "swatch_overrides": {},
+        "swatch_r": 255,
+        "tag_overrides": {},
+        "tag_overrides_mode": "merge",
+        "tags": {
+          "team": "red"
+        }
+      },
+      "position": {
+        "x": 1457.8929443359375,
+        "y": -1111.6640625
+      },
+      "suffix_index": 4,
+      "type": "TAG",
+      "uuid": "xt5youp9"
     }
   ]
 }

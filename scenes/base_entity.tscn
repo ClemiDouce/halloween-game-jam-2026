@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://sowlhrxuy5vt"]
 
 [ext_resource type="Script" uid="uid://bgfxija6m4set" path="res://scripts/base_entity.gd" id="1_gcnxr"]
-[ext_resource type="Texture2D" uid="uid://bwixqfjjdkttj" path="res://assets/art/placeholder/tiles/base.png" id="2_qga7x"]
 [ext_resource type="Resource" uid="uid://b4tm7uajg4ggb" path="res://data/base/player_base.tres" id="2_qtj7x"]
+[ext_resource type="Texture2D" uid="uid://dk8dorljy2rx6" path="res://assets/art/processed_units/base_blue.png" id="3_qga7x"]
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="3_qtj7x"]
+[ext_resource type="Texture2D" uid="uid://bv3p18np2hhd6" path="res://assets/art/processed_units/base_red.png" id="4_qtj7x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gcnxr"]
 radius = 25.0
@@ -11,10 +12,14 @@ radius = 25.0
 [node name="BaseEntity" type="Node2D" unique_id=72275687]
 script = ExtResource("1_gcnxr")
 base_data = ExtResource("2_qtj7x")
+texture = Dictionary[int, Texture]({
+0: ExtResource("3_qga7x"),
+1: ExtResource("4_qtj7x")
+})
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1063533838]
-texture = ExtResource("2_qga7x")
+texture = ExtResource("3_qga7x")
 
 [node name="Hitbox" parent="." unique_id=957708440 instance=ExtResource("3_qtj7x")]
 unique_name_in_owner = true
