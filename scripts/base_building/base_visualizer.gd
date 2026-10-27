@@ -72,14 +72,21 @@ func _on_selection_stage_changed(stage: PlayerController.SelectionStage) -> void
 		selection_line.points = [first_pos, last_pos]
 
 		for i in range(_x_axis_sprites.size()):
+			_x_axis_sprites[i].hide()
 			if i == row:
 				_x_axis_sprites[i].texture = axis_label_active_textures[i]
 			else:
 				_x_axis_sprites[i].texture = axis_label_textures[i]
+		for i in range(_y_axis_sprites.size()):
+			_y_axis_sprites[i].position = _get_building_slot_pos(player.get_selection_row(), i)
+			_y_axis_sprites[i].show()
 	else:
 		selection_line.hide()
 		for i in range(_x_axis_sprites.size()):
 			_x_axis_sprites[i].texture = axis_label_textures[i]
+			_x_axis_sprites[i].show()
+		for i in range(_y_axis_sprites.size()):
+			_y_axis_sprites[i].hide()
 
 
 func _on_building_selected(_slot: BuildingSlot, grid_pos: Vector2i) -> void:
@@ -145,6 +152,8 @@ func _update_hotkey_buttons(slot: BuildingSlot) -> void:
 			_hotkey_buttons[i].assign_building(building_types[i])
 
 func _generate_label_sprites() -> void:
+	var offset: Vector2 = Vector2(0, -64)
+	
 	for i in range(axis_label_textures.size()):
 		var x_sprite := Sprite2D.new()
 		x_sprite.name = "XLabel%d" % i
@@ -157,7 +166,8 @@ func _generate_label_sprites() -> void:
 		var y_sprite := Sprite2D.new()
 		y_sprite.name = "YLabel%d" % i
 		y_sprite.texture = axis_label_textures[i]
-		y_sprite.position = (_get_building_slot_pos(-0.5, i))
-		y_sprite.z_index = 30
+		y_sprite.position = (_get_building_slot_pos(0, i)) + offset
+		y_sprite.z_index = 64
+		y_sprite.hide()
 		slot_holder.add_child(y_sprite)
 		_y_axis_sprites.append(y_sprite)
