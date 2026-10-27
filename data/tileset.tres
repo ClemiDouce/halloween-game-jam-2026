@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://4xdk3ew3ullj" path="res://assets/art/placeholder/tiles/blocking_tile.png" id="4_suol8"]
 [ext_resource type="Texture2D" uid="uid://dna8vy1odnywb" path="res://assets/art/placeholder/tiles/path_tile.png" id="5_sxpl8"]
 [ext_resource type="Texture2D" uid="uid://c6su384854vl6" path="res://assets/art/tiles/overworld/road_tile.png" id="7_keh18"]
+[ext_resource type="Texture2D" uid="uid://bn124w8ncaj6e" path="res://assets/art/tiles/overworld/base_frame.png" id="8_suol8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rklxl"]
 texture = ExtResource("1_r0jvm")
@@ -738,6 +739,11 @@ texture_region_size = Vector2i(32, 32)
 6:0/0/terrains_peering_bit/right_side = 2
 6:0/0/terrains_peering_bit/top_side = 2
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sxpl8"]
+texture = ExtResource("8_suol8")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 terrain_set_0/mode = 0
@@ -754,3 +760,4 @@ sources/0 = SubResource("TileSetAtlasSource_rklxl")
 sources/1 = SubResource("TileSetAtlasSource_dbwep")
 sources/2 = SubResource("TileSetAtlasSource_keh18")
 sources/6 = SubResource("TileSetAtlasSource_suol8")
+sources/7 = SubResource("TileSetAtlasSource_sxpl8")
