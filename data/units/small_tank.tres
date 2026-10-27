@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://pypw5hc7r04a" path="res://assets/art/icons/hover_tank_icon.png" id="1_nw6ky"]
 [ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="1_qqo2i"]
-[ext_resource type="Texture2D" uid="uid://ceyc2ap5qhyvp" path="res://assets/art/units/hover_tank.png" id="2_6kr5u"]
+[ext_resource type="Texture2D" uid="uid://dquer1qat8bvp" path="res://assets/art/processed_units/hover_tank_blue.png" id="3_nw6ky"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_6kr5u"]
 device = -1
@@ -12,7 +12,7 @@ unicode = 116
 [resource]
 script = ExtResource("1_qqo2i")
 speed = 50.0
-texture = ExtResource("2_6kr5u")
+texture = ExtResource("3_nw6ky")
 input_keyboard = SubResource("InputEventKey_6kr5u")
 button_icon = ExtResource("1_nw6ky")
 unit_name = "Light Tank"

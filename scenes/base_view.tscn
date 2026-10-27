@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bjnrdffw74akt" path="res://assets/art/tiles/base/building_tile.png" id="11_5836b"]
 [ext_resource type="Texture2D" uid="uid://d4ith88fkqxfp" path="res://assets/art/tiles/base/empty_base.png" id="12_nygv8"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjxaj"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nygv8"]
 texture = ExtResource("11_5836b")
 texture_region_size = Vector2i(64, 31)
@@ -32,9 +35,9 @@ sources/1 = SubResource("TileSetAtlasSource_ne0d2")
 
 [node name="BaseView" type="Control" unique_id=526506978 node_paths=PackedStringArray("slot_holder", "selection_line", "base_tilemap", "button_holder")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchor_right = 0.333
 anchor_bottom = 1.0
+offset_right = 1280.64
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x54rt")
@@ -55,6 +58,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 640.0
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qjxaj")
 
 [node name="GridContainer" type="GridContainer" parent="Control" unique_id=2126558715]
 layout_mode = 2
