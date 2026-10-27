@@ -24,6 +24,9 @@ var target_position : Vector2 = Vector2.ZERO
 var attack_target : Hitbox = null
 var attack_timer : float = 0.
 
+# Animation
+var _animation_timer: float = 0.
+var _atlas: AtlasTexture = null
 
 enum UnitState {IDLE, MOVING, ATTACKING}
 var state : UnitState = UnitState.MOVING
@@ -33,7 +36,16 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 	health = unit.health
 	shape.radius = unit.attack_range
 	team = _team
-	sprite.texture = unit.texture[_team] if _team in unit.texture else MISSING_TEXTURE
+
+	if _team in unit.texture:
+		if unit.texture[_team] is AtlasTexture:
+			_atlas = unit.texture[_team].duplicate()
+			sprite.texture = _atlas
+		else:
+			sprite.texture = unit.texture[_team]
+	else:
+		sprite.texture = MISSING_TEXTURE
+
 	path = _path
 	if team == CombatData.Team.PLAYER:
 		global_position = path.get_start_position()
@@ -56,7 +68,10 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 	await get_tree().physics_frame
 	move_trail.clear_points()
 	move_trail.active = true
-	
+
+func _process(delta: float) -> void:
+	_process_animation(delta)
+
 func _physics_process(delta: float) -> void:
 	match(state):
 		UnitState.IDLE:
@@ -104,6 +119,19 @@ func _on_attack_area_area_entered(area: Area2D) -> void:
 	attack_target = area
 	state = UnitState.ATTACKING
 
+func _process_animation(delta: float) -> void:
+	if not _atlas:
+		return
+
+	if _animation_timer > 0.25:
+		_animation_timer = 0.
+		var frame_size := _atlas.region.size
+		if _atlas.region.position.x + frame_size.x > _atlas.get_width():
+			_atlas.region.position.x = 0.
+		else:
+			_atlas.region.position.x += frame_size.x
+	else:
+		_animation_timer += delta
 
 func _on_hitbox_hurt(attacker: EntityData) -> void:
 	var damage = AttackCalculator.get_attack_damage(attacker, unit_data)

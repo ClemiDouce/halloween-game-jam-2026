@@ -39,6 +39,7 @@ func _on_entity_hitbox_hurt(attacker: EntityData) -> void:
 		pass
 	
 func _process(delta: float) -> void:
+	
 	if attack_target:
 		
 		if not is_instance_valid(attack_target):
@@ -56,6 +57,8 @@ func _process(delta: float) -> void:
 		if attack_timer >= base_data.rate_of_fire:
 			attack_timer -= base_data.rate_of_fire
 			attack_target.get_damage(self.base_data)
+
+
 
 
 func _on_attack_area_area_entered(area: Area2D) -> void:

@@ -1,19 +1,31 @@
 [gd_resource type="Resource" script_class="UnitResource" format=3 uid="uid://l0m3pssrbkug"]
 
 [ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="1_l8t0w"]
-[ext_resource type="Texture2D" uid="uid://suvn2sac2fe1" path="res://assets/art/placeholder/unit_placeholder.png" id="2_1g1w0"]
+[ext_resource type="Texture2D" uid="uid://lhh4j5y73nxr" path="res://assets/art/processed_units/mech_blue.png" id="2_x1ny7"]
+[ext_resource type="Texture2D" uid="uid://duf7vy5tiapfb" path="res://assets/art/processed_units/mech_red.png" id="3_7vips"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_1g1w0"]
 device = -1
 keycode = 71
 unicode = 103
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwuil"]
+atlas = ExtResource("2_x1ny7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmmt3"]
+atlas = ExtResource("3_7vips")
+region = Rect2(0, 0, 16, 16)
+
 [resource]
 script = ExtResource("1_l8t0w")
-speed = 100.0
+speed = 50.0
 cost = 100
 time_to_build = 0.5
-texture = ExtResource("2_1g1w0")
+texture = Dictionary[int, Texture]({
+0: SubResource("AtlasTexture_uwuil"),
+1: SubResource("AtlasTexture_tmmt3")
+})
 input_keyboard = SubResource("InputEventKey_1g1w0")
 unit_name = "Gun"
 health = 50
