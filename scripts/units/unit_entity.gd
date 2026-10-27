@@ -6,6 +6,7 @@ class_name UnitEntity extends Node2D
 @onready var sprite: Sprite2D = %Sprite2D
 @onready var root: Node2D = %Root
 @onready var hitbox: Hitbox = %Hitbox
+@onready var move_trail: Trail2D = $MoveTrail
 
 
 var team : CombatData.Team
@@ -42,6 +43,17 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 	
 	hitbox.collision_layer = CombatData.PLAYER_COLLISION_LAYER if team == CombatData.Team.PLAYER else CombatData.HOSTILE_COLLISION_LAYER
 	attack_area.collision_mask = CombatData.HOSTILE_COLLISION_LAYER if team == CombatData.Team.PLAYER else CombatData.PLAYER_COLLISION_LAYER
+	# Offset
+	root.position = Vector2(
+		randi_range(-5, 5),
+		randi_range(-5, 5)
+	)
+	var pop_tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	pop_tween.tween_property(root, "scale", Vector2(1.3,1.3), 0.2).from(Vector2(0.6, 0.4))
+	pop_tween.tween_property(root, "scale", Vector2.ONE, 0.1)
+	await get_tree().physics_frame
+	move_trail.clear_points()
+	move_trail.active = true
 	
 func _physics_process(delta: float) -> void:
 	match(state):

@@ -34,6 +34,9 @@ func get_selection_row() -> int:
 func get_selected() -> BuildingSlot:
 	return _selected_building
 
+func _ready() -> void:
+	controlling_base.team = CombatData.Team.PLAYER
+
 
 func _process(_delta: float) -> void:
 	_handle_building_selection()
