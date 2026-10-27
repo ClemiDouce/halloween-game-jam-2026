@@ -126,7 +126,7 @@ func _on_attack_area_area_entered(area: Area2D) -> void:
 	state = UnitState.ATTACKING
 
 func _process_animation(delta: float) -> void:
-	if not _atlas:
+	if not _atlas or state != UnitState.MOVING:
 		return
 
 	if _animation_timer > 0.25:
