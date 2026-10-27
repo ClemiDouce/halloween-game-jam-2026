@@ -19,7 +19,6 @@ func _physics_process(_delta: float) -> void:
 	var point : = parent.global_position + offset
 	if point.is_equal_approx(Vector2.ZERO):
 		return
-	print(point)
 	add_point(point, 0)
 	
 	if get_point_count() > length:

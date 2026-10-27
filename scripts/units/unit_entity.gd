@@ -9,6 +9,8 @@ const MISSING_TEXTURE = preload("res://assets/art/placeholder/unit_placeholder.p
 @onready var root: Node2D = %Root
 @onready var hitbox: Hitbox = %Hitbox
 @onready var move_trail: Trail2D = $MoveTrail
+@onready var flash_component: FlashComponent = %FlashComponent
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 
 var team : CombatData.Team
@@ -104,10 +106,14 @@ func _physics_process(delta: float) -> void:
 							attack_target = hit
 							return
 			# Attack
-			attack_timer += delta
-			if attack_timer >= unit_data.rate_of_fire:
-				attack_timer -= unit_data.rate_of_fire
-				attack_target.get_damage(self.unit_data)
+			else:
+				root.rotation = lerp_angle(root.rotation, global_position.direction_to(attack_target.global_position).angle(), delta * 10)
+				attack_timer += delta
+				if attack_timer >= unit_data.rate_of_fire:
+					attack_timer -= unit_data.rate_of_fire
+					attack_target.get_damage(self.unit_data)
+					animation_player.play("squish")
+				
 
 
 func _on_attack_area_area_entered(area: Area2D) -> void:
@@ -141,8 +147,7 @@ func _on_hitbox_hurt(attacker: EntityData) -> void:
 		#TODO Death Animation
 		queue_free()
 	else:
-		#TODO Hurt Animation
-		pass
+		flash_component.flash()
 
 #func _draw() -> void:
 	#if target_position != Vector2.INF:
