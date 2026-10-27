@@ -31,9 +31,11 @@ func _on_base_destroyed(base_data: BaseData):
 			print("Not Yet, %s bases remain up" % hostiles_base.size())
 
 func _on_player_win():
+	get_tree().call_group("freed", "queue_free")
 	await foreground_layer.fade_out()
 	get_tree().reload_current_scene()
 	
 func _on_player_loose():
+	get_tree().call_group("freed", "queue_free")
 	await foreground_layer.fade_out()
 	get_tree().reload_current_scene()

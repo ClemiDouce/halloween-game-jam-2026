@@ -17,10 +17,6 @@ region = Rect2(0, 0, 16, 16)
 resource_local_to_scene = true
 radius = 25.0
 
-[sub_resource type="Curve" id="Curve_m0sb2"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.319518, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="Animation" id="Animation_gnti6"]
 length = 0.001
 tracks/0/type = "value"
@@ -86,7 +82,7 @@ _data = {
 &"squish": SubResource("Animation_7opfq")
 }
 
-[node name="UnitEntity" type="Node2D" unique_id=1639145294]
+[node name="UnitEntity" type="Node2D" unique_id=1639145294 groups=["freed"]]
 script = ExtResource("1_oir76")
 
 [node name="Root" type="Node2D" parent="." unique_id=276612026]
@@ -114,7 +110,6 @@ debug_color = Color(0.90472734, 0.2984467, 0.1780119, 0.41960785)
 show_behind_parent = true
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 6.0
-width_curve = SubResource("Curve_m0sb2")
 default_color = Color(0, 0, 0, 0.7647059)
 script = ExtResource("3_m0sb2")
 length = 15
