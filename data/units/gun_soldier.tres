@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cad8g3xo7ffw7" path="res://assets/art/icons/mech_icon.png" id="1_7vips"]
 [ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="1_l8t0w"]
+[ext_resource type="Texture2D" uid="uid://b8dgiga47nslb" path="res://assets/art/bullets/bullet_0003.png" id="1_qm3sk"]
 [ext_resource type="Texture2D" uid="uid://lhh4j5y73nxr" path="res://assets/art/processed_units/mech_blue.png" id="2_x1ny7"]
 [ext_resource type="Texture2D" uid="uid://duf7vy5tiapfb" path="res://assets/art/processed_units/mech_red.png" id="3_7vips"]
 
@@ -20,7 +21,7 @@ region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_l8t0w")
-speed = 50.0
+speed = 35.0
 cost = 100
 time_to_build = 0.5
 texture = Dictionary[int, Texture]({
@@ -30,8 +31,9 @@ texture = Dictionary[int, Texture]({
 input_keyboard = SubResource("InputEventKey_1g1w0")
 button_icon = ExtResource("1_7vips")
 unit_name = "Gun"
-health = 50
-damage = 20
+health = 25
+damage = 15
 attack_range = 30.0
-rate_of_fire = 1.0
+rate_of_fire = 0.5
+bullet_texture = ExtResource("1_qm3sk")
 metadata/_custom_type_script = "uid://ctxaornc1ibjt"

@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="BaseData" format=3 uid="uid://b4tm7uajg4ggb"]
 
 [ext_resource type="Script" uid="uid://dlpfa2ms4acpk" path="res://scripts/data/base_data.gd" id="1_ub686"]
+[ext_resource type="Texture2D" uid="uid://b8dgiga47nslb" path="res://assets/art/bullets/bullet_0003.png" id="1_xxfxs"]
 
 [resource]
 script = ExtResource("1_ub686")
 unit_name = "Player Base"
-health = 200
+health = 1000
 damage = 10
 attack_range = 50.0
-rate_of_fire = 3.0
+rate_of_fire = 2.0
+bullet_texture = ExtResource("1_xxfxs")
 body_type = 2
 metadata/_custom_type_script = "uid://dlpfa2ms4acpk"
