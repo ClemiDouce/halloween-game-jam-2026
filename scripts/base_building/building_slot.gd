@@ -38,8 +38,9 @@ func get_unit_options() -> Array[UnitResource]:
 		return []
 	return _building.units
 
-func queue_unit(unit_resource: UnitResource) -> void:
-	if not has_building() or unit_resource not in _building.units:
-		return
+func queue_unit(unit_resource: UnitResource, bot: bool = false) -> void:
+	if !bot:
+		if not has_building() or unit_resource not in _building.units:
+			return
 	#print("Unit queued: %s" % [unit_resource.damage])
 	queue.add_to_queue(unit_resource)

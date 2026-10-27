@@ -5,7 +5,6 @@ signal slot_updated(slot: BuildingSlot)
 signal path_selected(path: UnitPath)
 
 # Unit Spawn
-const GUN_SOLDIER = preload("uid://l0m3pssrbkug")
 const UNIT_ENTITY = preload("uid://bybp5w4ae511b")
 
 # Building

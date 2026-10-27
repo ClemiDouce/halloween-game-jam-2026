@@ -1,13 +1,37 @@
 class_name AIController extends Node
 
 @export var controlling_base: BaseManager
+@export var wave: Wave
+@export var base_entity: BaseEntity
 
 var decision_delay : float = 1.2
+var decision_timer := 0.
+
+var started := false
 
 func _ready() -> void:
 	controlling_base.team = CombatData.Team.HOSTILE
+	base_entity.destroyed.connect(func(_base): started = false)
+	started = true
+		
 	
-	# Build a factory
-	
-func select_path(index: int):
-	controlling_base.select_path_by_index(index)
+func select_random_path():
+	var random_index = randi_range(0, controlling_base.paths.size())
+	controlling_base.select_path_by_index(random_index)
+
+func do_decision():
+	started = false
+	select_random_path()
+	var action = wave.get_random_action()
+	for i in range(action.count):
+		controlling_base.get_build_slot(1, 1).queue_unit(action.unit, true)
+		await get_tree().create_timer(0.2).timeout
+	started = true
+
+func _process(delta: float) -> void:
+	if started:
+		decision_timer += delta
+		if decision_timer >= decision_delay:
+			decision_timer -= decision_delay
+			do_decision()
+			
