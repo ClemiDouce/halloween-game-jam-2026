@@ -3,6 +3,7 @@ class_name AIController extends Node
 @export var controlling_base: BaseManager
 @export var wave: Wave
 @export var base_entity: BaseEntity
+@export var team: CombatData.Team = CombatData.Team.HOSTILE
 
 var decision_delay : float = 2.5
 var decision_timer := 0.
@@ -10,7 +11,7 @@ var decision_timer := 0.
 var started := false
 
 func _ready() -> void:
-	controlling_base.team = CombatData.Team.HOSTILE
+	controlling_base.team = team
 	base_entity.destroyed.connect(func(_base): started = false)
 	started = true
 		

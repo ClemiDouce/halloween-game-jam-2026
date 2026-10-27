@@ -149,13 +149,15 @@ func _generate_label_sprites() -> void:
 		var x_sprite := Sprite2D.new()
 		x_sprite.name = "XLabel%d" % i
 		x_sprite.texture = axis_label_textures[i]
-		x_sprite.position = (_get_world_from_grid(i, -1))
+		x_sprite.position = (_get_building_slot_pos(i, -0.5))
+		x_sprite.z_index = 30
 		slot_holder.add_child(x_sprite)
 		_x_axis_sprites.append(x_sprite)
 
 		var y_sprite := Sprite2D.new()
 		y_sprite.name = "YLabel%d" % i
 		y_sprite.texture = axis_label_textures[i]
-		y_sprite.position = (_get_world_from_grid(-1, i))
+		y_sprite.position = (_get_building_slot_pos(-0.5, i))
+		y_sprite.z_index = 30
 		slot_holder.add_child(y_sprite)
 		_y_axis_sprites.append(y_sprite)
