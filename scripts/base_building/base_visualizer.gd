@@ -14,7 +14,7 @@ const BUILDING_TILE_HEIGHT = 16
 @export var selection_line: Line2D
 
 @export var axis_label_textures: Array[Texture2D] = []
-@export var axis_label_active_textures: Array[Texture2D] = []
+@export var y_axis_label_textures: Array[Texture2D] = []
 
 @export_category("Tilemap")
 @export var base_tilemap: TileMapLayer
@@ -73,17 +73,12 @@ func _on_selection_stage_changed(stage: PlayerController.SelectionStage) -> void
 
 		for i in range(_x_axis_sprites.size()):
 			_x_axis_sprites[i].hide()
-			if i == row:
-				_x_axis_sprites[i].texture = axis_label_active_textures[i]
-			else:
-				_x_axis_sprites[i].texture = axis_label_textures[i]
 		for i in range(_y_axis_sprites.size()):
 			_y_axis_sprites[i].position = _get_building_slot_pos(player.get_selection_row(), i)
 			_y_axis_sprites[i].show()
 	else:
 		selection_line.hide()
 		for i in range(_x_axis_sprites.size()):
-			_x_axis_sprites[i].texture = axis_label_textures[i]
 			_x_axis_sprites[i].show()
 		for i in range(_y_axis_sprites.size()):
 			_y_axis_sprites[i].hide()
@@ -158,16 +153,18 @@ func _generate_label_sprites() -> void:
 		var x_sprite := Sprite2D.new()
 		x_sprite.name = "XLabel%d" % i
 		x_sprite.texture = axis_label_textures[i]
-		x_sprite.position = (_get_building_slot_pos(i, -0.5))
+		x_sprite.position = (_get_building_slot_pos(i, 0))
 		x_sprite.z_index = 30
+		x_sprite.scale *= 2
 		slot_holder.add_child(x_sprite)
 		_x_axis_sprites.append(x_sprite)
 
 		var y_sprite := Sprite2D.new()
 		y_sprite.name = "YLabel%d" % i
-		y_sprite.texture = axis_label_textures[i]
+		y_sprite.texture = y_axis_label_textures[i]
 		y_sprite.position = (_get_building_slot_pos(0, i)) + offset
 		y_sprite.z_index = 64
+		y_sprite.scale *= 2
 		y_sprite.hide()
 		slot_holder.add_child(y_sprite)
 		_y_axis_sprites.append(y_sprite)

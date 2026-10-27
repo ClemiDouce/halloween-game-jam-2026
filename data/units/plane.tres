@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitResource" format=3 uid="uid://cf1vttkdudacb"]
+
+[ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="1_3xmfv"]
+[ext_resource type="Texture2D" uid="uid://b0g0fjf825ep4" path="res://assets/art/icons/plane_icon.png" id="1_nw7ag"]
+[ext_resource type="Texture2D" uid="uid://3a2x4g4ebd84" path="res://assets/art/processed_units/plane_blue.png" id="3_1yp75"]
+[ext_resource type="Texture2D" uid="uid://dy0d3np7je6mt" path="res://assets/art/processed_units/plane_red.png" id="4_gydww"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_3o67u"]
+device = -1
+keycode = 80
+unicode = 112
+
+[resource]
+script = ExtResource("1_3xmfv")
+speed = 150.0
+texture = Dictionary[int, Texture]({
+0: ExtResource("3_1yp75"),
+1: ExtResource("4_gydww")
+})
+input_keyboard = SubResource("InputEventKey_3o67u")
+button_icon = ExtResource("1_nw7ag")
+unit_name = "Plane"
+health = 5
+damage = 25
+attack_range = 25.0
+rate_of_fire = 1.0
+body_type = 1
+metadata/_custom_type_script = "uid://ctxaornc1ibjt"
