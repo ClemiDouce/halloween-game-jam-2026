@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bi1eu5ukriokg" path="res://scripts/data/wave.gd" id="1_vbmev"]
 [ext_resource type="Script" uid="uid://fbut4bbknh6e" path="res://scripts/ai_action.gd" id="2_vbmev"]
 [ext_resource type="Resource" uid="uid://l0m3pssrbkug" path="res://data/units/gun_soldier.tres" id="3_fdlcj"]
-[ext_resource type="Resource" uid="uid://dm0mjpsku7osy" path="res://data/units/small_tank.tres" id="4_kwuvs"]
+[ext_resource type="Resource" uid="uid://dm0mjpsku7osy" path="res://data/units/light_tank.tres" id="4_kwuvs"]
 [ext_resource type="Resource" uid="uid://jxlk5ecgk1cq" path="res://data/units/missile_launcher.tres" id="5_kwuvs"]
 
 [sub_resource type="Resource" id="Resource_255p0"]

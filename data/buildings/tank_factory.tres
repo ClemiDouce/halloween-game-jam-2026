@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cxfa2cw3p1aj" path="res://assets/art/buildings/tank_factory.png" id="1_ti5y2"]
 [ext_resource type="Texture2D" uid="uid://bwugaikus7mhn" path="res://assets/art/icons/tank_factory_icon.png" id="2_ti5y2"]
 [ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="3_xi2ec"]
-[ext_resource type="Resource" uid="uid://dm0mjpsku7osy" path="res://data/units/small_tank.tres" id="5_ti5y2"]
+[ext_resource type="Resource" uid="uid://dm0mjpsku7osy" path="res://data/units/light_tank.tres" id="5_0nnes"]
 [ext_resource type="Resource" uid="uid://jxlk5ecgk1cq" path="res://data/units/missile_launcher.tres" id="6_jnt4j"]
+[ext_resource type="Resource" uid="uid://6cqe7pn2dasa" path="res://data/units/heavy_tank.tres" id="7_myaue"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_ti5y2"]
 device = -1
@@ -17,6 +18,6 @@ script = ExtResource("1_2f3vs")
 input_keyboard = SubResource("InputEventKey_ti5y2")
 building_name = "Tank Factory"
 building_texture = ExtResource("1_ti5y2")
-units = Array[ExtResource("3_xi2ec")]([ExtResource("5_ti5y2"), ExtResource("6_jnt4j")])
+units = Array[ExtResource("3_xi2ec")]([ExtResource("5_0nnes"), ExtResource("6_jnt4j"), ExtResource("7_myaue")])
 button_icon = ExtResource("2_ti5y2")
 metadata/_custom_type_script = "uid://byl1qp26ywmec"
