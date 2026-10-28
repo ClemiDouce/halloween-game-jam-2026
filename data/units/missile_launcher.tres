@@ -29,6 +29,7 @@ texture = Dictionary[int, Texture]({
 })
 input_keyboard = SubResource("InputEventKey_xeb85")
 button_icon = ExtResource("1_36fec")
+ui_description = "Long attack range"
 unit_name = "Missile Launcher"
 health = 10
 damage = 30

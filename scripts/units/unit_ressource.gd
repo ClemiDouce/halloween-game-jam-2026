@@ -12,3 +12,4 @@ class_name UnitResource extends EntityData
 
 # UI
 @export var button_icon: Texture2D
+@export var ui_description: String
