@@ -41,6 +41,9 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 	shape.radius = unit.attack_range
 	team = _team
 	bullet_sprite.texture = unit.bullet_texture
+	
+	if unit.shader:
+		sprite.material = unit.shader
 	move_trail.length = unit.trail_length
 	#move_trail.width = unit.trail_width
 

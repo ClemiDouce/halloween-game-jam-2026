@@ -3,12 +3,18 @@
 [ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="1_3xmfv"]
 [ext_resource type="Texture2D" uid="uid://b0g0fjf825ep4" path="res://assets/art/icons/plane_icon.png" id="1_nw7ag"]
 [ext_resource type="Texture2D" uid="uid://3a2x4g4ebd84" path="res://assets/art/processed_units/plane_blue.png" id="3_1yp75"]
+[ext_resource type="Shader" uid="uid://swy0k5jk6b4" path="res://assets/shader/shadow.gdshader" id="3_gydww"]
 [ext_resource type="Texture2D" uid="uid://dy0d3np7je6mt" path="res://assets/art/processed_units/plane_red.png" id="4_gydww"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_3o67u"]
 device = -1
 keycode = 80
 unicode = 112
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nesqq"]
+shader = ExtResource("3_gydww")
+shader_parameter/r = 0.0
+shader_parameter/offset = 0.6000000285
 
 [resource]
 script = ExtResource("1_3xmfv")
@@ -19,6 +25,7 @@ texture = Dictionary[int, Texture]({
 0: ExtResource("3_1yp75"),
 1: ExtResource("4_gydww")
 })
+shader = SubResource("ShaderMaterial_nesqq")
 input_keyboard = SubResource("InputEventKey_3o67u")
 button_icon = ExtResource("1_nw7ag")
 unit_name = "Plane"

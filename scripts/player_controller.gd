@@ -5,6 +5,9 @@ extends Node
 
 signal building_selected(building: BuildingSlot, pos: Vector2i)
 signal selection_stage_changed(stage: SelectionStage)
+signal building_built(building: Building)
+signal unit_queued(unit: UnitEntity)
+signal action_triggered(action_name: String)
 
 enum SelectionStage { NONE, SELECTING }
 var _selection_stage: SelectionStage = SelectionStage.NONE:
@@ -62,9 +65,11 @@ func _handle_selected_building_slot(event: InputEvent) -> void:
 				and event.echo == false
 			):
 				_selected_building.queue_unit(unit)
+				unit_queued.emit(unit)
 				self._selection_stage = SelectionStage.NONE
 
 		if Input.is_action_just_pressed("destroy_building"):
+			action_triggered.emit("Destroy")
 			_selected_building.destroy()
 			self._selection_stage = SelectionStage.NONE
 		return
@@ -74,6 +79,7 @@ func _handle_selected_building_slot(event: InputEvent) -> void:
 			(building_type.input_keyboard && building_type.input_keyboard.is_match(event))
 			or (building_type.input_gamepad && building_type.input_gamepad.is_match(event))
 		):
+			building_built.emit(building_type)
 			_selected_building.build(building_type)
 			self._selection_stage = SelectionStage.NONE
 			print("Built building at %s" % [_selected_building])

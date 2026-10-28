@@ -9,6 +9,7 @@ class_name UnitResource extends EntityData
 @export var cost: int
 @export var time_to_build: float  # seconds
 @export var texture: Dictionary[CombatData.Team, Texture]
+@export var shader: ShaderMaterial
 @export var input_keyboard: InputEventKey
 
 # UI
