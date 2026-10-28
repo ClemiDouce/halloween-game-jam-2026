@@ -11,11 +11,21 @@
 [ext_resource type="PackedScene" uid="uid://cqmjrfjljj68n" path="res://scenes/ui/hotkey_button.tscn" id="10_grwde"]
 [ext_resource type="Script" uid="uid://dpgwxjpngqqiy" path="res://scripts/ui/selection_info_box.gd" id="10_ne0d2"]
 [ext_resource type="Texture2D" uid="uid://b85hrdxkuub0a" path="res://assets/art/tiles/base/laser.png" id="10_nygv8"]
+[ext_resource type="Texture2D" uid="uid://buk3ugop4ljdx" path="res://assets/art/icons/empty_icon.png" id="10_q4xv5"]
 [ext_resource type="Texture2D" uid="uid://bjnrdffw74akt" path="res://assets/art/tiles/base/building_tile.png" id="11_5836b"]
 [ext_resource type="Texture2D" uid="uid://d4ith88fkqxfp" path="res://assets/art/tiles/base/empty_base.png" id="12_nygv8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjxaj"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ne0d2"]
+texture = ExtResource("10_q4xv5")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nygv8"]
 texture = ExtResource("11_5836b")
@@ -83,6 +93,7 @@ propagate_maximum_size = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_ne0d2")
 script = ExtResource("10_ne0d2")
 label = NodePath("MarginContainer/Label")
 visualizer = NodePath("../../..")
@@ -98,12 +109,13 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Label" type="RichTextLabel" parent="Control/HBoxContainer/PanelContainer/MarginContainer" unique_id=1466668437]
+clip_contents = false
 layout_mode = 2
+theme_override_colors/default_color = Color(0.75686276, 0.8509804, 0.9490196, 1)
 theme_override_font_sizes/normal_font_size = 12
 theme_override_font_sizes/bold_font_size = 12
 theme_override_font_sizes/bold_italics_font_size = 12
 theme_override_font_sizes/italics_font_size = 12
-theme_override_font_sizes/mono_font_size = 12
 bbcode_enabled = true
 text = "--"
 fit_content = true

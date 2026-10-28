@@ -28,7 +28,7 @@ func _show_buildings_hint() -> void:
 		for unit in building.units:
 			unit_names.append(unit.unit_name)
 		
-		label.text += "\n\n[font_size=16][b]%s[/b] - %s[/font_size]\n[i]Produces: %s[/i]" % [
+		label.text += "\n\n[font_size=16][b]%s -[/b] %s[/font_size]\n[i]Produces: %s[/i]" % [
 			building.input_keyboard.as_text_keycode(),
 			building.building_name,
 			" ".join(unit_names)
@@ -38,7 +38,7 @@ func _show_units_hint(building: Building) -> void:
 	label.text = "[font_size=16]%s[/font_size]" % [build_unit_text]
 	
 	for unit in building.units:
-		label.text += "\n\n[font_size=16][b]%s[/b] - %s[/font_size]\n%s" % [
+		label.text += "\n\n[font_size=16][b]%s -[/b] %s[/font_size]\n%s" % [
 			unit.input_keyboard.as_text_keycode(),
 			unit.unit_name,
 			"%s %s" % [
