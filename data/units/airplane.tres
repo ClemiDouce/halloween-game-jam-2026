@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="UnitResource" format=3 uid="uid://sbwwjkh3p6dy"]
+
+[ext_resource type="Texture2D" uid="uid://b0g0fjf825ep4" path="res://assets/art/icons/plane_icon.png" id="1_cn88x"]
+[ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="2_v0ny4"]
+[ext_resource type="Shader" uid="uid://swy0k5jk6b4" path="res://assets/shader/shadow.gdshader" id="3_mp85e"]
+[ext_resource type="Texture2D" uid="uid://3a2x4g4ebd84" path="res://assets/art/processed_units/plane_blue.png" id="4_0q8tt"]
+[ext_resource type="Texture2D" uid="uid://dy0d3np7je6mt" path="res://assets/art/processed_units/plane_red.png" id="5_fsetb"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_3o67u"]
+device = -1
+keycode = 80
+unicode = 112
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nesqq"]
+shader = ExtResource("3_mp85e")
+shader_parameter/r = 0.0
+shader_parameter/offset = 0.6000000285
+
+[resource]
+script = ExtResource("2_v0ny4")
+speed = 150.0
+trail_length = 20
+time_to_build = 3.0
+texture = Dictionary[int, Texture]({
+0: ExtResource("4_0q8tt"),
+1: ExtResource("5_fsetb")
+})
+shader = SubResource("ShaderMaterial_nesqq")
+input_keyboard = SubResource("InputEventKey_3o67u")
+button_icon = ExtResource("1_cn88x")
+unit_name = "Plane"
+health = 5
+damage = 25
+attack_range = 25.0
+rate_of_fire = 1.0
+body_type = 1
+metadata/_custom_type_script = "uid://ctxaornc1ibjt"
