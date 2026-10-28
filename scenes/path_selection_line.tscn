@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://bg7fo8ea46gcr"]
 
-[ext_resource type="Texture2D" uid="uid://bira2ai2dy0pu" path="res://assets/art/path_selection_line.png" id="1_0gros"]
 [ext_resource type="Script" uid="uid://b04kjod8nde5f" path="res://scripts/path_selection_line.gd" id="2_4usqb"]
 
+[sub_resource type="Gradient" id="Gradient_8oej8"]
+colors = PackedColorArray(1, 1, 1, 0.61960787, 1, 1, 1, 0.058333278)
+
 [node name="Line2D" type="Line2D" unique_id=292417664]
-texture = ExtResource("1_0gros")
-texture_mode = 2
+z_index = 1
+width = 25.0
+gradient = SubResource("Gradient_8oej8")
 script = ExtResource("2_4usqb")
 min_max_width = Vector2(25, 30)
 pulse_speed = 0.8

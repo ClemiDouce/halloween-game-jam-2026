@@ -3,10 +3,15 @@
 [ext_resource type="Script" uid="uid://b1ahgx2mjnkd5" path="res://scripts/game_manager.gd" id="1_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://dk1sgrxi5yepn" path="res://scenes/base_view.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cthj6pcpappnu" path="res://scenes/overworld.tscn" id="2_i7141"]
+[ext_resource type="Texture2D" uid="uid://bira2ai2dy0pu" path="res://assets/art/path_selection_line.png" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bg7fo8ea46gcr" path="res://scenes/path_selection_line.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="9_7r4gi"]
 [ext_resource type="Script" uid="uid://cu76jeby58c7o" path="res://scripts/player_controller.gd" id="10_w7kh3"]
 [ext_resource type="Script" uid="uid://ceq4uysn1h6dk" path="res://scripts/foreground_layer.gd" id="15_xo05s"]
+
+[sub_resource type="Gradient" id="Gradient_i7141"]
+offsets = PackedFloat32Array(0, 0.6893204, 1)
+colors = PackedColorArray(0.9019608, 0.9019608, 0.9019608, 1, 0.9019608, 0.9019608, 0.9019608, 0.8666667, 1, 1, 1, 0)
 
 [node name="GameManager" type="Node" unique_id=1617731920]
 script = ExtResource("1_o8fc1")
@@ -40,6 +45,15 @@ script = ExtResource("9_7r4gi")
 script = ExtResource("10_w7kh3")
 controlling_base = NodePath("../BaseManager")
 
+[node name="PathVisualizer" parent="." unique_id=292417664 node_paths=PackedStringArray("base") instance=ExtResource("7_i7141")]
+points = PackedVector2Array(0, 0, 117, -2)
+width = 10.0
+gradient = SubResource("Gradient_i7141")
+texture = ExtResource("7_4mrxx")
+texture_mode = 2
+base = NodePath("../BaseManager")
+min_max_width = Vector2(32, 38)
+
 [node name="ForegroundLayer" type="CanvasLayer" parent="." unique_id=1449940769]
 unique_name_in_owner = true
 script = ExtResource("15_xo05s")
@@ -52,6 +66,3 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-
-[node name="PathVisualizer" parent="." unique_id=292417664 node_paths=PackedStringArray("base") instance=ExtResource("7_i7141")]
-base = NodePath("../BaseManager")
