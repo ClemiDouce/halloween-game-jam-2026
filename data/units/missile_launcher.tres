@@ -22,6 +22,7 @@ region = Rect2(0, 0, 16, 16)
 [resource]
 script = ExtResource("1_3e65l")
 speed = 20.0
+trail_length = 40
 cost = 100
 texture = Dictionary[int, Texture]({
 0: SubResource("AtlasTexture_dvkc8"),

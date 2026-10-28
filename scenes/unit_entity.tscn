@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bybp5w4ae511b"]
 
 [ext_resource type="Script" uid="uid://dnq0x8ta4eayy" path="res://scripts/units/unit_entity.gd" id="1_oir76"]
-[ext_resource type="Texture2D" uid="uid://d12qvn8l0n47v" path="res://assets/art/processed_units/hover_tank_red.png" id="2_gnti6"]
+[ext_resource type="Texture2D" uid="uid://bi6uc33hfi1mt" path="res://assets/art/units/plane.png" id="2_gnti6"]
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="3_0uryg"]
 [ext_resource type="Script" uid="uid://th76u6xf6i43" path="res://scripts/component/trail2d.gd" id="3_m0sb2"]
 [ext_resource type="Script" uid="uid://crsfuur24ulp1" path="res://scripts/component/squish_component.gd" id="6_5q6hg"]
@@ -9,13 +9,13 @@
 [ext_resource type="Script" uid="uid://dlo6w10dedy5" path="res://scripts/bullet_animation.gd" id="7_5q6hg"]
 [ext_resource type="Texture2D" uid="uid://b8dgiga47nslb" path="res://assets/art/bullets/bullet_0003.png" id="7_gnti6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lsky2"]
-atlas = ExtResource("2_gnti6")
-region = Rect2(0, 0, 16, 16)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_n45qs"]
 resource_local_to_scene = true
 radius = 25.0
+
+[sub_resource type="Curve" id="Curve_gnti6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99135447, 0.029411793), -2.0174403, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Animation" id="Animation_gnti6"]
 length = 0.001
@@ -90,7 +90,7 @@ unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Root" unique_id=1701573652]
 unique_name_in_owner = true
-texture = SubResource("AtlasTexture_lsky2")
+texture = ExtResource("2_gnti6")
 
 [node name="Hitbox" parent="." unique_id=957708440 node_paths=PackedStringArray("sprite") instance=ExtResource("3_0uryg")]
 unique_name_in_owner = true
@@ -108,11 +108,12 @@ debug_color = Color(0.90472734, 0.2984467, 0.1780119, 0.41960785)
 
 [node name="MoveTrail" type="Line2D" parent="." unique_id=1460968029]
 show_behind_parent = true
-points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-width = 6.0
-default_color = Color(0, 0, 0, 0.7647059)
+z_index = -1
+points = PackedVector2Array(87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0)
+width = 5.0
+width_curve = SubResource("Curve_gnti6")
 script = ExtResource("3_m0sb2")
-length = 15
+length = 20
 metadata/_custom_type_script = "uid://th76u6xf6i43"
 
 [node name="FlashComponent" type="Node" parent="." unique_id=1678577812 node_paths=PackedStringArray("sprite")]

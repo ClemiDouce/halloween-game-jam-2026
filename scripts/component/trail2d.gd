@@ -1,3 +1,4 @@
+@tool
 class_name Trail2D extends Line2D
 
 @export_category('Trail')
@@ -5,7 +6,7 @@ class_name Trail2D extends Line2D
 
 @onready var parent : Node2D = get_parent()
 var offset : = Vector2.ZERO
-var active := false
+var active := true
 
 func _ready() -> void:
 	offset = position

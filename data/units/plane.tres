@@ -13,6 +13,7 @@ unicode = 112
 [resource]
 script = ExtResource("1_3xmfv")
 speed = 150.0
+trail_length = 20
 texture = Dictionary[int, Texture]({
 0: ExtResource("3_1yp75"),
 1: ExtResource("4_gydww")

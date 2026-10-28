@@ -41,6 +41,8 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 	shape.radius = unit.attack_range
 	team = _team
 	bullet_sprite.texture = unit.bullet_texture
+	move_trail.length = unit.trail_length
+	#move_trail.width = unit.trail_width
 
 	if _team in unit.texture:
 		if unit.texture[_team] is AtlasTexture:
@@ -67,6 +69,7 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 		randi_range(-10, 10),
 		randi_range(-10, 10)
 	)
+	move_trail.offset = root.position
 	var pop_tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	pop_tween.tween_property(root, "scale", Vector2(1.3,1.3), 0.2).from(Vector2(0.6, 0.4))
 	pop_tween.tween_property(root, "scale", Vector2.ONE, 0.1)

@@ -2,6 +2,7 @@ class_name UnitResource extends EntityData
 
 # Unit Stats
 @export var speed: float
+@export var trail_length : int
 
 # Construction
 @export_subgroup("Construction")
