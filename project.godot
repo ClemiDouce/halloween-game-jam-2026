@@ -13,7 +13,7 @@ config_version=5
 config/name="HalloweenGameJam2026"
 run/main_scene="uid://cs30anugoy8la"
 config/features=PackedStringArray("4.7")
-config/icon="res://icon.svg"
+config/icon="uid://mmxxx17hdkwb"
 
 [display]
 

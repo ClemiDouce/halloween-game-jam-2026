@@ -16,7 +16,8 @@ var team : CombatData.Team
 static var _buildings: Array[Building] = [
 	preload("res://data/buildings/tank_factory.tres"),
 	preload("res://data/buildings/infantry_barracks.tres"),
-	preload("res://data/buildings/airport.tres")
+	preload("res://data/buildings/airport.tres"),
+	preload("res://data/buildings/requisition_center.tres")
 ]
 
 var paths: Array[UnitPath]

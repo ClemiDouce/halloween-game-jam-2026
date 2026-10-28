@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://8nn4arjh58w2"]
+
+[ext_resource type="Texture2D" uid="uid://bpiph1hf5wb1y" path="res://assets/art/buildings/requisition_center.png" id="1_w7xs7"]
+[ext_resource type="Texture2D" uid="uid://2kqhgxxofrxl" path="res://assets/art/icons/requisition_center_icon.png" id="2_1xrlo"]
+[ext_resource type="Script" uid="uid://byl1qp26ywmec" path="res://scripts/data/building.gd" id="3_h702n"]
+[ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="4_x1jt8"]
+[ext_resource type="Resource" uid="uid://kablufsx8dxc" path="res://data/units/gatherer.tres" id="5_62qcr"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_do2oa"]
+device = -1
+keycode = 82
+unicode = 114
+
+[resource]
+script = ExtResource("3_h702n")
+input_keyboard = SubResource("InputEventKey_do2oa")
+building_name = "Requisition Center"
+building_texture = ExtResource("1_w7xs7")
+units = Array[ExtResource("4_x1jt8")]([ExtResource("5_62qcr")])
+button_icon = ExtResource("2_1xrlo")
+metadata/_custom_type_script = "uid://byl1qp26ywmec"
