@@ -32,6 +32,8 @@ var _y_axis_sprites: Array[Sprite2D] = []
 
 var _building_sprites: Array[Sprite2D] = []
 var _cursor: Sprite2D = null
+var _selected_sprite: Sprite2D = null
+var _building_scale: Vector2
 var _hotkey_buttons: Array[HotkeyButton] = []
 
 # Tweens
@@ -55,6 +57,7 @@ func _ready() -> void:
 			sprite.name = "Building (%d, %d)" % [x, y]
 			sprite.texture = empty_building_slot_texture
 			sprite.scale = base_tilemap.scale
+			_building_scale = sprite.scale
 			sprite.offset.y = -16
 			sprite.z_index = 32
 			sprite.position = _get_building_slot_pos(x, y)
@@ -76,6 +79,10 @@ func _ready() -> void:
 		for button in _hotkey_buttons:
 			if button.assigned_data == unit:
 				button.create_ghost()
+				
+				var tween = create_tween()
+				tween.tween_property(_selected_sprite, "scale", _building_scale * 1.05, 0.125/2.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+				tween.tween_property(_selected_sprite, "scale", _building_scale, 0.125/2.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 				break
 	)
 	player.action_triggered.connect(func(action_name: String):
@@ -125,6 +132,7 @@ func _on_building_selected(_slot: BuildingSlot, grid_pos: Vector2i) -> void:
 	else:
 		_cursor.position = _get_building_slot_pos(grid_pos.x, grid_pos.y)
 		_cursor.show()
+	_selected_sprite = _get_sprite_from_grid_pos(grid_pos.x, grid_pos.y)
 	building_selected.emit(_slot._building)
 	
 	_update_hotkey_buttons(_slot)
