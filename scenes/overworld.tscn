@@ -4,7 +4,6 @@
 [ext_resource type="TileSet" uid="uid://dgkd3tgj3kq0m" path="res://data/tileset.tres" id="2_qjxaj"]
 [ext_resource type="PackedScene" uid="uid://sowlhrxuy5vt" path="res://scenes/base_entity.tscn" id="5_dbwep"]
 [ext_resource type="Script" uid="uid://dlpfa2ms4acpk" path="res://scripts/data/base_data.gd" id="6_fuc0k"]
-[ext_resource type="Script" uid="uid://dg0e1uqw3m52s" path="res://scripts/path/paths_manager.gd" id="7_rep30"]
 [ext_resource type="Script" uid="uid://b53fi0c8w7xjc" path="res://scripts/path/unit_path.gd" id="8_pss1p"]
 [ext_resource type="Texture2D" uid="uid://cymqvgc48ra4m" path="res://assets/art/placeholder/select_arrow.png" id="9_ha27p"]
 [ext_resource type="Script" uid="uid://civsi113hopgn" path="res://scripts/ui/path_cursor.gd" id="10_2jxyl"]
@@ -49,7 +48,6 @@ position = Vector2(192, 320)
 zoom = Vector2(1.67, 1.68)
 
 [node name="Paths" type="Node" parent="." unique_id=222879424]
-script = ExtResource("7_rep30")
 
 [node name="UnitPath" type="Node" parent="Paths" unique_id=506109201 node_paths=PackedStringArray("point_list")]
 script = ExtResource("8_pss1p")

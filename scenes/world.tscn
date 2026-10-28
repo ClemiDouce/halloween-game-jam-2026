@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1ahgx2mjnkd5" path="res://scripts/game_manager.gd" id="1_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://dk1sgrxi5yepn" path="res://scenes/base_view.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cthj6pcpappnu" path="res://scenes/overworld.tscn" id="2_i7141"]
+[ext_resource type="PackedScene" uid="uid://bg7fo8ea46gcr" path="res://scenes/path_selection_line.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="9_7r4gi"]
 [ext_resource type="Script" uid="uid://cu76jeby58c7o" path="res://scripts/player_controller.gd" id="10_w7kh3"]
 [ext_resource type="Script" uid="uid://ceq4uysn1h6dk" path="res://scripts/foreground_layer.gd" id="15_xo05s"]
@@ -51,3 +52,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[node name="PathVisualizer" parent="." unique_id=292417664 node_paths=PackedStringArray("base") instance=ExtResource("7_i7141")]
+base = NodePath("../BaseManager")

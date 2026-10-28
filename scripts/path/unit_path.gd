@@ -22,3 +22,8 @@ func get_start_position():
 
 func get_end_position():
 	return point_list[end_index].global_position
+
+func create_line_visualiser():
+	var line = Line2D.new()
+	line.default_color
+	add_child(line)

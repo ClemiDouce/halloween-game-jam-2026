@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bg7fo8ea46gcr"]
+
+[ext_resource type="Texture2D" uid="uid://bira2ai2dy0pu" path="res://assets/art/path_selection_line.png" id="1_0gros"]
+[ext_resource type="Script" uid="uid://b04kjod8nde5f" path="res://scripts/path_selection_line.gd" id="2_4usqb"]
+
+[node name="Line2D" type="Line2D" unique_id=292417664]
+texture = ExtResource("1_0gros")
+texture_mode = 2
+script = ExtResource("2_4usqb")
+min_max_width = Vector2(25, 30)
+pulse_speed = 0.8
