@@ -133,8 +133,13 @@ func _on_building_selected(_slot: BuildingSlot, grid_pos: Vector2i) -> void:
 func _on_slot_updated(slot: BuildingSlot) -> void:
 	var slot_pos = _get_base().get_grid_pos(slot)
 	var sprite = _get_sprite_from_grid_pos(slot_pos.x, slot_pos.y)
-	if slot.has_building():
+	if slot.has_building() and sprite.texture != slot.get_texture():
+		var original_scale = sprite.scale
+		sprite.scale = Vector2(0,0)
 		sprite.texture = slot.get_texture()
+		var tween = create_tween()
+		tween.tween_property(sprite, "scale", original_scale + Vector2(0.1,0.1), 0.125).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		tween.tween_property(sprite, "scale", original_scale, 0.125/2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	else:
 		sprite.texture = empty_building_slot_texture
 
