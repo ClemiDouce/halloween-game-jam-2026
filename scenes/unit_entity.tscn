@@ -109,7 +109,6 @@ debug_color = Color(0.90472734, 0.2984467, 0.1780119, 0.41960785)
 [node name="MoveTrail" type="Line2D" parent="." unique_id=1460968029]
 show_behind_parent = true
 z_index = -1
-points = PackedVector2Array(87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0, 87, 0)
 width = 5.0
 width_curve = SubResource("Curve_gnti6")
 script = ExtResource("3_m0sb2")

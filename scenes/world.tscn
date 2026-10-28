@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1ahgx2mjnkd5" path="res://scripts/game_manager.gd" id="1_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://dk1sgrxi5yepn" path="res://scenes/base_view.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cthj6pcpappnu" path="res://scenes/overworld.tscn" id="2_i7141"]
+[ext_resource type="PackedScene" uid="uid://bfhkwvoxpdo70" path="res://trash/card_test/card_test.tscn" id="4_7r4gi"]
 [ext_resource type="Texture2D" uid="uid://bira2ai2dy0pu" path="res://assets/art/path_selection_line.png" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bg7fo8ea46gcr" path="res://scenes/path_selection_line.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="9_7r4gi"]
@@ -25,6 +26,23 @@ unique_name_in_owner = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 player = NodePath("../../PlayerController")
+
+[node name="QueueVisualizer" type="Control" parent="BaseView" unique_id=177549027]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QueueCardManager" parent="BaseView/QueueVisualizer" unique_id=1197703756 node_paths=PackedStringArray("base_manager") instance=ExtResource("4_7r4gi")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+offset_left = 640.0
+offset_top = -212.0
+grow_vertical = 0
+base_manager = NodePath("../../../BaseManager")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=869438757]
 layer = -64

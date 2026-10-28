@@ -3,6 +3,7 @@ extends Object
 
 var path: UnitPath
 
+signal unit_queued(type: UnitResource)
 signal unit_ready(type: UnitResource, path: UnitPath)
 
 var queue_list : Array[QueueItem]
@@ -13,6 +14,7 @@ func add_to_queue(type: UnitResource):
 	new_item.unit = type
 	new_item.path = path
 	new_item.time_left = type.time_to_build
+	unit_queued.emit(type)
 	queue_list.append(new_item)
 
 func _process(delta: float):

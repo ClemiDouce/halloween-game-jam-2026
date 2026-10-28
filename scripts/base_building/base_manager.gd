@@ -34,14 +34,15 @@ var _selected_path: UnitPath:
 		return _selected_path
 
 func _ready() -> void:
-	self.unit_queue.unit_ready.connect(func(unit_type, path):
-		var unit = UNIT_ENTITY.instantiate() as UnitEntity
-		entity_parent.add_child.call_deferred(unit)
-		await unit.ready
-		unit.set_unit(unit_type, path, team)
-	)
+	self.unit_queue.unit_ready.connect(generate_unit)
 	
 	_generate_building_slots()
+
+func generate_unit(unit_type, path):
+	var unit = UNIT_ENTITY.instantiate() as UnitEntity
+	entity_parent.add_child.call_deferred(unit)
+	await unit.ready
+	unit.set_unit(unit_type, path, team)
 
 func connect_to_level(level_paths: Array[UnitPath], level_entity_parent: Node2D):
 	paths = level_paths
