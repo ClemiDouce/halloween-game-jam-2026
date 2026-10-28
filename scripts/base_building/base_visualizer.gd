@@ -34,6 +34,9 @@ var _building_sprites: Array[Sprite2D] = []
 var _cursor: Sprite2D = null
 var _hotkey_buttons: Array[HotkeyButton] = []
 
+# Tweens
+var _cursor_tween: Tween
+
 func _get_base() -> BaseManager:
 	return player.controlling_base
 
@@ -63,6 +66,24 @@ func _ready() -> void:
 	_get_base().slot_updated.connect(_on_slot_updated)
 	player.building_selected.connect(_on_building_selected)
 	player.selection_stage_changed.connect(_on_selection_stage_changed)
+	player.building_built.connect(func(building: Building):
+		for button in _hotkey_buttons:
+			if button.assigned_data == building:
+				button.create_ghost()
+				break
+	)
+	player.unit_queued.connect(func(unit: UnitResource):
+		for button in _hotkey_buttons:
+			if button.assigned_data == unit:
+				button.create_ghost()
+				break
+	)
+	player.action_triggered.connect(func(action_name: String):
+		for button in _hotkey_buttons:
+			if button.assigned_data is String and button.assigned_data == action_name:
+				button.create_ghost()
+				break
+	)
 
 
 func _on_selection_stage_changed(stage: PlayerController.SelectionStage) -> void:
@@ -88,8 +109,22 @@ func _on_selection_stage_changed(stage: PlayerController.SelectionStage) -> void
 
 func _on_building_selected(_slot: BuildingSlot, grid_pos: Vector2i) -> void:
 	print("Selected %s" % [grid_pos])
-	_cursor.position = _get_building_slot_pos(grid_pos.x, grid_pos.y)
-	_cursor.show()
+	if _cursor_tween:
+		_cursor_tween.kill()
+	
+	if _cursor.visible:
+		_cursor_tween = create_tween()
+		_cursor_tween.tween_property(
+			_cursor,
+			"position",
+			_get_building_slot_pos(grid_pos.x, grid_pos.y),
+			0.125
+		).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		_cursor_tween.parallel().tween_property(_cursor, "scale", Vector2(0.5, 0.5), 0.125/2.).set_ease(Tween.EASE_OUT)
+		_cursor_tween.tween_property(_cursor, "scale", Vector2(1., 1.), 0.125/2.).set_trans(Tween.TRANS_BOUNCE)
+	else:
+		_cursor.position = _get_building_slot_pos(grid_pos.x, grid_pos.y)
+		_cursor.show()
 	building_selected.emit(_slot._building)
 	
 	_update_hotkey_buttons(_slot)
