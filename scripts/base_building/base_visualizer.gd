@@ -2,6 +2,8 @@
 class_name BaseVisualizer
 extends Node
 
+signal building_selected(building: Building)
+
 const BUILDING_TILE_WIDTH = 64
 const BUILDING_TILE_HEIGHT = 16
 
@@ -88,6 +90,7 @@ func _on_building_selected(_slot: BuildingSlot, grid_pos: Vector2i) -> void:
 	print("Selected %s" % [grid_pos])
 	_cursor.position = _get_building_slot_pos(grid_pos.x, grid_pos.y)
 	_cursor.show()
+	building_selected.emit(_slot._building)
 	
 	_update_hotkey_buttons(_slot)
 
@@ -102,6 +105,7 @@ func _on_slot_updated(slot: BuildingSlot) -> void:
 
 	if player.get_selected() == slot:
 		_update_hotkey_buttons(slot)
+		building_selected.emit(slot._building)
 
 
 func _get_building_slot_pos(grid_x: float, grid_y: float) -> Vector2:
