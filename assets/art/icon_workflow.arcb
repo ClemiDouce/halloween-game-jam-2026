@@ -1,17 +1,17 @@
 {
   "ai_spend": {
     "generation_count": 0,
-    "last_updated": "2026-10-27T13:59:36Z",
+    "last_updated": "2026-10-28T20:04:49Z",
     "total_credits": 0.0,
     "total_usd": 0.0
   },
   "app_version": "1.7.1",
   "autosave_id": "yy9lns27",
   "canvas": {
-    "pan_x": 172.04132080078125,
-    "pan_y": 576.3804931640625,
+    "pan_x": -555.642333984375,
+    "pan_y": 431.9449462890625,
     "ui_scale": 1.0,
-    "zoom": 0.2896641790866852
+    "zoom": 0.513157844543457
   },
   "color_tag": {
     "authored_mode": "32bit",
@@ -95,13 +95,6 @@
       "id": 127,
       "to_node": 71,
       "to_pin": 72
-    },
-    {
-      "from_node": 98,
-      "from_pin": 99,
-      "id": 132,
-      "to_node": 128,
-      "to_pin": 129
     },
     {
       "from_node": 128,
@@ -228,9 +221,30 @@
       "id": 318,
       "to_node": 312,
       "to_pin": 313
+    },
+    {
+      "from_node": 319,
+      "from_pin": 322,
+      "id": 323,
+      "to_node": 128,
+      "to_pin": 129
+    },
+    {
+      "from_node": 306,
+      "from_pin": 308,
+      "id": 328,
+      "to_node": 325,
+      "to_pin": 326
+    },
+    {
+      "from_node": 325,
+      "from_pin": 327,
+      "id": 330,
+      "to_node": 319,
+      "to_pin": 320
     }
   ],
-  "created": "2026-10-27T13:59:36Z",
+  "created": "2026-10-28T20:04:49Z",
   "current_brush": {
     "color": [
       0.0,
@@ -323,7 +337,7 @@
     "Chroma Key": 2,
     "Collect": 3,
     "Color Remap": 3,
-    "Crop": 2,
+    "Crop": 3,
     "Despill": 2,
     "Dither": 2,
     "Drop Shadow": 2,
@@ -343,6 +357,7 @@
     "Palette Remap": 10,
     "Quantize": 2,
     "Resize": 3,
+    "Split": 2,
     "Tag": 5,
     "Trim": 2,
     "Trim Sheet": 2,
@@ -402,9 +417,9 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 2672800747170796065,
+          "content_fp": 12456364497925639033,
           "input_fps": {},
-          "output_fp": 15608344204148580049,
+          "output_fp": 17185825654044685180,
           "params_fp": 9096523757111745182
         },
         "exif_orientation": true,
@@ -453,11 +468,11 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 7274409296637882255,
+          "content_fp": 6658689726085752751,
           "input_fps": {
-            "input:image": 2672800747170796065
+            "input:image": 12456364497925639033
           },
-          "output_fp": 1417995678723593807,
+          "output_fp": 16444136635892894096,
           "params_fp": 6567872608784797874
         },
         "filter": 0,
@@ -511,12 +526,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 6653939124752109726,
+          "content_fp": 6873424373829287879,
           "input_fps": {
-            "array:image/1": 10861141802101840494,
+            "array:image/1": 14105926090180933726,
             "array:image/2": 6415881008966841623
           },
-          "output_fp": 1377182887780496976,
+          "output_fp": 17539254278254434839,
           "params_fp": 1145826604701944425
         },
         "layers": [
@@ -569,19 +584,19 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 6680836213148830800,
+          "content_fp": 6702464606769009712,
           "input_fps": {
-            "input:image": 124857064201217512,
+            "input:image": 47513218874053613,
             "input:size_ref": 6415881008966841623
           },
-          "output_fp": 1052745008761324408,
-          "params_fp": 16075434531687552448
+          "output_fp": 11345532013676699208,
+          "params_fp": 6483267262004574731
         },
         "anchor": 4,
-        "fill_a": 0,
-        "fill_b": 0,
-        "fill_g": 0,
-        "fill_r": 0,
+        "fill_a": 0.0,
+        "fill_b": 0.0,
+        "fill_g": 0.0,
+        "fill_r": 0.0,
         "mask_fill": 0,
         "mode": 0,
         "out_h": 512,
@@ -621,11 +636,11 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 10861141802101840494,
+          "content_fp": 14105926090180933726,
           "input_fps": {
-            "input:image": 9474692701422224144
+            "input:image": 5374859887786161214
           },
-          "output_fp": 2755393700751569423,
+          "output_fp": 9508400245704434981,
           "params_fp": 5073558225027826191
         },
         "color_a": 1.0,
@@ -667,11 +682,11 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 124857064201217512,
+          "content_fp": 47513218874053613,
           "input_fps": {
-            "input:image": 7274409296637882255
+            "input:image": 6658689726085752751
           },
-          "output_fp": 12291271656522697419,
+          "output_fp": 13986994253433090904,
           "params_fp": 7769655208606650023
         },
         "mode": 0,
@@ -699,16 +714,16 @@
       "label": "",
       "output_pins": [],
       "params": {
-        "_export_ok_msg": "3 frames exported to icons (40 ms)",
-        "_export_output_fp": 1377182887780496976,
-        "_export_paths_fp": 3621022401614682935,
+        "_export_ok_msg": "10 frames exported to icons (113 ms)",
+        "_export_output_fp": 17539254278254434839,
+        "_export_paths_fp": 13083946251042784107,
         "_fp_state": {
-          "content_fp": 6653939124752109726,
+          "content_fp": 6873424373829287879,
           "input_fps": {
-            "input:batch": 6653939124752109726
+            "input:batch": 6873424373829287879
           },
-          "output_fp": 1377182887780496976,
-          "params_fp": 15411675293994170397
+          "output_fp": 17539254278254434839,
+          "params_fp": 5938694656321096504
         },
         "embed_recipe": false,
         "export_color_intent": -1,
@@ -716,19 +731,19 @@
         "filename_template": "{name}_icon",
         "format": 0,
         "hd_output_cs": "",
-        "matte_b": 255,
-        "matte_g": 255,
-        "matte_r": 255,
+        "matte_b": 1.0,
+        "matte_g": 1.0,
+        "matte_r": 1.0,
         "output_channels": 0,
         "output_dir": "~/Projects/halloween-game-jam-2026/assets/art/icons",
         "output_grayscale_from": 0,
         "png_compress": 6,
         "private_paths": true,
         "quality": 90,
-        "sheet_bg_a": 0,
-        "sheet_bg_b": 0,
-        "sheet_bg_g": 0,
-        "sheet_bg_r": 0,
+        "sheet_bg_a": 0.0,
+        "sheet_bg_b": 0.0,
+        "sheet_bg_g": 0.0,
+        "sheet_bg_r": 0.0,
         "sheet_border_padding": 0,
         "sheet_columns": 4,
         "sheet_extrude": 1,
@@ -768,9 +783,9 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 9407016988820615202,
+          "content_fp": 15959410148831581742,
           "input_fps": {},
-          "output_fp": 14282327666759873774,
+          "output_fp": 14674752848553125449,
           "params_fp": 3962301082518157995
         },
         "exif_orientation": true,
@@ -819,16 +834,16 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 1269874933828641533,
+          "content_fp": 1289484708427486008,
           "input_fps": {
-            "input:image": 13221651991169814361,
+            "input:image": 13202969697102896858,
             "input:size_ref": 6415881008966841623
           },
-          "output_fp": 1269874933828641533,
-          "params_fp": 18129138821646727338
+          "output_fp": 7462312357375255054,
+          "params_fp": 6523853223760739701
         },
         "filter": 0,
-        "fit_mode": 0,
+        "fit_mode": 1,
         "lock_scale": true,
         "match_axis": 0,
         "out_h": 1024,
@@ -838,8 +853,8 @@
         "scale_y": 175.0
       },
       "position": {
-        "x": 245.0,
-        "y": -514.0001220703125
+        "x": 405.09796142578125,
+        "y": -243.43431091308594
       },
       "suffix_index": 2,
       "type": "RESIZE",
@@ -878,12 +893,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 9474692701422224144,
+          "content_fp": 5374859887786161214,
           "input_fps": {
-            "array:image/1": 1269874933828641533,
-            "array:image/2": 6680836213148830800
+            "array:image/1": 1289484708427486008,
+            "array:image/2": 6702464606769009712
           },
-          "output_fp": 4021130630471688030,
+          "output_fp": 12773076313423362107,
           "params_fp": 16455854924830336094
         },
         "frames": [
@@ -935,18 +950,18 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 13221651991169814361,
+          "content_fp": 13202969697102896858,
           "input_fps": {
-            "input:image": 9407016988820615202
+            "input:image": 16723554925143298216
           },
-          "output_fp": 13221651991169814361,
-          "params_fp": 13920354501389922425
+          "output_fp": 17660973083896580235,
+          "params_fp": 12621721093172061182
         },
         "anchor": 4,
-        "fill_a": 0,
-        "fill_b": 0,
-        "fill_g": 0,
-        "fill_r": 0,
+        "fill_a": 0.0,
+        "fill_b": 0.0,
+        "fill_g": 0.0,
+        "fill_r": 0.0,
         "mask_fill": 0,
         "mode": 0,
         "out_h": 512,
@@ -961,8 +976,8 @@
         "uniform": true
       },
       "position": {
-        "x": -70.0,
-        "y": -539.0001220703125
+        "x": 48.45905303955078,
+        "y": -274.1310119628906
       },
       "suffix_index": 2,
       "type": "PAD",
@@ -1001,12 +1016,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 14417265733922591372,
+          "content_fp": 12905775709115343818,
           "input_fps": {
-            "input:image": 9407016988820615202,
+            "input:image": 15959410148831581742,
             "input:palette": 13904891611088952769
           },
-          "output_fp": 8281901841653770989,
+          "output_fp": 2398432238047562546,
           "params_fp": 12003003983309394536
         },
         "feather": 1.0,
@@ -1136,12 +1151,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 14978743301173725525,
+          "content_fp": 12887035560336432220,
           "input_fps": {
-            "input:image": 14417265733922591372,
+            "input:image": 12905775709115343818,
             "input:palette": 15363911679696917888
           },
-          "output_fp": 14702735044704479802,
+          "output_fp": 13577582720323912577,
           "params_fp": 1138748098291312585
         },
         "feather": 1.0,
@@ -1233,12 +1248,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 7198458737849945690,
+          "content_fp": 17340138166537916232,
           "input_fps": {
-            "input:image": 14978743301173725525,
+            "input:image": 12887035560336432220,
             "input:palette": 4635285344895918689
           },
-          "output_fp": 9274685914376994211,
+          "output_fp": 5948031687129796799,
           "params_fp": 7995981797878826821
         },
         "feather": 1.0,
@@ -1330,12 +1345,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 7947184617395484674,
+          "content_fp": 15297437277234898075,
           "input_fps": {
-            "input:image": 7198458737849945690,
+            "input:image": 17340138166537916232,
             "input:palette": 4635285344895918689
           },
-          "output_fp": 7898106826382394280,
+          "output_fp": 180147727723882327,
           "params_fp": 8189768992607489836
         },
         "feather": 1.0,
@@ -1389,12 +1404,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 1236034637287929012,
+          "content_fp": 5547329067615241815,
           "input_fps": {
-            "input:image": 7947184617395484674,
+            "input:image": 15297437277234898075,
             "input:palette": 11601281576065360049
           },
-          "output_fp": 8153108104794601943,
+          "output_fp": 3704964923764043673,
           "params_fp": 8334318687822638035
         },
         "feather": 1.0,
@@ -1436,17 +1451,17 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 13630553266692555907,
+          "content_fp": 17096844876847817172,
           "input_fps": {
-            "input:image": 6169396457952928297
+            "input:image": 10827947120445860566
           },
-          "output_fp": 15903958666702790868,
-          "params_fp": 7533969526336023370
+          "output_fp": 537545150358454145,
+          "params_fp": 12803453629434488632
         },
-        "color_a": 255,
-        "color_b": 0,
-        "color_g": 0,
-        "color_r": 0,
+        "color_a": 1.0,
+        "color_b": 0.0,
+        "color_g": 0.0,
+        "color_r": 0.0,
         "only_outline": false,
         "position": 2,
         "smoothing": 0,
@@ -1494,12 +1509,12 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 6169396457952928297,
+          "content_fp": 10827947120445860566,
           "input_fps": {
-            "array:image/1": 9407016988820615202,
-            "array:image/2": 1236034637287929012
+            "array:image/1": 15959410148831581742,
+            "array:image/2": 5547329067615241815
           },
-          "output_fp": 7923434093950710638,
+          "output_fp": 11818472929399201013,
           "params_fp": 14233343741882769394
         },
         "frames": [
@@ -1537,16 +1552,16 @@
       "label": "",
       "output_pins": [],
       "params": {
-        "_export_ok_msg": "2 frames exported to processed_units (63 ms)",
-        "_export_output_fp": 15903958666702790868,
-        "_export_paths_fp": 11354133288309404746,
+        "_export_ok_msg": "16 frames exported to processed_units (173 ms)",
+        "_export_output_fp": 537545150358454145,
+        "_export_paths_fp": 1460533605362297837,
         "_fp_state": {
-          "content_fp": 13630553266692555907,
+          "content_fp": 17096844876847817172,
           "input_fps": {
-            "input:batch": 13630553266692555907
+            "input:batch": 17096844876847817172
           },
-          "output_fp": 15903958666702790868,
-          "params_fp": 10219483724912866070
+          "output_fp": 537545150358454145,
+          "params_fp": 16519742160842816556
         },
         "embed_recipe": false,
         "export_color_intent": -1,
@@ -1554,19 +1569,19 @@
         "filename_template": "{name}_{tag:team}",
         "format": 0,
         "hd_output_cs": "",
-        "matte_b": 255,
-        "matte_g": 255,
-        "matte_r": 255,
+        "matte_b": 1.0,
+        "matte_g": 1.0,
+        "matte_r": 1.0,
         "output_channels": 0,
         "output_dir": "~/Projects/halloween-game-jam-2026/assets/art/processed_units",
         "output_grayscale_from": 0,
         "png_compress": 6,
         "private_paths": true,
         "quality": 90,
-        "sheet_bg_a": 0,
-        "sheet_bg_b": 0,
-        "sheet_bg_g": 0,
-        "sheet_bg_r": 0,
+        "sheet_bg_a": 0.0,
+        "sheet_bg_b": 0.0,
+        "sheet_bg_g": 0.0,
+        "sheet_bg_r": 0.0,
         "sheet_border_padding": 0,
         "sheet_columns": 2,
         "sheet_extrude": 1,
@@ -1613,11 +1628,11 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 9407016988820615202,
+          "content_fp": 15959410148831581742,
           "input_fps": {
-            "input:input": 9407016988820615202
+            "input:input": 15959410148831581742
           },
-          "output_fp": 14282327666759873774,
+          "output_fp": 14674752848553125449,
           "params_fp": 10611482578481914574
         },
         "overrides": {},
@@ -1669,11 +1684,11 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 9407016988820615202,
+          "content_fp": 15959410148831581742,
           "input_fps": {
-            "input:input": 9407016988820615202
+            "input:input": 15959410148831581742
           },
-          "output_fp": 14282327666759873774,
+          "output_fp": 14674752848553125449,
           "params_fp": 3044744103182561092
         },
         "overrides": {},
@@ -1725,11 +1740,11 @@
       ],
       "params": {
         "_fp_state": {
-          "content_fp": 1236034637287929012,
+          "content_fp": 5547329067615241815,
           "input_fps": {
-            "input:input": 1236034637287929012
+            "input:input": 5547329067615241815
           },
-          "output_fp": 13707562784794052912,
+          "output_fp": 4526006018633218571,
           "params_fp": 18376912760423885874
         },
         "overrides": {},
@@ -1759,6 +1774,152 @@
       "suffix_index": 4,
       "type": "TAG",
       "uuid": "xt5youp9"
+    },
+    {
+      "id": 319,
+      "input_pins": [
+        {
+          "id": 320,
+          "name": "image",
+          "required": true,
+          "type": "surface"
+        },
+        {
+          "id": 321,
+          "name": "size_ref",
+          "required": false,
+          "type": "SIZE_REF"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 322,
+          "name": "image",
+          "required": false,
+          "type": "surface"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 16723554925143298216,
+          "input_fps": {
+            "input:image": 15959410148831581742
+          },
+          "output_fp": 14973468941097824400,
+          "params_fp": 567694593520482393
+        },
+        "bottom": 0,
+        "crop_mode": 1,
+        "left": 0,
+        "placement_enabled": true,
+        "placement_x_pct": 0.0,
+        "placement_y_pct": 0.0,
+        "right": 0,
+        "target_height": 16,
+        "target_width": 16,
+        "top": 0
+      },
+      "position": {
+        "x": -239.9999237060547,
+        "y": -274.1310119628906
+      },
+      "suffix_index": 2,
+      "type": "CROP",
+      "uuid": "yitp3vee"
+    },
+    {
+      "id": 325,
+      "input_pins": [
+        {
+          "id": 326,
+          "name": "batch",
+          "required": true,
+          "type": "BATCH"
+        }
+      ],
+      "label": "",
+      "output_pins": [
+        {
+          "id": 329,
+          "name": "pick:name:base",
+          "required": false,
+          "type": "IMAGE"
+        },
+        {
+          "id": 327,
+          "name": "rest",
+          "required": false,
+          "type": "BATCH"
+        }
+      ],
+      "params": {
+        "_fp_state": {
+          "content_fp": 15959410148831581742,
+          "input_fps": {
+            "input:batch": 15959410148831581742
+          },
+          "output_fp": 14674752848553125449,
+          "params_fp": 9938052983948536620
+        },
+        "count": 0,
+        "last_frame_count": 8,
+        "n_outputs_chunks": 4,
+        "n_outputs_individual": 0,
+        "offset": 0,
+        "pattern": "*",
+        "pick": [
+          {
+            "key": "name:base",
+            "name": "base",
+            "picked": true
+          },
+          {
+            "key": "name:gatherer",
+            "name": "gatherer",
+            "picked": false
+          },
+          {
+            "key": "name:heavy_tank",
+            "name": "heavy_tank",
+            "picked": false
+          },
+          {
+            "key": "name:helicopter",
+            "name": "helicopter",
+            "picked": false
+          },
+          {
+            "key": "name:hover_tank",
+            "name": "hover_tank",
+            "picked": false
+          },
+          {
+            "key": "name:mech",
+            "name": "mech",
+            "picked": false
+          },
+          {
+            "key": "name:missile_truck",
+            "name": "missile_truck",
+            "picked": false
+          },
+          {
+            "key": "name:plane",
+            "name": "plane",
+            "picked": false
+          }
+        ],
+        "split_mode": 4,
+        "start": 0
+      },
+      "position": {
+        "x": -627.9143676757813,
+        "y": -179.40821838378906
+      },
+      "suffix_index": 1,
+      "type": "SPLIT_BATCH",
+      "uuid": "7uxkia14"
     }
   ]
 }
