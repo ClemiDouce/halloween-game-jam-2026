@@ -93,12 +93,21 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 		global_position = path.get_end_position()
 		target_position = path.get_previous_point(path_index)
 	
-	hitbox.collision_layer = CombatData.PLAYER_COLLISION_LAYER if team == CombatData.Team.PLAYER else CombatData.HOSTILE_COLLISION_LAYER
+	match unit_data.elevation:
+		CombatData.ElevationType.GROUND:
+			hitbox.collision_layer = CombatData.PLAYER_COLLISION_LAYER if team == CombatData.Team.PLAYER else CombatData.HOSTILE_COLLISION_LAYER
+		CombatData.ElevationType.SKY:
+			hitbox.collision_layer = CombatData.PLAYER_COLLISION_LAYER_FLYING if team == CombatData.Team.PLAYER else CombatData.HOSTILE_COLLISION_LAYER_FLYING
 	
 	if is_gather_unit:
 		attack_area.collision_mask = CombatData.MINERAL_COLLISION_LAYER
 	else:
-		attack_area.collision_mask = CombatData.HOSTILE_COLLISION_LAYER if team == CombatData.Team.PLAYER else CombatData.PLAYER_COLLISION_LAYER
+		match unit_data.attacks_elevation:
+			CombatData.ElevationType.GROUND:
+				attack_area.collision_mask = CombatData.HOSTILE_COLLISION_LAYER if team == CombatData.Team.PLAYER else CombatData.PLAYER_COLLISION_LAYER
+			CombatData.ElevationType.SKY:
+				attack_area.collision_mask = CombatData.HOSTILE_COLLISION_LAYER_FLYING if team == CombatData.Team.PLAYER else CombatData.PLAYER_COLLISION_LAYER_FLYING
+	
 	# Offset
 	root.position = Vector2(
 		randi_range(-10, 10),
@@ -172,14 +181,12 @@ func _physics_process(delta: float) -> void:
 			if not is_instance_valid(attack_target):
 				attack_target = null
 				var hitboxes = attack_area.get_overlapping_areas()
-				if hitboxes.is_empty():
-					state = UnitState.MOVING
-					attack_timer = 0.
-				else:
-					for hit in hitboxes:
-						if is_instance_valid(hit):
-							attack_target = hit
-							return
+				for hit in hitboxes:
+					if is_instance_valid(hit):
+						attack_target = hit
+						return
+				state = UnitState.MOVING
+				attack_timer = 0.
 			# Attack
 			else:
 				root.rotation = lerp_angle(root.rotation, global_position.direction_to(attack_target.global_position).angle(), delta * 10)
