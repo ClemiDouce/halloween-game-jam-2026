@@ -21,7 +21,8 @@ region = Rect2(0, 0, 16, 16)
 [resource]
 script = ExtResource("1_bi0t2")
 speed = 25.0
-trail_length = 15
+trail_length = 30
+cost = 100
 texture = Dictionary[int, Texture]({
 0: SubResource("AtlasTexture_3w17c"),
 1: SubResource("AtlasTexture_3t3li")
@@ -29,5 +30,7 @@ texture = Dictionary[int, Texture]({
 input_keyboard = SubResource("InputEventKey_khgx2")
 button_icon = ExtResource("1_idl76")
 unit_name = "Gatherer"
+attack_range = 25.0
 body_type = 1
+damage_type = 2
 metadata/_custom_type_script = "uid://ctxaornc1ibjt"

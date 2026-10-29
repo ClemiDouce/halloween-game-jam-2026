@@ -2,6 +2,7 @@ class_name CombatData
 
 const PLAYER_COLLISION_LAYER = 16
 const HOSTILE_COLLISION_LAYER = 32
+const MINERAL_COLLISION_LAYER = 64
 
 enum Team {
 	PLAYER,
@@ -12,11 +13,10 @@ enum BodyType {
 	HUMAN, 
 	ARMORED,
 	STRUCTURE
-	
 	}
 
 enum DamageType {
-	BULLET, 
-	EXPLOSIVE
-	
+	BULLET,
+	EXPLOSIVE,
+	EXPLOIT
 	}
