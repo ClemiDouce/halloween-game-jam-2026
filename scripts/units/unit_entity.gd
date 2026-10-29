@@ -38,12 +38,15 @@ var health : int
 
 var unit_data : UnitResource
 var path : UnitPath
+var path_dir: int = 1
 var path_index : int = 0
+
 var target_position : Vector2 = Vector2.ZERO
 
 # Attack
 var attack_target : Hitbox = null
 var attack_timer : float = 0.
+var attacks_ground: bool = false
 
 # Animation
 var _animation_timer: float = 0.
@@ -86,12 +89,14 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 
 	path = _path
 	if team == CombatData.Team.PLAYER:
+		path_dir = 1
 		global_position = path.get_start_position()
-		target_position = path.get_next_point(path_index)
+		target_position = path.get_next_point(path_index, path_dir)
 	elif team == CombatData.Team.HOSTILE:
+		path_dir = -1
 		path_index = path.end_index
 		global_position = path.get_end_position()
-		target_position = path.get_previous_point(path_index)
+		target_position = path.get_next_point(path_index, path_dir)
 	
 	match unit_data.elevation:
 		CombatData.ElevationType.GROUND:
@@ -105,7 +110,9 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 		match unit_data.attacks_elevation:
 			CombatData.ElevationType.GROUND:
 				attack_area.collision_mask = CombatData.HOSTILE_COLLISION_LAYER if team == CombatData.Team.PLAYER else CombatData.PLAYER_COLLISION_LAYER
+				attacks_ground = true
 			CombatData.ElevationType.SKY:
+				attacks_ground = false
 				attack_area.collision_mask = CombatData.HOSTILE_COLLISION_LAYER_FLYING if team == CombatData.Team.PLAYER else CombatData.PLAYER_COLLISION_LAYER_FLYING
 	
 	# Offset
@@ -148,16 +155,14 @@ func _physics_process(delta: float) -> void:
 			pass
 		UnitState.MOVING:
 			if self.global_position.is_equal_approx(target_position):
-				if team == CombatData.Team.PLAYER:
-					if is_gather_unit and have_mineral:
-						path_index -= 1
-						target_position = path.get_previous_point(path_index)
-					else:
-						path_index += 1
-						target_position = path.get_next_point(path_index)
-				elif team == CombatData.Team.HOSTILE:
-					path_index -= 1
-					target_position = path.get_previous_point(path_index)
+				
+				if is_gather_unit and have_mineral:
+					path_index -= path_dir
+					target_position = path.get_next_point(path_index, path_dir)
+				else:
+					path_index += path_dir
+					target_position = path.get_next_point(path_index, path_dir)
+
 				if target_position == Vector2.INF:
 					if is_gather_unit:
 						if team == CombatData.Team.PLAYER:
@@ -166,13 +171,23 @@ func _physics_process(delta: float) -> void:
 								have_mineral = false
 								mineral_sprite.hide()
 								attack_target = null
-								path_index += 1
-								target_position = path.get_next_point(path_index)
+								path_index += path_dir
+								target_position = path.get_next_point(path_index, path_dir)
 								return
 						else:
 							pass
+
+					# Turn around if unit cannot attack the base
+					if not attacks_ground:
+						path_dir *= -1
+						path_index += path_dir
+						target_position = path.get_next_point(path_index, path_dir)
+						return
 					state = UnitState.IDLE
 					return
+
+
+
 			root.rotation = lerp_angle(root.rotation, global_position.direction_to(target_position).angle(), delta * 10)
 			global_position = global_position.move_toward(target_position, unit_data.speed * delta)
 			
@@ -208,7 +223,7 @@ func _physics_process(delta: float) -> void:
 				bolts.hide()
 				gathering_time = 0.
 				have_mineral = true
-				target_position = path.get_previous_point(path_index+1)
+				target_position = path.get_previous_point(path_index+path_dir)
 				state = UnitState.MOVING
 
 func change_to_gathering(mineral_target: Hitbox):
