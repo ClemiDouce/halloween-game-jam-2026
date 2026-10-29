@@ -6,6 +6,13 @@ extends Node2D
 
 @export var ai_list : Array[BaseManager]
 
-func setup_level(_base_manager: BaseManager):
+func setup_level():
 	for ai : BaseManager in ai_list:
 		ai.connect_to_level(paths, entity_parent)
+
+func start_level():
+	var controllers = get_tree().get_nodes_in_group("hostile")
+	for ai in controllers:
+		if ai is AIController:
+			ai.start_controller()
+		

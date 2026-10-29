@@ -16,13 +16,114 @@ colors = PackedColorArray(0.9019608, 0.9019608, 0.9019608, 1, 0.9019608, 0.90196
 
 [node name="GameManager" type="Node" unique_id=1617731920]
 script = ExtResource("1_o8fc1")
+level_list = Array[PackedScene]([ExtResource("2_i7141")])
 
-[node name="Overworld" parent="." unique_id=45434250 instance=ExtResource("2_i7141")]
+[node name="ForegroundLayer" type="CanvasLayer" parent="." unique_id=1449940769]
 unique_name_in_owner = true
+layer = 20
+script = ExtResource("15_xo05s")
+
+[node name="FadeRect" type="ColorRect" parent="ForegroundLayer" unique_id=691542163]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="StartScreen" type="Control" parent="ForegroundLayer" unique_id=1409243123]
+unique_name_in_owner = true
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="ForegroundLayer/StartScreen" unique_id=497607906]
+layout_mode = 0
+offset_left = 1334.0
+offset_top = 62.0
+offset_right = 1828.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 64
+text = "Blazing HotKeys"
+
+[node name="Label" type="Label" parent="ForegroundLayer/StartScreen" unique_id=301528310]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -56.0
+offset_right = 478.0
+offset_bottom = -11.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "made by layla and clementine"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ForegroundLayer/StartScreen" unique_id=1182973284]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -381.0
+offset_top = -839.0
+offset_right = -91.0
+offset_bottom = -703.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="PlayButton" type="Button" parent="ForegroundLayer/StartScreen/VBoxContainer" unique_id=740696924]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="ForegroundLayer/StartScreen/VBoxContainer" unique_id=1948900921]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="WinScreen" type="Control" parent="ForegroundLayer" unique_id=1027942051]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="ForegroundLayer/WinScreen" unique_id=2080459148]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ForegroundLayer/WinScreen/CenterContainer" unique_id=2003198146]
+layout_mode = 2
+
+[node name="LooseScreen" type="Control" parent="ForegroundLayer" unique_id=1729187580]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="BaseView" type="CanvasLayer" parent="." unique_id=408365964]
 
-[node name="Control" parent="BaseView" unique_id=526506978 node_paths=PackedStringArray("player") instance=ExtResource("2_4wyf3")]
+[node name="BaseViewer" parent="BaseView" unique_id=526506978 node_paths=PackedStringArray("player") instance=ExtResource("2_4wyf3")]
 size_flags_horizontal = 3
 size_flags_vertical = 3
 player = NodePath("../../PlayerController")
@@ -64,7 +165,6 @@ script = ExtResource("10_w7kh3")
 controlling_base = NodePath("../BaseManager")
 
 [node name="PathVisualizer" parent="." unique_id=292417664 node_paths=PackedStringArray("base") instance=ExtResource("7_i7141")]
-points = PackedVector2Array(0, 0, 117, -2)
 width = 10.0
 gradient = SubResource("Gradient_i7141")
 texture = ExtResource("7_4mrxx")
@@ -72,15 +172,5 @@ texture_mode = 2
 base = NodePath("../BaseManager")
 min_max_width = Vector2(32, 38)
 
-[node name="ForegroundLayer" type="CanvasLayer" parent="." unique_id=1449940769]
-unique_name_in_owner = true
-script = ExtResource("15_xo05s")
-
-[node name="FadeRect" type="ColorRect" parent="ForegroundLayer" unique_id=691542163]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0)
+[connection signal="pressed" from="ForegroundLayer/StartScreen/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ForegroundLayer/StartScreen/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
