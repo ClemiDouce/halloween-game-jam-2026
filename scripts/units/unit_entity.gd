@@ -102,6 +102,7 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 		CombatData.ElevationType.GROUND:
 			hitbox.collision_layer = CombatData.PLAYER_COLLISION_LAYER if team == CombatData.Team.PLAYER else CombatData.HOSTILE_COLLISION_LAYER
 		CombatData.ElevationType.SKY:
+			self.z_index += 1
 			hitbox.collision_layer = CombatData.PLAYER_COLLISION_LAYER_FLYING if team == CombatData.Team.PLAYER else CombatData.HOSTILE_COLLISION_LAYER_FLYING
 	
 	if is_gather_unit:
@@ -203,6 +204,8 @@ func _physics_process(delta: float) -> void:
 				attack_timer = 0.
 			# Attack
 			else:
+				if self.global_position.distance_to(attack_target.global_position) > shape.radius - (unit_data.speed * delta):
+					global_position = global_position.move_toward(attack_target.global_position, unit_data.speed * delta)
 				root.rotation = lerp_angle(root.rotation, global_position.direction_to(attack_target.global_position).angle(), delta * 10)
 				attack_timer += delta
 				if attack_timer >= unit_data.rate_of_fire:
