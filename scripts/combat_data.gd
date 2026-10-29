@@ -18,5 +18,6 @@ enum BodyType {
 enum DamageType {
 	BULLET,
 	EXPLOSIVE,
+	LASER,
 	EXPLOIT
-	}
+}

@@ -22,6 +22,13 @@ const MISSING_TEXTURE = preload("res://assets/art/placeholder/unit_placeholder.p
 @export var gathering_delay := 1.2
 var gathering_time := 0.
 
+@export_category("Sounds")
+@export var sounds_destroyed: Array[AudioStream] = []
+@export var sounds_laser_attack: Array[AudioStream] = []
+@export var sounds_bullet_attack: Array[AudioStream] = []
+@export var sounds_explosive_attack: Array[AudioStream] = []
+var _sounds_attack: Array[AudioStream] = []
+
 var team : CombatData.Team
 var dead := false
 # Unit Stats
@@ -67,6 +74,14 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 	else:
 		sprite.texture = MISSING_TEXTURE
 
+	match unit.damage_type:
+		CombatData.DamageType.BULLET:
+			_sounds_attack = sounds_bullet_attack
+		CombatData.DamageType.EXPLOSIVE:
+			_sounds_attack = sounds_explosive_attack
+		CombatData.DamageType.LASER:
+			_sounds_attack = sounds_laser_attack
+
 	path = _path
 	if team == CombatData.Team.PLAYER:
 		global_position = path.get_start_position()
@@ -97,6 +112,21 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 
 func _process(delta: float) -> void:
 	_process_animation(delta)
+
+func _play_sound_rand(streams: Array[AudioStream]) -> void:
+	_play_sound(streams.pick_random())
+
+func _play_sound(stream: AudioStream) -> void:
+	if not stream:
+		return
+	var audio_player = AudioStreamPlayer2D.new()
+	audio_player.bus = "Sound Effects"
+	audio_player.stream = stream
+	audio_player.volume_db += 6
+	audio_player.finished.connect(audio_player.queue_free)
+	get_parent().add_child(audio_player)
+	audio_player.global_position = self.global_position
+	audio_player.play()
 
 func _physics_process(delta: float) -> void:
 	match(state):
@@ -154,6 +184,7 @@ func _physics_process(delta: float) -> void:
 					bullet_sprite.shoot(attack_target.sprite.global_position)
 					attack_target.get_damage(self.unit_data)
 					animation_player.play("squish")
+					_play_sound_rand(_sounds_attack)
 		UnitState.GATHERING:
 			root.rotation = lerp_angle(root.rotation, global_position.direction_to(attack_target.global_position).angle(), delta * 10)
 			var local_mineral_position = to_local(attack_target.global_position)
@@ -226,4 +257,5 @@ func death_animation():
 	death_tween.tween_property(root, "rotation_degrees", 360, 0.5).as_relative().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	death_tween.parallel().tween_property(root, "scale", Vector2(0.1, 0.1), 0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	await death_tween.finished
+	_play_sound_rand(sounds_destroyed)
 	queue_free()
