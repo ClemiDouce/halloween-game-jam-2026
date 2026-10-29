@@ -36,4 +36,5 @@ damage = 15
 attack_range = 30.0
 rate_of_fire = 0.5
 bullet_texture = ExtResource("1_qm3sk")
+damage_type = 2
 metadata/_custom_type_script = "uid://ctxaornc1ibjt"

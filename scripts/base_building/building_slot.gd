@@ -4,6 +4,7 @@ extends Object
 signal slot_updated
 
 var _building: Building = null
+var _banned_units: Array[String] = []
 var paths: Array[UnitPath]
 var queue: UnitQueue = null
 
@@ -36,10 +37,16 @@ func destroy() -> void:
 func get_unit_options() -> Array[UnitResource]:
 	if not _building:
 		return []
-	return _building.units
+	var units: Array[UnitResource] = []
+	for unit in _building.units:
+		if unit.unit_name not in _banned_units:
+			units.append(unit)
+	return units
 
 func queue_unit(unit_resource: UnitResource, bot: bool = false) -> void:
 	if !bot:
+		if unit_resource.unit_name in _banned_units:
+			return
 		if not has_building() or unit_resource not in _building.units:
 			return
 	#print("Unit queued: %s" % [unit_resource.damage])

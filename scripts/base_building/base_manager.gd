@@ -3,6 +3,7 @@ extends Node
 
 signal slot_updated(slot: BuildingSlot)
 signal path_selected(path: UnitPath)
+signal unit_ready(type: UnitResource, path: UnitPath)
 
 # Unit Spawn
 const UNIT_ENTITY = preload("uid://bybp5w4ae511b")
@@ -13,12 +14,9 @@ const BUILDING_GRID_Y: int = 3
 
 var team : CombatData.Team
 
-static var _buildings: Array[Building] = [
-	preload("res://data/buildings/tank_factory.tres"),
-	preload("res://data/buildings/infantry_barracks.tres"),
-	preload("res://data/buildings/airport.tres"),
-	preload("res://data/buildings/requisition_center.tres")
-]
+static var _buildings: Array[Building] = []
+var disabled_units: Array[String] = []
+
 
 var paths: Array[UnitPath]
 var entity_parent: Node2D
@@ -38,6 +36,19 @@ func _ready() -> void:
 	self.unit_queue.unit_ready.connect(generate_unit)
 	
 	_generate_building_slots()
+
+func _update_game_rule_references() -> void:
+	for x in range(BUILDING_GRID_X):
+		for y in range(BUILDING_GRID_Y):
+			var slot := get_build_slot(x,y)
+			slot._banned_units = disabled_units
+
+func set_game_rules(rules: GameRules) -> void:
+	disabled_units.clear()
+	_buildings = rules.enabled_buildings
+	for unit in rules.disabled_units:
+		disabled_units.append(unit.unit_name)
+	_update_game_rule_references()
 
 func generate_unit(unit_type, path):
 	var unit = UNIT_ENTITY.instantiate() as UnitEntity
@@ -78,6 +89,7 @@ func _generate_building_slots() -> void:
 			slot.paths = paths
 			slot.queue = unit_queue
 			slot.slot_updated.connect(slot_updated.emit.bind(slot))
+			slot._banned_units = disabled_units
 			building_slots.append(slot)
 
 

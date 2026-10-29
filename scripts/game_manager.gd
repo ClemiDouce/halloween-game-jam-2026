@@ -3,6 +3,7 @@ extends Node
 
 @onready var foreground_layer: CanvasLayer = %ForegroundLayer
 @onready var base_manager: BaseManager = $BaseManager
+@onready var music_player: AudioStreamPlayer = %MusicPlayer
 
 # Level list
 @export var level_list : Array[PackedScene] = []
@@ -32,11 +33,13 @@ func launch_level(level_index: int):
 	for base_entity in get_tree().get_nodes_in_group("base"):
 		base_entity.destroyed.connect(_on_base_destroyed)
 	base_manager.connect_to_level(current_level.paths, current_level.entity_parent)
+	base_manager.set_game_rules(current_level.game_rules)
 
 #region StartState
 func _on_play_button_pressed() -> void:
 	launch_level(0)
 	start_screen.hide()
+	music_player.get_stream_playback().switch_to_clip_by_name("Game Loop")
 	foreground_layer.fade_in()
 
 

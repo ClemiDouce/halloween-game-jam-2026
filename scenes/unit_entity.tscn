@@ -4,12 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://cldp6dsof66rj" path="res://assets/art/units/gatherer.png" id="2_7opfq"]
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="3_0uryg"]
 [ext_resource type="Script" uid="uid://th76u6xf6i43" path="res://scripts/component/trail2d.gd" id="3_m0sb2"]
+[ext_resource type="AudioStream" uid="uid://d0t1pklr12ybu" path="res://assets/sound/laser_1.wav" id="5_0wh3c"]
 [ext_resource type="Script" uid="uid://crsfuur24ulp1" path="res://scripts/component/squish_component.gd" id="6_5q6hg"]
 [ext_resource type="Script" uid="uid://dj2pkpuo0ajdu" path="res://scripts/component/flash_component.gd" id="6_mcm0o"]
+[ext_resource type="AudioStream" uid="uid://tgl8ybd0vgm7" path="res://assets/sound/laser_2.wav" id="6_pknud"]
 [ext_resource type="Script" uid="uid://dlo6w10dedy5" path="res://scripts/bullet_animation.gd" id="7_5q6hg"]
 [ext_resource type="Texture2D" uid="uid://b8dgiga47nslb" path="res://assets/art/bullets/bullet_0003.png" id="7_gnti6"]
+[ext_resource type="AudioStream" uid="uid://bukw2txausq4" path="res://assets/sound/laser_3.wav" id="7_u4npn"]
+[ext_resource type="AudioStream" uid="uid://ctwuj20dnjul6" path="res://assets/sound/laser_4.wav" id="8_qbex1"]
+[ext_resource type="AudioStream" uid="uid://grt7fwhsr3ne" path="res://assets/sound/bullet_1.wav" id="9_0wh3c"]
 [ext_resource type="Texture2D" uid="uid://y8ep32g2xixa" path="res://assets/art/tiles/overworld/crystal.png" id="9_cbjl1"]
+[ext_resource type="AudioStream" uid="uid://bgpeysysdsl2t" path="res://assets/sound/explosion_1_a.ogg" id="10_aj26u"]
 [ext_resource type="Texture2D" uid="uid://bcqsj7gjkuc74" path="res://assets/art/energy_gathering_texture.tres" id="10_cbjl1"]
+[ext_resource type="AudioStream" uid="uid://853euii0bjim" path="res://assets/sound/bullet_2.wav" id="10_pknud"]
+[ext_resource type="AudioStream" uid="uid://dqtl8b38xe8k3" path="res://assets/sound/explosion_1_b.ogg" id="11_c6wnj"]
+[ext_resource type="AudioStream" uid="uid://kdbvdl5ied2m" path="res://assets/sound/bullet_3.wav" id="11_u4npn"]
+[ext_resource type="AudioStream" uid="uid://s8677es8y502" path="res://assets/sound/explosion_1_c.ogg" id="12_fw75c"]
+[ext_resource type="AudioStream" uid="uid://d10xrjdq7xhei" path="res://assets/sound/bullet_4.wav" id="12_qbex1"]
+[ext_resource type="AudioStream" uid="uid://chda8h4ts6bjh" path="res://assets/sound/explosive_weapon_2.wav" id="13_u4npn"]
+[ext_resource type="AudioStream" uid="uid://6d1h14ds4atp" path="res://assets/sound/explosive_weapon_3.wav" id="14_qbex1"]
+[ext_resource type="AudioStream" uid="uid://bjdbykc20e1ol" path="res://assets/sound/explosive_weapon_4.wav" id="15_j5rxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbjl1"]
 atlas = ExtResource("2_7opfq")
@@ -90,6 +104,10 @@ _data = {
 
 [node name="UnitEntity" type="Node2D" unique_id=1639145294 groups=["freed"]]
 script = ExtResource("1_oir76")
+sounds_destroyed = Array[AudioStream]([ExtResource("10_aj26u"), ExtResource("11_c6wnj"), ExtResource("12_fw75c")])
+sounds_laser_attack = Array[AudioStream]([ExtResource("5_0wh3c"), ExtResource("6_pknud"), ExtResource("7_u4npn"), ExtResource("8_qbex1")])
+sounds_bullet_attack = Array[AudioStream]([ExtResource("9_0wh3c"), ExtResource("10_pknud"), ExtResource("11_u4npn"), ExtResource("12_qbex1")])
+sounds_explosive_attack = Array[AudioStream]([ExtResource("13_u4npn"), ExtResource("13_u4npn"), ExtResource("14_qbex1"), ExtResource("15_j5rxa")])
 
 [node name="Root" type="Node2D" parent="." unique_id=276612026]
 unique_name_in_owner = true

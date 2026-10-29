@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bon1xtp82d8pd" path="res://scripts/queue_card.gd" id="1_r1wie"]
 [ext_resource type="Texture2D" uid="uid://dy0d3np7je6mt" path="res://assets/art/processed_units/plane_red.png" id="1_v5ods"]
+[ext_resource type="AudioStream" uid="uid://by6hcyrbym6eq" path="res://assets/sound/soft_click_1_a.ogg" id="2_0n35j"]
+[ext_resource type="AudioStream" uid="uid://cbj71c7rtd6ey" path="res://assets/sound/soft_click_1_b.ogg" id="3_bn8f0"]
+[ext_resource type="AudioStream" uid="uid://c8stwp33kghfw" path="res://assets/sound/soft_click_1_c.ogg" id="4_yuifj"]
+[ext_resource type="AudioStream" uid="uid://bljsjglid70u1" path="res://assets/sound/soft_click_1_d.ogg" id="5_i0p0r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m678v"]
 bg_color = Color(0.41263404, 0.6787792, 0.35820284, 1)
@@ -291,6 +295,7 @@ size_flags_vertical = 0
 offset_transform_enabled = true
 offset_transform_pivot_ratio = Vector2(0.5, 1)
 script = ExtResource("1_r1wie")
+finished_audio_streams = Array[AudioStream]([ExtResource("2_0n35j"), ExtResource("3_bn8f0"), ExtResource("4_yuifj"), ExtResource("5_i0p0r")])
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1596437520]
 layout_mode = 2
@@ -322,3 +327,6 @@ show_percentage = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=371453198]
 libraries/ = SubResource("AnimationLibrary_v5ods")
 autoplay = &"rise"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=963247580]
+bus = &"Sound Effects"

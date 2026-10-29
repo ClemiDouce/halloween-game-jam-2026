@@ -3,6 +3,7 @@ class_name UnitResource extends EntityData
 # Unit Stats
 @export var speed: float
 @export var trail_length : int
+@export var attacks_elevation: CombatData.ElevationType = CombatData.ElevationType.GROUND
 
 # Construction
 @export_subgroup("Construction")

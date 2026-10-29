@@ -15,6 +15,9 @@ run/main_scene="uid://cs30anugoy8la"
 config/features=PackedStringArray("4.7")
 config/icon="uid://mmxxx17hdkwb"
 
+[audio]
+
+buses/default_bus_layout="uid://c7s8opq7vysn3"
 [autoload]
 
 PlayerResources="*uid://bocdgxegrf3f"
@@ -32,6 +35,7 @@ player=""
 hostile=""
 controller=""
 freed=""
+unit_audio_player=""
 
 [input]
 

@@ -41,6 +41,9 @@ tile_set = ExtResource("2_qjxaj")
 z_index = 2
 position = Vector2(336, 528)
 
+[node name="AudioListener2D" type="AudioListener2D" parent="PlayerBase" unique_id=1422937173]
+current = true
+
 [node name="HostileBase" parent="." unique_id=223642181 groups=["base", "hostile"] instance=ExtResource("5_dbwep")]
 position = Vector2(336, 112)
 base_data = SubResource("Resource_x7n8s")
