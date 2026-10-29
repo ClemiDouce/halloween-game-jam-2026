@@ -2,7 +2,7 @@ class_name UnitEntity extends Node2D
 
 const MISSING_TEXTURE = preload("res://assets/art/placeholder/unit_placeholder.png")
 const MAX_CONCURRENT_ENTITY_SOUNDS = 15
-const DB_VOLUME_MODIFIER = -6.
+const DB_VOLUME_MODIFIER = -8.
 
 @onready var attack_area: Area2D = %AttackArea
 @onready var attack_shape : CollisionShape2D = %AttackShape
