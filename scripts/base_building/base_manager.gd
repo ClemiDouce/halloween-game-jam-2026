@@ -3,6 +3,7 @@ extends Node
 
 signal slot_updated(slot: BuildingSlot)
 signal path_selected(path: UnitPath)
+signal unit_ready(type: UnitResource, path: UnitPath)
 
 # Unit Spawn
 const UNIT_ENTITY = preload("uid://bybp5w4ae511b")

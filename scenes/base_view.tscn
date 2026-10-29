@@ -9,11 +9,20 @@
 [ext_resource type="Texture2D" uid="uid://dcwgfv7ow5lir" path="res://assets/art/2.png" id="7_ne0d2"]
 [ext_resource type="Texture2D" uid="uid://rgpohryt3kgk" path="res://assets/art/3.png" id="8_q4xv5"]
 [ext_resource type="PackedScene" uid="uid://cqmjrfjljj68n" path="res://scenes/ui/hotkey_button.tscn" id="10_grwde"]
+[ext_resource type="AudioStream" uid="uid://b8pniheg82a3p" path="res://assets/sound/click_3.ogg" id="10_limsn"]
 [ext_resource type="Script" uid="uid://dpgwxjpngqqiy" path="res://scripts/ui/selection_info_box.gd" id="10_ne0d2"]
 [ext_resource type="Texture2D" uid="uid://b85hrdxkuub0a" path="res://assets/art/tiles/base/laser.png" id="10_nygv8"]
 [ext_resource type="Texture2D" uid="uid://buk3ugop4ljdx" path="res://assets/art/icons/empty_icon.png" id="10_q4xv5"]
 [ext_resource type="Texture2D" uid="uid://bjnrdffw74akt" path="res://assets/art/tiles/base/building_tile.png" id="11_5836b"]
+[ext_resource type="AudioStream" uid="uid://k8mff2t4yre0" path="res://assets/sound/click_5.ogg" id="11_hevcy"]
 [ext_resource type="Texture2D" uid="uid://d4ith88fkqxfp" path="res://assets/art/tiles/base/empty_base.png" id="12_nygv8"]
+[ext_resource type="AudioStream" uid="uid://v4k6nch1ayk8" path="res://assets/sound/click_6_a.ogg" id="12_u3efq"]
+[ext_resource type="AudioStream" uid="uid://b5t5frgtm2r4y" path="res://assets/sound/click_6_b.ogg" id="13_8gnwa"]
+[ext_resource type="AudioStream" uid="uid://2n56phx2jnwv" path="res://assets/sound/click_6_c.ogg" id="14_8ofmp"]
+[ext_resource type="AudioStream" uid="uid://byqauvnfhjk65" path="res://assets/sound/click_6_d.ogg" id="15_xns8x"]
+[ext_resource type="AudioStream" uid="uid://btnp6kc4qn71h" path="res://assets/sound/click_6_e.ogg" id="16_hvb6v"]
+[ext_resource type="AudioStream" uid="uid://n2ahxqssynnv" path="res://assets/sound/click_6_f.ogg" id="17_g3sel"]
+[ext_resource type="AudioStream" uid="uid://du7gcmr6nin8y" path="res://assets/sound/click_6_g.ogg" id="18_rfrs8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjxaj"]
 bg_color = Color(0, 0, 0, 1)
@@ -62,6 +71,9 @@ base_tilemap = NodePath("TileMapLayer")
 base_center_tile = Vector2i(8, 4)
 button_holder = NodePath("Control/HBoxContainer/GridContainer")
 button_template = ExtResource("10_grwde")
+sound_selected = ExtResource("10_limsn")
+sound_building_built = ExtResource("11_hevcy")
+sound_hotkey_sounds = Array[AudioStream]([ExtResource("12_u3efq"), ExtResource("13_8gnwa"), ExtResource("14_8ofmp"), ExtResource("15_xns8x"), ExtResource("16_hvb6v"), ExtResource("17_g3sel"), ExtResource("18_rfrs8")])
 
 [node name="Control" type="PanelContainer" parent="." unique_id=2087092193]
 z_index = -32

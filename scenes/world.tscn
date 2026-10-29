@@ -7,12 +7,31 @@
 [ext_resource type="Texture2D" uid="uid://bira2ai2dy0pu" path="res://assets/art/path_selection_line.png" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bg7fo8ea46gcr" path="res://scenes/path_selection_line.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="9_7r4gi"]
+[ext_resource type="AudioStream" uid="uid://5f36h8jpjukg" path="res://assets/sound/music/track_1.ogg" id="10_e3hyu"]
 [ext_resource type="Script" uid="uid://cu76jeby58c7o" path="res://scripts/player_controller.gd" id="10_w7kh3"]
+[ext_resource type="AudioStream" uid="uid://j1lrwtlyjrcx" path="res://assets/sound/music/track_2.ogg" id="11_q5onr"]
 [ext_resource type="Script" uid="uid://ceq4uysn1h6dk" path="res://scripts/foreground_layer.gd" id="15_xo05s"]
 
 [sub_resource type="Gradient" id="Gradient_i7141"]
 offsets = PackedFloat32Array(0, 0.6893204, 1)
 colors = PackedColorArray(0.9019608, 0.9019608, 0.9019608, 1, 0.9019608, 0.9019608, 0.9019608, 0.8666667, 1, 1, 1, 0)
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_jhx03"]
+clip_count = 2
+clip_0/name = &"Intro Loop"
+clip_0/stream = ExtResource("10_e3hyu")
+clip_0/auto_advance = 0
+clip_1/name = &"Game Loop"
+clip_1/stream = ExtResource("11_q5onr")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 1
+}
+}
 
 [node name="GameManager" type="Node" unique_id=1617731920]
 script = ExtResource("1_o8fc1")
@@ -171,6 +190,13 @@ texture = ExtResource("7_4mrxx")
 texture_mode = 2
 base = NodePath("../BaseManager")
 min_max_width = Vector2(32, 38)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=948140449]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamInteractive_jhx03")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="ForegroundLayer/StartScreen/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ForegroundLayer/StartScreen/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

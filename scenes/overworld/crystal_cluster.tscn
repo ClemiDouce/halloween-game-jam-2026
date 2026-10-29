@@ -6,3 +6,4 @@
 [node name="CrystalCluster" type="Node2D" unique_id=2093158083]
 script = ExtResource("1_7eaq5")
 crystal_texture = ExtResource("2_w1clj")
+count = 16

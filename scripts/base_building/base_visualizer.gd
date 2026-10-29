@@ -27,6 +27,12 @@ const BUILDING_TILE_HEIGHT = 16
 @export var button_template: PackedScene
 @export var button_grid_size: Vector2i = Vector2i(3,3)
 
+@export_category("Sounds")
+@export var audio_bus: String  = "Sound Effects"
+@export var sound_selected: AudioStream
+@export var sound_building_built: AudioStream
+@export var sound_hotkey_sounds: Array[AudioStream] = []
+
 var _x_axis_sprites: Array[Sprite2D] = []
 var _y_axis_sprites: Array[Sprite2D] = []
 
@@ -42,6 +48,19 @@ var _cursor_tween: Tween
 func _get_base() -> BaseManager:
 	return player.controlling_base
 
+func _play_sound_rand(streams: Array[AudioStream]) -> void:
+	_play_sound(streams.pick_random())
+
+func _play_sound(stream: AudioStream) -> void:
+	if not stream:
+		return
+
+	var audio_player = AudioStreamPlayer.new()
+	audio_player.stream = stream
+	audio_player.bus = audio_bus
+	audio_player.finished.connect(audio_player.queue_free)
+	self.add_child(audio_player)
+	audio_player.play()
 
 func _ready() -> void:
 	_cursor = Sprite2D.new()
@@ -73,12 +92,14 @@ func _ready() -> void:
 		for button in _hotkey_buttons:
 			if button.assigned_data == building:
 				button.create_ghost()
+				_play_sound_rand(sound_hotkey_sounds)
 				break
 	)
 	player.unit_queued.connect(func(unit: UnitResource):
 		for button in _hotkey_buttons:
 			if button.assigned_data == unit:
 				button.create_ghost()
+				_play_sound_rand(sound_hotkey_sounds)
 				
 				var tween = create_tween()
 				tween.tween_property(_selected_sprite, "scale", _building_scale * 1.05, 0.125/2.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
@@ -89,6 +110,7 @@ func _ready() -> void:
 		for button in _hotkey_buttons:
 			if button.assigned_data is String and button.assigned_data == action_name:
 				button.create_ghost()
+				_play_sound_rand(sound_hotkey_sounds)
 				break
 	)
 
@@ -119,6 +141,8 @@ func _on_building_selected(_slot: BuildingSlot, grid_pos: Vector2i) -> void:
 	if _cursor_tween:
 		_cursor_tween.kill()
 	
+	
+	
 	if _cursor.visible:
 		_cursor_tween = create_tween()
 		_cursor_tween.tween_property(
@@ -127,11 +151,14 @@ func _on_building_selected(_slot: BuildingSlot, grid_pos: Vector2i) -> void:
 			_get_building_slot_pos(grid_pos.x, grid_pos.y),
 			0.125
 		).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		_play_sound.bind(sound_selected)
 		_cursor_tween.parallel().tween_property(_cursor, "scale", Vector2(0.5, 0.5), 0.125/2.).set_ease(Tween.EASE_OUT)
 		_cursor_tween.tween_property(_cursor, "scale", Vector2(1., 1.), 0.125/2.).set_trans(Tween.TRANS_BOUNCE)
+		_cursor_tween.parallel().tween_callback(_play_sound.bind(sound_selected))
 	else:
 		_cursor.position = _get_building_slot_pos(grid_pos.x, grid_pos.y)
 		_cursor.show()
+		_play_sound(sound_selected)
 	_selected_sprite = _get_sprite_from_grid_pos(grid_pos.x, grid_pos.y)
 	building_selected.emit(_slot._building)
 	
@@ -146,8 +173,10 @@ func _on_slot_updated(slot: BuildingSlot) -> void:
 		sprite.scale = Vector2(0,0)
 		sprite.texture = slot.get_texture()
 		var tween = create_tween()
+		_play_sound(sound_building_built)
 		tween.tween_property(sprite, "scale", original_scale + Vector2(0.1,0.1), 0.125).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		tween.tween_property(sprite, "scale", original_scale, 0.125/2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		
 	else:
 		sprite.texture = empty_building_slot_texture
 
