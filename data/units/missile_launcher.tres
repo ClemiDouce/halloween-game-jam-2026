@@ -38,4 +38,6 @@ rate_of_fire = 2.0
 bullet_texture = ExtResource("1_niakb")
 body_type = 1
 damage_type = 1
+money_cost = 100
+crystal_cost = 200
 metadata/_custom_type_script = "uid://ctxaornc1ibjt"

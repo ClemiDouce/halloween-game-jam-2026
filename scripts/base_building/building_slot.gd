@@ -49,5 +49,12 @@ func queue_unit(unit_resource: UnitResource, bot: bool = false) -> void:
 			return
 		if not has_building() or unit_resource not in _building.units:
 			return
+		if PlayerResources.requisition < unit_resource.money_cost or PlayerResources.crystal < unit_resource.crystal_cost:
+			return
 	#print("Unit queued: %s" % [unit_resource.damage])
+		if unit_resource.money_cost > 0:
+			PlayerResources.requisition -= unit_resource.money_cost
+			
+		if unit_resource.crystal_cost > 0:
+			PlayerResources.crystal -= unit_resource.crystal_cost
 	queue.add_to_queue(unit_resource)

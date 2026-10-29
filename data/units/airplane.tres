@@ -36,4 +36,5 @@ attack_range = 25.0
 rate_of_fire = 1.0
 body_type = 1
 elevation = 1
+crystal_cost = 100
 metadata/_custom_type_script = "uid://ctxaornc1ibjt"

@@ -37,4 +37,6 @@ attack_range = 40.0
 rate_of_fire = 1.2
 bullet_texture = ExtResource("1_4nell")
 body_type = 1
+money_cost = 50
+crystal_cost = 50
 metadata/_custom_type_script = "uid://ctxaornc1ibjt"
