@@ -7,9 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://bira2ai2dy0pu" path="res://assets/art/path_selection_line.png" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bg7fo8ea46gcr" path="res://scenes/path_selection_line.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="9_7r4gi"]
-[ext_resource type="AudioStream" uid="uid://5f36h8jpjukg" path="res://assets/sound/music/track_1.ogg" id="10_e3hyu"]
+[ext_resource type="AudioStream" uid="uid://80neqrtbjq6u" path="res://assets/sound/music/Drum.wav" id="10_jhx03"]
 [ext_resource type="Script" uid="uid://cu76jeby58c7o" path="res://scripts/player_controller.gd" id="10_w7kh3"]
-[ext_resource type="AudioStream" uid="uid://j1lrwtlyjrcx" path="res://assets/sound/music/track_2.ogg" id="11_q5onr"]
+[ext_resource type="AudioStream" uid="uid://b1joikdc4ie8t" path="res://assets/sound/music/Menu - Muted.wav" id="11_o8fc1"]
+[ext_resource type="AudioStream" uid="uid://cx3gxoxww1mlf" path="res://assets/sound/music/Menu - unuted.wav" id="12_o8fc1"]
+[ext_resource type="AudioStream" uid="uid://3642eq3eleuj" path="res://assets/sound/music/Main - Low.wav" id="12_xo05s"]
+[ext_resource type="AudioStream" uid="uid://deesei76b2kt7" path="res://assets/sound/music/Main - High.wav" id="13_dss4m"]
 [ext_resource type="Script" uid="uid://ceq4uysn1h6dk" path="res://scripts/foreground_layer.gd" id="15_xo05s"]
 
 [sub_resource type="Gradient" id="Gradient_i7141"]
@@ -17,19 +20,38 @@ offsets = PackedFloat32Array(0, 0.6893204, 1)
 colors = PackedColorArray(0.9019608, 0.9019608, 0.9019608, 1, 0.9019608, 0.9019608, 0.9019608, 0.8666667, 1, 1, 1, 0)
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_jhx03"]
-clip_count = 2
-clip_0/name = &"Intro Loop"
-clip_0/stream = ExtResource("10_e3hyu")
-clip_0/auto_advance = 0
-clip_1/name = &"Game Loop"
-clip_1/stream = ExtResource("11_q5onr")
+clip_count = 5
+clip_0/name = &"Drum"
+clip_0/stream = ExtResource("10_jhx03")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"Intro Loop"
+clip_1/stream = ExtResource("11_o8fc1")
 clip_1/auto_advance = 0
+clip_2/name = &"Game Loop"
+clip_2/stream = ExtResource("12_o8fc1")
+clip_2/auto_advance = 1
+clip_2/next_clip = 3
+clip_3/name = &"Main - Low"
+clip_3/stream = ExtResource("12_xo05s")
+clip_3/auto_advance = 1
+clip_3/next_clip = 4
+clip_4/name = &"Main High"
+clip_4/stream = ExtResource("13_dss4m")
+clip_4/auto_advance = 1
+clip_4/next_clip = 3
 _transitions = {
-Vector2i(0, 1): {
-"fade_beats": 0.0,
-"fade_mode": 0,
+Vector2i(0, 2): {
+"fade_beats": 1.0,
+"fade_mode": 1,
 "from_time": 3,
 "to_time": 1
+},
+Vector2i(1, 2): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 1,
+"to_time": 0
 }
 }
 
