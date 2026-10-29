@@ -31,7 +31,6 @@ func assign_unit(unit_type: UnitResource) -> void:
 	self.tooltip_text = (
 		"""
 		%s - %s (%ss)
-		Build Cost: %s 
 		Body Type: %s
 		Damage Type: %s
 		Health: %s
@@ -44,7 +43,6 @@ func assign_unit(unit_type: UnitResource) -> void:
 			unit_type.input_keyboard.as_text_keycode(),
 			unit_type.unit_name,
 			unit_type.time_to_build,
-			unit_type.cost,
 			CombatData.BodyType.find_key(unit_type.body_type),
 			CombatData.DamageType.find_key(unit_type.damage_type),
 			unit_type.health,

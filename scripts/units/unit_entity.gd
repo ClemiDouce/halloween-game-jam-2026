@@ -24,6 +24,7 @@ var gathering_time := 0.
 
 var team : CombatData.Team
 var dead := false
+
 # Unit Stats
 var health : int
 
@@ -118,12 +119,12 @@ func _physics_process(delta: float) -> void:
 					if is_gather_unit:
 						if team == CombatData.Team.PLAYER:
 							if path_index <= 0:
-								print("Here some mineral")
 								have_mineral = false
 								mineral_sprite.hide()
 								attack_target = null
 								path_index += 1
 								target_position = path.get_next_point(path_index)
+								PlayerResources.crystal += 50
 								return
 						else:
 							pass
@@ -156,7 +157,6 @@ func _physics_process(delta: float) -> void:
 					animation_player.play("squish")
 		UnitState.GATHERING:
 			root.rotation = lerp_angle(root.rotation, global_position.direction_to(attack_target.global_position).angle(), delta * 10)
-			var local_mineral_position = to_local(attack_target.global_position)
 			gather_bolt_left.points = [Vector2.ZERO, gather_bolt_left.to_local(attack_target.global_position)]
 			gather_bolt_right.points = [Vector2.ZERO, gather_bolt_right.to_local(attack_target.global_position)]
 			gathering_time += delta
@@ -171,8 +171,6 @@ func _physics_process(delta: float) -> void:
 func change_to_gathering(mineral_target: Hitbox):
 	attack_target = mineral_target
 	state = UnitState.GATHERING
-	#gather_bolt_left.points = [Vector2.ZERO, local_mineral_position]
-	#gather_bolt_right.points = [Vector2.ZERO, local_mineral_position]
 	bolts.show()
 	
 	

@@ -82,7 +82,7 @@ func _handle_selected_building_slot(event: InputEvent) -> void:
 			building_built.emit(building_type)
 			_selected_building.build(building_type)
 			self._selection_stage = SelectionStage.NONE
-			print("Built building at %s" % [_selected_building])
+			#print("Built building at %s" % [_selected_building])
 			return
 
 

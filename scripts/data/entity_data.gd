@@ -10,3 +10,7 @@ extends Resource
 
 @export var body_type : CombatData.BodyType
 @export var damage_type : CombatData.DamageType
+
+# Cost
+@export var money_cost : int
+@export var crystal_cost : int

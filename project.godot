@@ -15,6 +15,10 @@ run/main_scene="uid://cs30anugoy8la"
 config/features=PackedStringArray("4.7")
 config/icon="uid://mmxxx17hdkwb"
 
+[autoload]
+
+PlayerResources="*uid://bocdgxegrf3f"
+
 [display]
 
 window/size/viewport_width=1920

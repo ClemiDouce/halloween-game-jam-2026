@@ -6,7 +6,6 @@ class_name UnitResource extends EntityData
 
 # Construction
 @export_subgroup("Construction")
-@export var cost: int
 @export var time_to_build: float  # seconds
 @export var texture: Dictionary[CombatData.Team, Texture]
 @export var shader: ShaderMaterial

@@ -4,9 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dk1sgrxi5yepn" path="res://scenes/base_view.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cthj6pcpappnu" path="res://scenes/overworld.tscn" id="2_i7141"]
 [ext_resource type="PackedScene" uid="uid://bfhkwvoxpdo70" path="res://scenes/card_test.tscn" id="4_7r4gi"]
+[ext_resource type="Texture2D" uid="uid://cqwrurfstykui" path="res://assets/art/icons/requistion.png" id="6_e3hyu"]
+[ext_resource type="Script" uid="uid://bdtv5mduj172k" path="res://scripts/player_resources_container.gd" id="6_q5onr"]
+[ext_resource type="Texture2D" uid="uid://y8ep32g2xixa" path="res://assets/art/tiles/overworld/crystal.png" id="6_w7kh3"]
 [ext_resource type="Texture2D" uid="uid://bira2ai2dy0pu" path="res://assets/art/path_selection_line.png" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bg7fo8ea46gcr" path="res://scenes/path_selection_line.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="9_7r4gi"]
+[ext_resource type="Script" uid="uid://tdmlob0kb6yb" path="res://scripts/resource_notification.gd" id="9_jhx03"]
 [ext_resource type="Script" uid="uid://cu76jeby58c7o" path="res://scripts/player_controller.gd" id="10_w7kh3"]
 [ext_resource type="Script" uid="uid://ceq4uysn1h6dk" path="res://scripts/foreground_layer.gd" id="15_xo05s"]
 
@@ -144,6 +148,76 @@ offset_left = 640.0
 offset_top = -212.0
 grow_vertical = 0
 base_manager = NodePath("../../../BaseManager")
+
+[node name="Resources" type="Control" parent="BaseView" unique_id=1412588139]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 64.0
+offset_top = 748.0
+offset_right = 580.0
+offset_bottom = 835.0
+script = ExtResource("6_q5onr")
+
+[node name="CenterContainer" type="CenterContainer" parent="BaseView/Resources" unique_id=160827732]
+layout_mode = 0
+offset_right = 519.0
+offset_bottom = 40.0
+
+[node name="PlayerResourcesContainer" type="HBoxContainer" parent="BaseView/Resources/CenterContainer" unique_id=74056325]
+layout_mode = 2
+theme_override_constants/separation = 152
+
+[node name="RequisitionContainer" type="VBoxContainer" parent="BaseView/Resources/CenterContainer/PlayerResourcesContainer" unique_id=1451281895]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="BaseView/Resources/CenterContainer/PlayerResourcesContainer/RequisitionContainer" unique_id=225796253]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6_e3hyu")
+
+[node name="RequisitionAmountLabel" type="Label" parent="BaseView/Resources/CenterContainer/PlayerResourcesContainer/RequisitionContainer" unique_id=16884813]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="CrystalContainer" type="VBoxContainer" parent="BaseView/Resources/CenterContainer/PlayerResourcesContainer" unique_id=1790914369]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="BaseView/Resources/CenterContainer/PlayerResourcesContainer/CrystalContainer" unique_id=95928566]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6_w7kh3")
+
+[node name="CrystalAmountLabel" type="Label" parent="BaseView/Resources/CenterContainer/PlayerResourcesContainer/CrystalContainer" unique_id=1286129447]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="CrystalNotification" type="Label" parent="BaseView/Resources" unique_id=116539015]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 358.0
+offset_top = -32.0
+offset_right = 398.0
+offset_bottom = -9.0
+text = "+50"
+script = ExtResource("9_jhx03")
+
+[node name="RequisitionNotification" type="Label" parent="BaseView/Resources" unique_id=829290552]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 161.0
+offset_top = -32.0
+offset_right = 201.0
+offset_bottom = -9.0
+text = "+50"
+script = ExtResource("9_jhx03")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=869438757]
 layer = -64
