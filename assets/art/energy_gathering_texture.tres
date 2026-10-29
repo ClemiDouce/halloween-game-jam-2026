@@ -1,0 +1,11 @@
+[gd_resource type="AnimatedTexture" format=3 uid="uid://bcqsj7gjkuc74"]
+
+[ext_resource type="Texture2D" uid="uid://dqdh2xl47prk4" path="res://assets/art/gather_attack.png" id="1_mrrmo"]
+[ext_resource type="Texture2D" uid="uid://jpvsya7nq1la" path="res://assets/art/gather_attack_reverse.png" id="2_cdaut"]
+
+[resource]
+frames = 2
+frame_0/texture = ExtResource("1_mrrmo")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("2_cdaut")
+frame_1/duration = 0.1

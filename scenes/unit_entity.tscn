@@ -1,13 +1,19 @@
 [gd_scene format=3 uid="uid://bybp5w4ae511b"]
 
 [ext_resource type="Script" uid="uid://dnq0x8ta4eayy" path="res://scripts/units/unit_entity.gd" id="1_oir76"]
-[ext_resource type="Texture2D" uid="uid://bi6uc33hfi1mt" path="res://assets/art/units/plane.png" id="2_gnti6"]
+[ext_resource type="Texture2D" uid="uid://cldp6dsof66rj" path="res://assets/art/units/gatherer.png" id="2_7opfq"]
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="3_0uryg"]
 [ext_resource type="Script" uid="uid://th76u6xf6i43" path="res://scripts/component/trail2d.gd" id="3_m0sb2"]
 [ext_resource type="Script" uid="uid://crsfuur24ulp1" path="res://scripts/component/squish_component.gd" id="6_5q6hg"]
 [ext_resource type="Script" uid="uid://dj2pkpuo0ajdu" path="res://scripts/component/flash_component.gd" id="6_mcm0o"]
 [ext_resource type="Script" uid="uid://dlo6w10dedy5" path="res://scripts/bullet_animation.gd" id="7_5q6hg"]
 [ext_resource type="Texture2D" uid="uid://b8dgiga47nslb" path="res://assets/art/bullets/bullet_0003.png" id="7_gnti6"]
+[ext_resource type="Texture2D" uid="uid://y8ep32g2xixa" path="res://assets/art/tiles/overworld/crystal.png" id="9_cbjl1"]
+[ext_resource type="Texture2D" uid="uid://bcqsj7gjkuc74" path="res://assets/art/energy_gathering_texture.tres" id="10_cbjl1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbjl1"]
+atlas = ExtResource("2_7opfq")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n45qs"]
 resource_local_to_scene = true
@@ -90,7 +96,37 @@ unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Root" unique_id=1701573652]
 unique_name_in_owner = true
-texture = ExtResource("2_gnti6")
+texture = SubResource("AtlasTexture_cbjl1")
+
+[node name="GathererVisual" type="Node2D" parent="Root" unique_id=318639927]
+
+[node name="MineralSprite" type="Sprite2D" parent="Root/GathererVisual" unique_id=1047948284]
+unique_name_in_owner = true
+visible = false
+position = Vector2(4, 0)
+texture = ExtResource("9_cbjl1")
+
+[node name="Bolts" type="Node2D" parent="Root/GathererVisual" unique_id=250680581]
+unique_name_in_owner = true
+visible = false
+
+[node name="GatherBoltLeft" type="Line2D" parent="Root/GathererVisual/Bolts" unique_id=1667252052]
+unique_name_in_owner = true
+texture_repeat = 2
+position = Vector2(4, -3)
+points = PackedVector2Array(0, 0, 10, 3)
+width = 2.0
+texture = ExtResource("10_cbjl1")
+texture_mode = 1
+
+[node name="GatherBoltRight" type="Line2D" parent="Root/GathererVisual/Bolts" unique_id=152039375]
+unique_name_in_owner = true
+texture_repeat = 2
+position = Vector2(4, 4)
+points = PackedVector2Array(0, 0, 10, -4)
+width = 2.0
+texture = ExtResource("10_cbjl1")
+texture_mode = 1
 
 [node name="Hitbox" parent="." unique_id=957708440 node_paths=PackedStringArray("sprite") instance=ExtResource("3_0uryg")]
 unique_name_in_owner = true
@@ -99,6 +135,7 @@ sprite = NodePath("../Root/Sprite2D")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=999397715]
 unique_name_in_owner = true
+collision_layer = 0
 monitorable = false
 
 [node name="AttackShape" type="CollisionShape2D" parent="AttackArea" unique_id=1184875121]
@@ -109,6 +146,7 @@ debug_color = Color(0.90472734, 0.2984467, 0.1780119, 0.41960785)
 [node name="MoveTrail" type="Line2D" parent="." unique_id=1460968029]
 show_behind_parent = true
 z_index = -1
+points = PackedVector2Array(-7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9, -7, 9)
 width = 5.0
 width_curve = SubResource("Curve_gnti6")
 script = ExtResource("3_m0sb2")
