@@ -159,7 +159,7 @@ func _physics_process(delta: float) -> void:
 			if self.global_position.is_equal_approx(target_position):
 				
 				if is_gather_unit and have_mineral:
-					path_index -= path_dir
+					path_index += path_dir
 					target_position = path.get_next_point(path_index, path_dir)
 				else:
 					path_index += path_dir
@@ -170,9 +170,10 @@ func _physics_process(delta: float) -> void:
 						if team == CombatData.Team.PLAYER:
 							if path_index <= 0:
 								have_mineral = false
+								PlayerResources.crystal += 50
 								mineral_sprite.hide()
 								attack_target = null
-								path_index += path_dir
+								path_dir *= -1
 								target_position = path.get_next_point(path_index, path_dir)
 								return
 						else:
@@ -224,7 +225,14 @@ func _physics_process(delta: float) -> void:
 				bolts.hide()
 				gathering_time = 0.
 				have_mineral = true
-				target_position = path.get_previous_point(path_index+path_dir)
+				path_dir *= -1
+				#path_index = clamp(path_index, 0, path.point_list.size() - 1)
+				target_position = path.get_next_point(path_index, path_dir)
+				if target_position == Vector2.INF:
+					if path_dir < 0:
+						target_position = path.get_start_position()
+					else:
+						target_position = path.get_end_position()
 				state = UnitState.MOVING
 
 func change_to_gathering(mineral_target: Hitbox):

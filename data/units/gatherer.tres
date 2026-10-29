@@ -31,5 +31,5 @@ button_icon = ExtResource("1_idl76")
 unit_name = "Gatherer"
 attack_range = 25.0
 body_type = 1
-damage_type = 2
+damage_type = 3
 metadata/_custom_type_script = "uid://ctxaornc1ibjt"
