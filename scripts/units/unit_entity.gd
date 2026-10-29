@@ -180,7 +180,6 @@ func _physics_process(delta: float) -> void:
 					# Turn around if unit cannot attack the base
 					if not attacks_ground:
 						path_dir *= -1
-						path_index += path_dir
 						target_position = path.get_next_point(path_index, path_dir)
 						return
 					state = UnitState.IDLE
