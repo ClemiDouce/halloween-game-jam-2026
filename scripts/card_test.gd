@@ -10,9 +10,6 @@ func _ready() -> void:
 	if is_instance_valid(base_manager):
 		base_manager.unit_queue.unit_queued.connect(_add_card)
 
-#func _process(_delta: float) -> void:
-	#if Input.is_action_just_pressed("ui_accept"):
-		#_add_card()
 
 func _add_card(unit: UnitResource):
 	var new_card = QUEUE_CARD.instantiate() as QueueCard

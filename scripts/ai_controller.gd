@@ -14,7 +14,9 @@ func _ready() -> void:
 	controlling_base.team = team
 	base_entity.destroyed.connect(func(_base): started = false)
 	started = true
-		
+
+func start_controller():
+	started = true
 	
 func select_random_path():
 	var random_index = randi_range(0, controlling_base.paths.size())
