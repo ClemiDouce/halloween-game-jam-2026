@@ -167,17 +167,18 @@ func _physics_process(delta: float) -> void:
 
 				if target_position == Vector2.INF:
 					if is_gather_unit:
-						if team == CombatData.Team.PLAYER:
-							if path_index <= 0:
+							if (
+								(path_dir == -1 and path_index <= 0) or 
+								(path_dir == 1 and path_index > path.end_index)
+							):
 								have_mineral = false
-								PlayerResources.crystal += 50
 								mineral_sprite.hide()
 								attack_target = null
 								path_dir *= -1
 								target_position = path.get_next_point(path_index, path_dir)
+								if team == CombatData.Team.PLAYER:
+									PlayerResources.crystal += 50
 								return
-						else:
-							pass
 
 					# Turn around if unit cannot attack the base
 					if not attacks_ground:
