@@ -9,6 +9,11 @@ signal building_built(building: Building)
 signal unit_queued(unit: UnitEntity)
 signal action_triggered(action_name: String)
 
+var active : bool = false
+
+var requisition_gen_timer : float = 0.
+var requisition_gen_delay : float = 1.
+
 enum SelectionStage { NONE, SELECTING }
 var _selection_stage: SelectionStage = SelectionStage.NONE:
 	set(value):
@@ -42,6 +47,13 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if !active:
+		return
+	
+	requisition_gen_timer += _delta
+	if requisition_gen_timer >= requisition_gen_delay:
+		requisition_gen_timer -= requisition_gen_delay
+		PlayerResources.requisition += 100
 	_handle_building_selection()
 
 	if Input.is_action_just_pressed("next_path"):
@@ -50,6 +62,10 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	_handle_selected_building_slot(event)
+
+func start_level():
+	PlayerResources.set_start_value(1000, 200)
+	active = true
 
 
 func _handle_selected_building_slot(event: InputEvent) -> void:

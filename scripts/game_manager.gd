@@ -4,6 +4,7 @@ extends Node
 @onready var foreground_layer: CanvasLayer = %ForegroundLayer
 @onready var base_manager: BaseManager = $BaseManager
 @onready var music_player: AudioStreamPlayer = %MusicPlayer
+@onready var player_controller: PlayerController = %PlayerController
 
 # Level list
 @export var level_list : Array[PackedScene] = []
@@ -40,6 +41,7 @@ func _on_play_button_pressed() -> void:
 	launch_level(0)
 	start_screen.hide()
 	music_player.get_stream_playback().switch_to_clip_by_name("Game Loop")
+	player_controller.start_level()
 	foreground_layer.fade_in()
 
 
