@@ -15,6 +15,10 @@ run/main_scene="uid://cs30anugoy8la"
 config/features=PackedStringArray("4.7")
 config/icon="uid://mmxxx17hdkwb"
 
+[audio]
+
+buses/default_bus_layout="uid://c7s8opq7vysn3"
+
 [display]
 
 window/size/viewport_width=1920
@@ -28,6 +32,7 @@ player=""
 hostile=""
 controller=""
 freed=""
+unit_audio_player=""
 
 [input]
 

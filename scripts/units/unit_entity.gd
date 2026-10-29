@@ -1,6 +1,8 @@
 class_name UnitEntity extends Node2D
 
 const MISSING_TEXTURE = preload("res://assets/art/placeholder/unit_placeholder.png")
+const MAX_CONCURRENT_ENTITY_SOUNDS = 15
+const DB_VOLUME_MODIFIER = -6.
 
 @onready var attack_area: Area2D = %AttackArea
 @onready var attack_shape : CollisionShape2D = %AttackShape
@@ -119,10 +121,13 @@ func _play_sound_rand(streams: Array[AudioStream]) -> void:
 func _play_sound(stream: AudioStream) -> void:
 	if not stream:
 		return
+	if get_tree().get_node_count_in_group("unit_audio_player") >= MAX_CONCURRENT_ENTITY_SOUNDS:
+		return
 	var audio_player = AudioStreamPlayer2D.new()
+	audio_player.add_to_group("unit_audio_player")
 	audio_player.bus = "Sound Effects"
 	audio_player.stream = stream
-	audio_player.volume_db += 6
+	audio_player.volume_db += DB_VOLUME_MODIFIER
 	audio_player.finished.connect(audio_player.queue_free)
 	get_parent().add_child(audio_player)
 	audio_player.global_position = self.global_position
