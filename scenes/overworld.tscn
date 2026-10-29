@@ -1,15 +1,25 @@
 [gd_scene format=4 uid="uid://cthj6pcpappnu"]
 
 [ext_resource type="Script" uid="uid://dvk4lxtj7ufr0" path="res://scripts/level.gd" id="1_nesqq"]
+[ext_resource type="Script" uid="uid://ctxaornc1ibjt" path="res://scripts/units/unit_ressource.gd" id="2_pss1p"]
 [ext_resource type="TileSet" uid="uid://dgkd3tgj3kq0m" path="res://data/tileset.tres" id="2_qjxaj"]
+[ext_resource type="Script" uid="uid://byl1qp26ywmec" path="res://scripts/data/building.gd" id="4_2jxyl"]
+[ext_resource type="Resource" uid="uid://satvw0myflvt" path="res://data/buildings/infantry_barracks.tres" id="5_5rnle"]
 [ext_resource type="PackedScene" uid="uid://sowlhrxuy5vt" path="res://scenes/base_entity.tscn" id="5_dbwep"]
 [ext_resource type="Script" uid="uid://dlpfa2ms4acpk" path="res://scripts/data/base_data.gd" id="6_fuc0k"]
+[ext_resource type="Resource" uid="uid://8nn4arjh58w2" path="res://data/buildings/requisition_center.tres" id="6_gjn0k"]
 [ext_resource type="Script" uid="uid://b53fi0c8w7xjc" path="res://scripts/path/unit_path.gd" id="8_pss1p"]
+[ext_resource type="Script" uid="uid://lqgxp7i3sre7" path="res://scripts/data/game_rules.gd" id="8_qkc01"]
 [ext_resource type="Texture2D" uid="uid://y8ep32g2xixa" path="res://assets/art/tiles/overworld/crystal.png" id="9_nesqq"]
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="10_lsky2"]
 [ext_resource type="Script" uid="uid://cgyk0r65c3y0b" path="res://scripts/ai_controller.gd" id="11_lsky2"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="12_255p0"]
 [ext_resource type="Resource" uid="uid://ddwexcejudwcx" path="res://data/waves/level_1.tres" id="14_fuc0k"]
+
+[sub_resource type="Resource" id="Resource_nesqq"]
+script = ExtResource("8_qkc01")
+enabled_buildings = Array[ExtResource("4_2jxyl")]([ExtResource("5_5rnle"), ExtResource("6_gjn0k")])
+metadata/_custom_type_script = "uid://lqgxp7i3sre7"
 
 [sub_resource type="Resource" id="Resource_x7n8s"]
 script = ExtResource("6_fuc0k")
@@ -26,6 +36,7 @@ script = ExtResource("1_nesqq")
 paths = [NodePath("Paths/UnitPath"), NodePath("Paths/UnitPath2"), NodePath("Paths/UnitPath3")]
 entity_parent = NodePath("Entities")
 ai_list = [NodePath("AIBaseManager")]
+game_rules = SubResource("Resource_nesqq")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1082088365]
 z_index = -1

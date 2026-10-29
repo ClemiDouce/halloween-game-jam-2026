@@ -33,6 +33,7 @@ func launch_level(level_index: int):
 	for base_entity in get_tree().get_nodes_in_group("base"):
 		base_entity.destroyed.connect(_on_base_destroyed)
 	base_manager.connect_to_level(current_level.paths, current_level.entity_parent)
+	base_manager.set_game_rules(current_level.game_rules)
 
 #region StartState
 func _on_play_button_pressed() -> void:
