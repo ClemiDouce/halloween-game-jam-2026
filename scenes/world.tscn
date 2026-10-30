@@ -109,7 +109,8 @@ Vector2i(6, 5): {
 }
 }
 
-[node name="GameManager" type="Node" unique_id=1617731920 node_paths=PackedStringArray("main_menu_focus", "next_level_focus", "win_screen_focus", "loose_screen_focus")]
+[node name="GameManager" type="Node" unique_id=1617731920 node_paths=PackedStringArray("main_menu_focus", "next_level_focus", "win_screen_focus", "loose_screen_focus", "pause_screen_focus")]
+process_mode = 3
 script = ExtResource("1_o8fc1")
 level_list = Array[PackedScene]([ExtResource("2_7iits"), ExtResource("3_oo54l"), ExtResource("4_kpybi"), ExtResource("5_ctatt"), ExtResource("6_xgqkh"), ExtResource("7_munwf"), ExtResource("2_ts3gi"), ExtResource("3_0nbtd"), ExtResource("10_fh13f"), ExtResource("11_rup4s"), ExtResource("3_4kbfs")])
 demo_scene = ExtResource("3_pm21f")
@@ -117,6 +118,7 @@ main_menu_focus = NodePath("ForegroundLayer/StartScreen/VBoxContainer2/VBoxConta
 next_level_focus = NodePath("ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/NextLevelButton")
 win_screen_focus = NodePath("ForegroundLayer/WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackMenuButton")
 loose_screen_focus = NodePath("ForegroundLayer/LooseScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TryAgainButton")
+pause_screen_focus = NodePath("ForegroundLayer/PauseScreen/VBoxContainer/ResumeButton")
 
 [node name="ForegroundLayer" type="CanvasLayer" parent="." unique_id=1449940769]
 unique_name_in_owner = true
@@ -358,6 +360,50 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Back to menu"
 
+[node name="PauseScreen" type="Control" parent="ForegroundLayer" unique_id=867701988]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("12_navra")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ForegroundLayer/PauseScreen" unique_id=58349698]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -160.0
+offset_right = 220.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="PauseLabel" type="Label" parent="ForegroundLayer/PauseScreen/VBoxContainer" unique_id=1421660142]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="ForegroundLayer/PauseScreen/VBoxContainer" unique_id=750606929]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="BackMenuButton" type="Button" parent="ForegroundLayer/PauseScreen/VBoxContainer" unique_id=796231335]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back to menu"
+
 [node name="BaseView" type="CanvasLayer" parent="." unique_id=408365964]
 unique_name_in_owner = true
 visible = false
@@ -512,3 +558,5 @@ bus = &"Music"
 [connection signal="pressed" from="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]
 [connection signal="pressed" from="ForegroundLayer/WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]
 [connection signal="pressed" from="ForegroundLayer/LooseScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TryAgainButton" to="." method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="ForegroundLayer/PauseScreen/VBoxContainer/ResumeButton" to="." method="toggle_paused"]
+[connection signal="pressed" from="ForegroundLayer/PauseScreen/VBoxContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]

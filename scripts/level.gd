@@ -10,6 +10,8 @@ extends Node2D
 
 
 func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_PAUSABLE
+	
 	# Use default rules
 	if not game_rules:
 		game_rules = GameRules.new()
