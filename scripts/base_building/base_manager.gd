@@ -113,4 +113,5 @@ func reset_base():
 	for slot in building_slots:
 		slot.destroy()
 		slot_updated.emit.call_deferred(slot)
+	unit_queue.clear_queue()
 	
