@@ -108,3 +108,9 @@ func get_grid_pos(slot: BuildingSlot) -> Vector2i:
 			if get_build_slot(x, y) == slot:
 				return Vector2i(x, y)
 	return Vector2i.ZERO
+
+func reset_base():
+	for slot in building_slots:
+		slot.destroy()
+		slot_updated.emit.call_deferred(slot)
+	

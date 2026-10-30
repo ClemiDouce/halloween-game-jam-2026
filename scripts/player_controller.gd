@@ -101,6 +101,9 @@ func _handle_selected_building_slot(event: InputEvent) -> void:
 			#print("Built building at %s" % [_selected_building])
 			return
 
+func clear_player_base():
+	controlling_base.reset_base()
+	PlayerResources.set_start_value(1000, 200)
 
 func _handle_building_selection():
 	match _selection_stage:

@@ -52,7 +52,7 @@ func assign_unit(unit_type: UnitResource) -> void:
 			unit_type.rate_of_fire
 		]
 	).lstrip(" ").rstrip(" ")
-	print(unit_type.input_keyboard.as_text_keycode())
+	#print(unit_type.input_keyboard.as_text_keycode())
 
 func assign_building(building: Building) -> void:
 	assigned_data = building

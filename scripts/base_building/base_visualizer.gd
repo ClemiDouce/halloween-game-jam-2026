@@ -137,7 +137,7 @@ func _on_selection_stage_changed(stage: PlayerController.SelectionStage) -> void
 
 
 func _on_building_selected(_slot: BuildingSlot, grid_pos: Vector2i) -> void:
-	print("Selected %s" % [grid_pos])
+	#print("Selected %s" % [grid_pos])
 	if _cursor_tween:
 		_cursor_tween.kill()
 	

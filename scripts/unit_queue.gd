@@ -25,3 +25,6 @@ func _process(delta: float):
 				unit_ready.emit(item.unit, item.path)
 				item.done = true
 		queue_list = queue_list.filter(func(item: QueueItem): return !item.done)
+
+func clear_queue():
+	queue_list.clear()
