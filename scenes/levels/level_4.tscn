@@ -10,7 +10,7 @@
 [ext_resource type="TileSet" uid="uid://dgkd3tgj3kq0m" path="res://data/tileset.tres" id="10_1s8bw"]
 [ext_resource type="PackedScene" uid="uid://sowlhrxuy5vt" path="res://scenes/base_entity.tscn" id="11_seltb"]
 [ext_resource type="Script" uid="uid://dlpfa2ms4acpk" path="res://scripts/data/base_data.gd" id="12_dorgx"]
-[ext_resource type="Resource" uid="uid://bflwcbl4urljg" path="res://data/waves/level_5.tres" id="13_ov8fk"]
+[ext_resource type="Resource" uid="uid://h24qqhuc3tvk" path="res://data/waves/level_4.tres" id="13_ov8fk"]
 [ext_resource type="Script" uid="uid://b53fi0c8w7xjc" path="res://scripts/path/unit_path.gd" id="13_y0jd0"]
 [ext_resource type="Script" uid="uid://cgyk0r65c3y0b" path="res://scripts/ai_controller.gd" id="14_4luak"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="19_fgtm3"]
@@ -103,7 +103,7 @@ script = ExtResource("14_4luak")
 controlling_base = NodePath("../AIBaseManager")
 wave = ExtResource("13_ov8fk")
 base_entity = NodePath("../HostileBase")
-decision_delay = 5.0
+decision_delay = 3.0
 
 [node name="AIBaseManager" type="Node" parent="." unique_id=1355608685]
 script = ExtResource("19_fgtm3")
