@@ -192,7 +192,7 @@ func _on_slot_updated(slot: BuildingSlot) -> void:
 		tween.tween_property(sprite, "scale", original_scale, 0.125/2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 		
 	else:
-		if slot.texture != empty_building_slot_texture:
+		if sprite.texture != empty_building_slot_texture:
 			_play_sound_rand(sound_building_destroyed)
 			sprite.texture = empty_building_slot_texture
 
