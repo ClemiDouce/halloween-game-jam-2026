@@ -32,6 +32,7 @@ const BUILDING_TILE_HEIGHT = 16
 @export var sound_selected: AudioStream
 @export var sound_building_built: AudioStream
 @export var sound_hotkey_sounds: Array[AudioStream] = []
+@export var sound_building_destroyed: Array[AudioStream] = []
 
 var _x_axis_sprites: Array[Sprite2D] = []
 var _y_axis_sprites: Array[Sprite2D] = []
@@ -49,6 +50,8 @@ func _get_base() -> BaseManager:
 	return player.controlling_base
 
 func _play_sound_rand(streams: Array[AudioStream]) -> void:
+	if len(streams) == 0:
+		return
 	_play_sound(streams.pick_random())
 
 func _play_sound(stream: AudioStream) -> void:
@@ -189,7 +192,9 @@ func _on_slot_updated(slot: BuildingSlot) -> void:
 		tween.tween_property(sprite, "scale", original_scale, 0.125/2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 		
 	else:
-		sprite.texture = empty_building_slot_texture
+		if slot.texture != empty_building_slot_texture:
+			_play_sound_rand(sound_building_destroyed)
+			sprite.texture = empty_building_slot_texture
 
 	if player.get_selected() == slot:
 		_update_hotkey_buttons(slot)

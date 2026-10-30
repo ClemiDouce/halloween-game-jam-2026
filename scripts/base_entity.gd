@@ -10,6 +10,8 @@ extends Node2D
 
 @export var base_data : BaseData
 @export var texture: Dictionary[CombatData.Team, Texture]
+@export_category("Sounds")
+@export var sound_destroyed: Array[AudioStream] = []
 
 signal destroyed(data: BaseData)
 
@@ -28,6 +30,22 @@ func set_data() -> void:
 	if base_data.team in texture:
 		$Sprite2D.texture = texture[base_data.team]
 
+func _play_sound_rand(streams: Array[AudioStream]) -> void:
+	_play_sound(streams.pick_random())
+
+func _play_sound(stream: AudioStream) -> void:
+	if not stream:
+		return
+
+	var audio_player = AudioStreamPlayer2D.new()
+	audio_player.add_to_group("unit_audio_player")
+	audio_player.bus = "Sound Effects"
+	audio_player.stream = stream
+	audio_player.finished.connect(audio_player.queue_free)
+	get_parent().add_child(audio_player)
+	audio_player.global_position = self.global_position
+	audio_player.play()
+
 func _on_entity_hitbox_hurt(attacker: EntityData) -> void:
 	var damage = AttackCalculator.get_attack_damage(attacker, base_data)
 	health = max(0, health - damage)
@@ -35,6 +53,7 @@ func _on_entity_hitbox_hurt(attacker: EntityData) -> void:
 	if health <= 0:
 		#TODO Death Animation
 		destroyed.emit(base_data)
+		_play_sound_rand(sound_destroyed)
 		queue_free()
 	else:
 		flash_component.flash()

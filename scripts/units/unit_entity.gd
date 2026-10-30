@@ -29,6 +29,7 @@ var gathering_time := 0.
 @export var sounds_laser_attack: Array[AudioStream] = []
 @export var sounds_bullet_attack: Array[AudioStream] = []
 @export var sounds_explosive_attack: Array[AudioStream] = []
+@export var sounds_exploit_attack: Array[AudioStream] = []
 var _sounds_attack: Array[AudioStream] = []
 
 var team : CombatData.Team
@@ -87,6 +88,8 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 			_sounds_attack = sounds_explosive_attack
 		CombatData.DamageType.LASER:
 			_sounds_attack = sounds_laser_attack
+		CombatData.DamageType.EXPLOIT:
+			_sounds_attack = sounds_exploit_attack
 
 	path = _path
 	if team == CombatData.Team.PLAYER:
