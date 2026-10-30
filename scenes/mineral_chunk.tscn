@@ -6,6 +6,7 @@
 
 [node name="MineralChunk" type="Node2D" unique_id=1502715303]
 script = ExtResource("2_xvpv3")
+capacity = 15
 
 [node name="Root" type="Node2D" parent="." unique_id=7271033]
 unique_name_in_owner = true

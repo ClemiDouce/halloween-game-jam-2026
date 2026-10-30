@@ -140,64 +140,48 @@ position = Vector2(246.05841, 0)
 
 [node name="MineralChunk" parent="Crystals" unique_id=1502715303 instance=ExtResource("16_wvqji")]
 position = Vector2(434.9416, 568)
-capacity = 5
 
 [node name="MineralChunk2" parent="Crystals" unique_id=1152038593 instance=ExtResource("16_wvqji")]
 position = Vector2(449.9416, 554)
-capacity = 5
 
 [node name="MineralChunk3" parent="Crystals" unique_id=308943277 instance=ExtResource("16_wvqji")]
 position = Vector2(433.9416, 320)
-capacity = 5
 
 [node name="MineralChunk11" parent="Crystals" unique_id=788415425 instance=ExtResource("16_wvqji")]
 position = Vector2(449.9416, 328)
-capacity = 5
 
 [node name="MineralChunk12" parent="Crystals" unique_id=1675871959 instance=ExtResource("16_wvqji")]
 position = Vector2(449.9416, 304)
-capacity = 5
 
 [node name="MineralChunk13" parent="Crystals" unique_id=666205791 instance=ExtResource("16_wvqji")]
 position = Vector2(497.9416, 306)
-capacity = 5
 
 [node name="MineralChunk14" parent="Crystals" unique_id=1587893259 instance=ExtResource("16_wvqji")]
 position = Vector2(497.9416, 324)
-capacity = 5
 
 [node name="MineralChunk15" parent="Crystals" unique_id=1941031335 instance=ExtResource("16_wvqji")]
 position = Vector2(511.9416, 310)
-capacity = 5
 
 [node name="MineralChunk16" parent="Crystals" unique_id=1225683298 instance=ExtResource("16_wvqji")]
 position = Vector2(511.9416, 324)
-capacity = 5
 
 [node name="MineralChunk4" parent="Crystals" unique_id=1958307527 instance=ExtResource("16_wvqji")]
 position = Vector2(433.9416, 552)
-capacity = 5
 
 [node name="MineralChunk5" parent="Crystals" unique_id=1906654704 instance=ExtResource("16_wvqji")]
 position = Vector2(449.9416, 122)
-capacity = 5
 
 [node name="MineralChunk6" parent="Crystals" unique_id=542087957 instance=ExtResource("16_wvqji")]
 position = Vector2(435.9416, 106)
-capacity = 5
 
 [node name="MineralChunk7" parent="Crystals" unique_id=1202180420 instance=ExtResource("16_wvqji")]
 position = Vector2(449.9416, 108)
-capacity = 5
 
 [node name="MineralChunk8" parent="Crystals" unique_id=201317690 instance=ExtResource("16_wvqji")]
 position = Vector2(433.9416, 120)
-capacity = 5
 
 [node name="MineralChunk9" parent="Crystals" unique_id=809647140 instance=ExtResource("16_wvqji")]
 position = Vector2(450.9416, 570)
-capacity = 5
 
 [node name="MineralChunk10" parent="Crystals" unique_id=1264665900 instance=ExtResource("16_wvqji")]
 position = Vector2(435.9416, 304)
-capacity = 5

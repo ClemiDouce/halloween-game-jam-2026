@@ -21,9 +21,9 @@ region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("3_2vsea")
-speed = 25.0
+speed = 30.0
 trail_length = 35
-time_to_build = 2.0
+time_to_build = 1.5
 texture = Dictionary[int, Texture]({
 0: SubResource("AtlasTexture_6gab0"),
 1: SubResource("AtlasTexture_e2mna")
@@ -33,10 +33,10 @@ button_icon = ExtResource("2_po0jl")
 unit_name = "Light Tank"
 health = 50
 damage = 20
-attack_range = 40.0
-rate_of_fire = 1.2
+attack_range = 35.0
+rate_of_fire = 1.7
 bullet_texture = ExtResource("1_4nell")
 body_type = 1
-money_cost = 50
-crystal_cost = 50
+money_cost = 120
+crystal_cost = 10
 metadata/_custom_type_script = "uid://ctxaornc1ibjt"

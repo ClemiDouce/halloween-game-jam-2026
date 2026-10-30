@@ -24,6 +24,8 @@
 [ext_resource type="AudioStream" uid="uid://chda8h4ts6bjh" path="res://assets/sound/explosive_weapon_2.wav" id="13_u4npn"]
 [ext_resource type="AudioStream" uid="uid://6d1h14ds4atp" path="res://assets/sound/explosive_weapon_3.wav" id="14_qbex1"]
 [ext_resource type="AudioStream" uid="uid://bjdbykc20e1ol" path="res://assets/sound/explosive_weapon_4.wav" id="15_j5rxa"]
+[ext_resource type="AudioStream" uid="uid://c7hfsled2oce1" path="res://assets/sound/crystal_dropped.wav" id="16_j5rxa"]
+[ext_resource type="AudioStream" uid="uid://bu4dkx5uv6bp6" path="res://assets/sound/crystal_increased.wav" id="17_x082v"]
 [ext_resource type="Material" uid="uid://c8y2rekjpxh4t" path="res://assets/shader/flash_effect.tres" id="22_qbex1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbjl1"]
@@ -109,6 +111,8 @@ sounds_destroyed = Array[AudioStream]([ExtResource("10_aj26u"), ExtResource("11_
 sounds_laser_attack = Array[AudioStream]([ExtResource("5_0wh3c"), ExtResource("6_pknud"), ExtResource("7_u4npn"), ExtResource("8_qbex1")])
 sounds_bullet_attack = Array[AudioStream]([ExtResource("9_0wh3c"), ExtResource("10_pknud"), ExtResource("11_u4npn"), ExtResource("12_qbex1")])
 sounds_explosive_attack = Array[AudioStream]([ExtResource("13_u4npn"), ExtResource("13_u4npn"), ExtResource("14_qbex1"), ExtResource("15_j5rxa")])
+sounds_get_resource = ExtResource("16_j5rxa")
+sounds_drop_resource = ExtResource("17_x082v")
 
 [node name="Root" type="Node2D" parent="." unique_id=276612026]
 unique_name_in_owner = true

@@ -13,7 +13,7 @@ signal action_triggered(action_name: String)
 var active : bool = false
 
 var requisition_gen_timer : float = 0.
-var requisition_gen_delay : float = 1.
+var requisition_gen_delay : float = 1.5
 
 enum SelectionStage { NONE, SELECTING }
 var _selection_stage: SelectionStage = SelectionStage.NONE:
@@ -107,7 +107,7 @@ func _handle_selected_building_slot(event: InputEvent) -> void:
 
 func clear_player_base():
 	controlling_base.reset_base()
-	PlayerResources.set_start_value(1000, 200)
+	PlayerResources.set_start_value(500, 100)
 
 func _handle_building_selection():
 	match _selection_stage:

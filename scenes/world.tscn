@@ -206,7 +206,7 @@ grow_vertical = 0
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 32
 text = "Created by Layla and Clementine
-Music by Erin and Jordan"
+Music by Erin Murray and 9o"
 
 [node name="NextLevelScreen" type="Control" parent="ForegroundLayer" unique_id=1027942051]
 unique_name_in_owner = true

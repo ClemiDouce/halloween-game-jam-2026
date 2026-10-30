@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dk8dorljy2rx6" path="res://assets/art/processed_units/base_blue.png" id="3_qga7x"]
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="3_qtj7x"]
 [ext_resource type="Texture2D" uid="uid://bv3p18np2hhd6" path="res://assets/art/processed_units/base_red.png" id="4_qtj7x"]
+[ext_resource type="AudioStream" uid="uid://crkfmbmxx0pqr" path="res://assets/sound/base_explosion.wav" id="5_6ecdm"]
 [ext_resource type="Script" uid="uid://dj2pkpuo0ajdu" path="res://scripts/component/flash_component.gd" id="6_0g3pn"]
 [ext_resource type="Shader" uid="uid://d1pxlvjbvuy4l" path="res://scenes/unit_entity.gdshader" id="7_6ecdm"]
 [ext_resource type="Script" uid="uid://c0vd5v6f8kgwq" path="res://scripts/boing_component.gd" id="7_bikfn"]
@@ -23,6 +24,7 @@ texture = Dictionary[int, Texture]({
 0: ExtResource("3_qga7x"),
 1: ExtResource("4_qtj7x")
 })
+sound_destroyed = Array[AudioStream]([ExtResource("5_6ecdm")])
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1063533838]

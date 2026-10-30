@@ -30,6 +30,8 @@ var gathering_time := 0.
 @export var sounds_bullet_attack: Array[AudioStream] = []
 @export var sounds_explosive_attack: Array[AudioStream] = []
 @export var sounds_exploit_attack: Array[AudioStream] = []
+@export var sounds_get_resource: AudioStream
+@export var sounds_drop_resource: AudioStream
 var _sounds_attack: Array[AudioStream] = []
 
 var team : CombatData.Team
@@ -181,6 +183,8 @@ func _physics_process(delta: float) -> void:
 								target_position = path.get_next_point(path_index)
 								if team == CombatData.Team.PLAYER:
 									PlayerResources.crystal += 50
+									PlayerResources.requisition += 75
+									_play_sound(sounds_drop_resource)
 								return
 
 					# Turn around if unit cannot attack the base
@@ -234,6 +238,7 @@ func _physics_process(delta: float) -> void:
 			if gathering_time >= gathering_delay:
 				mineral_sprite.show()
 				bolts.hide()
+				_play_sound(sounds_get_resource)
 				gathering_time = 0.
 				have_mineral = true
 				attack_target.get_damage(self.unit_data)

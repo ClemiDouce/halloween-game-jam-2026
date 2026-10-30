@@ -118,43 +118,33 @@ position = Vector2(246.05841, 0)
 
 [node name="MineralChunk" parent="Crystals" unique_id=1502715303 instance=ExtResource("17_oftal")]
 position = Vector2(-69.05841, 291)
-capacity = 5
 
 [node name="MineralChunk2" parent="Crystals" unique_id=1152038593 instance=ExtResource("17_oftal")]
 position = Vector2(-70.05841, 278)
-capacity = 5
 
 [node name="MineralChunk3" parent="Crystals" unique_id=308943277 instance=ExtResource("17_oftal")]
 position = Vector2(-79.05841, 272)
-capacity = 5
 
 [node name="MineralChunk4" parent="Crystals" unique_id=1958307527 instance=ExtResource("17_oftal")]
 position = Vector2(-79.05841, 285)
-capacity = 5
 
 [node name="MineralChunk5" parent="Crystals" unique_id=1906654704 instance=ExtResource("17_oftal")]
 position = Vector2(-79.05841, 296)
-capacity = 5
 
 [node name="MineralChunk6" parent="Crystals" unique_id=542087957 instance=ExtResource("17_oftal")]
 position = Vector2(313.9416, 504)
-capacity = 5
 
 [node name="MineralChunk7" parent="Crystals" unique_id=1202180420 instance=ExtResource("17_oftal")]
 position = Vector2(305.9416, 512)
-capacity = 5
 
 [node name="MineralChunk8" parent="Crystals" unique_id=201317690 instance=ExtResource("17_oftal")]
 position = Vector2(353.9416, 128)
-capacity = 5
 
 [node name="MineralChunk9" parent="Crystals" unique_id=809647140 instance=ExtResource("17_oftal")]
 position = Vector2(321.9416, 512)
-capacity = 5
 
 [node name="MineralChunk10" parent="Crystals" unique_id=1264665900 instance=ExtResource("17_oftal")]
 position = Vector2(337.9416, 128)
-capacity = 5
 
 [node name="GatherCrystals" type="Sprite2D" parent="." unique_id=17512204]
 position = Vector2(576, 480)
