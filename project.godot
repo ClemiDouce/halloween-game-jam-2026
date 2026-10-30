@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="HalloweenGameJam2026"
+config/name="Blazing Hotkeys"
 run/main_scene="uid://cs30anugoy8la"
 config/features=PackedStringArray("4.7")
 config/icon="uid://mmxxx17hdkwb"
