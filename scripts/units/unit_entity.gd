@@ -91,13 +91,14 @@ func set_unit(unit: UnitResource, _path: UnitPath, _team: CombatData.Team):
 	path = _path
 	if team == CombatData.Team.PLAYER:
 		path_dir = 1
+		path_index = 1
 		global_position = path.get_start_position()
-		target_position = path.get_next_point(path_index, path_dir)
+		target_position = path.get_next_point(path_index)
 	elif team == CombatData.Team.HOSTILE:
 		path_dir = -1
-		path_index = path.end_index
+		path_index = path.end_index + path_dir
 		global_position = path.get_end_position()
-		target_position = path.get_next_point(path_index, path_dir)
+		target_position = path.get_next_point(path_index)
 	
 	match unit_data.elevation:
 		CombatData.ElevationType.GROUND:
@@ -160,12 +161,8 @@ func _physics_process(delta: float) -> void:
 		UnitState.MOVING:
 			if self.global_position.is_equal_approx(target_position):
 				
-				if is_gather_unit and have_mineral:
-					path_index += path_dir
-					target_position = path.get_next_point(path_index, path_dir)
-				else:
-					path_index += path_dir
-					target_position = path.get_next_point(path_index, path_dir)
+				path_index += path_dir
+				target_position = path.get_next_point(path_index)
 
 				if target_position == Vector2.INF:
 					if is_gather_unit:
@@ -177,7 +174,8 @@ func _physics_process(delta: float) -> void:
 								mineral_sprite.hide()
 								attack_target = null
 								path_dir *= -1
-								target_position = path.get_next_point(path_index, path_dir)
+								path_index += path_dir
+								target_position = path.get_next_point(path_index)
 								if team == CombatData.Team.PLAYER:
 									PlayerResources.crystal += 50
 								return
@@ -185,7 +183,8 @@ func _physics_process(delta: float) -> void:
 					# Turn around if unit cannot attack the base
 					if not attacks_ground:
 						path_dir *= -1
-						target_position = path.get_next_point(path_index, path_dir)
+						path_index += path_dir
+						target_position = path.get_next_point(path_index)
 						return
 					state = UnitState.IDLE
 					return
@@ -237,7 +236,8 @@ func _physics_process(delta: float) -> void:
 				have_mineral = true
 				attack_target.get_damage(self.unit_data)
 				path_dir *= -1
-				target_position = path.get_next_point(path_index, path_dir)
+				path_index += path_dir
+				target_position = path.get_next_point(path_index)
 				if target_position == Vector2.INF:
 					if path_dir < 0:
 						target_position = path.get_start_position()

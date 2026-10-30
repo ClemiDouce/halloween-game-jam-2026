@@ -5,11 +5,11 @@ var end_index : int:
 	get:
 		return point_list.size() - 1
 
-func get_next_point(index: int, path_dir: int):
-	if index + path_dir >= point_list.size() or index + path_dir < 0:
+func get_next_point(index: int):
+	if index >= point_list.size() or index < 0:
 		return Vector2.INF
 	else:
-		return point_list[index + path_dir].global_position
+		return point_list[index].global_position
 
 func get_start_position():
 	return point_list[0].global_position
