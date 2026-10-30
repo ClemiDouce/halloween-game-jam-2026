@@ -5,7 +5,8 @@ class_name AIController extends Node
 @export var base_entity: BaseEntity
 @export var team: CombatData.Team = CombatData.Team.HOSTILE
 
-var decision_delay : float = 2.5
+@export var start_delay : float = 2.5
+@export var decision_delay : float = 2.5
 var decision_timer := 0.
 
 var started := false
@@ -16,7 +17,10 @@ func _ready() -> void:
 	started = true
 
 func start_controller():
-	started = true
+	get_tree().create_timer(start_delay).timeout.connect(func():
+		started = true
+	)
+	
 
 func stop_controller():
 	started = false

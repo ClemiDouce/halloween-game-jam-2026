@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://lhh4j5y73nxr" path="res://assets/art/processed_units/mech_blue.png" id="2_x1ny7"]
 [ext_resource type="Texture2D" uid="uid://duf7vy5tiapfb" path="res://assets/art/processed_units/mech_red.png" id="3_7vips"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_1g1w0"]
+[sub_resource type="InputEventKey" id="InputEventKey_qm3sk"]
 device = -1
-keycode = 71
-unicode = 103
+keycode = 73
+unicode = 105
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uwuil"]
 atlas = ExtResource("2_x1ny7")
@@ -28,9 +28,9 @@ texture = Dictionary[int, Texture]({
 0: SubResource("AtlasTexture_uwuil"),
 1: SubResource("AtlasTexture_tmmt3")
 })
-input_keyboard = SubResource("InputEventKey_1g1w0")
+input_keyboard = SubResource("InputEventKey_qm3sk")
 button_icon = ExtResource("1_7vips")
-unit_name = "Gun"
+unit_name = "Infantry"
 health = 25
 damage = 15
 attack_range = 30.0

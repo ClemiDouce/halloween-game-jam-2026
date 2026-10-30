@@ -8,15 +8,15 @@
 [ext_resource type="Resource" uid="uid://jxlk5ecgk1cq" path="res://data/units/missile_launcher.tres" id="6_jnt4j"]
 [ext_resource type="Resource" uid="uid://6cqe7pn2dasa" path="res://data/units/heavy_tank.tres" id="7_myaue"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_ti5y2"]
+[sub_resource type="InputEventKey" id="InputEventKey_0nnes"]
 device = -1
-keycode = 84
-unicode = 116
+keycode = 70
+unicode = 102
 
 [resource]
 script = ExtResource("1_2f3vs")
-input_keyboard = SubResource("InputEventKey_ti5y2")
-building_name = "Tank Factory"
+input_keyboard = SubResource("InputEventKey_0nnes")
+building_name = "Mechanized Factory"
 building_texture = ExtResource("1_ti5y2")
 units = Array[ExtResource("3_xi2ec")]([ExtResource("5_0nnes"), ExtResource("6_jnt4j"), ExtResource("7_myaue")])
 button_icon = ExtResource("2_ti5y2")

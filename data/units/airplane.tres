@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://3a2x4g4ebd84" path="res://assets/art/processed_units/plane_blue.png" id="4_0q8tt"]
 [ext_resource type="Texture2D" uid="uid://dy0d3np7je6mt" path="res://assets/art/processed_units/plane_red.png" id="5_fsetb"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_3o67u"]
+[sub_resource type="InputEventKey" id="InputEventKey_cn88x"]
 device = -1
-keycode = 80
-unicode = 112
+keycode = 70
+unicode = 102
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nesqq"]
 shader = ExtResource("3_mp85e")
@@ -27,9 +27,9 @@ texture = Dictionary[int, Texture]({
 1: ExtResource("5_fsetb")
 })
 shader = SubResource("ShaderMaterial_nesqq")
-input_keyboard = SubResource("InputEventKey_3o67u")
+input_keyboard = SubResource("InputEventKey_cn88x")
 button_icon = ExtResource("1_cn88x")
-unit_name = "Plane"
+unit_name = "Fighter"
 health = 5
 damage = 25
 attack_range = 25.0
