@@ -15,7 +15,7 @@ func setup_visualizer(path: UnitPath):
 	var point_positions = path.point_list.map(func(node: Node2D): return node.global_position)
 	point_positions.resize(2)
 	points = point_positions
-	print(points)
+	#print(points)
 	width = min_max_width.x
 	start_pulsing()
 	
@@ -31,3 +31,9 @@ func start_pulsing():
 
 func _ceiled_width(value: float):
 	width = ceili(value)
+	
+func clear():
+	if pulse_tween:
+		pulse_tween.kill()
+	
+	clear_points()

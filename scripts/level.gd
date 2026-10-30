@@ -11,6 +11,7 @@ func _ready() -> void:
 	# Use default rules
 	if not game_rules:
 		game_rules = GameRules.new()
+		setup_level()
 
 func setup_level():
 	for ai : BaseManager in ai_list:
@@ -21,4 +22,9 @@ func start_level():
 	for ai in controllers:
 		if ai is AIController:
 			ai.start_controller()
-		
+
+func stop():
+	var controllers = get_tree().get_nodes_in_group("hostile")
+	for ai in controllers:
+		if ai is AIController:
+			ai.stop_controller()

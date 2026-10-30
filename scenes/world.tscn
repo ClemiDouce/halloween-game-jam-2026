@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1ahgx2mjnkd5" path="res://scripts/game_manager.gd" id="1_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://dk1sgrxi5yepn" path="res://scenes/base_view.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cthj6pcpappnu" path="res://scenes/overworld.tscn" id="2_i7141"]
+[ext_resource type="PackedScene" uid="uid://ckowbcd1f1paw" path="res://scenes/demo_level.tscn" id="3_pm21f"]
 [ext_resource type="PackedScene" uid="uid://bfhkwvoxpdo70" path="res://scenes/card_test.tscn" id="4_7r4gi"]
 [ext_resource type="Texture2D" uid="uid://cqwrurfstykui" path="res://assets/art/icons/requistion.png" id="6_e3hyu"]
 [ext_resource type="Script" uid="uid://bdtv5mduj172k" path="res://scripts/player_resources_container.gd" id="6_q5onr"]
@@ -61,8 +62,8 @@ Vector2i(1, 2): {
 
 [node name="GameManager" type="Node" unique_id=1617731920]
 script = ExtResource("1_o8fc1")
-level_list = Array[PackedScene]([ExtResource("2_i7141")])
-metadata/_edit_horizontal_guides_ = [742.0]
+level_list = Array[PackedScene]([ExtResource("2_i7141"), ExtResource("2_i7141")])
+demo_scene = ExtResource("3_pm21f")
 
 [node name="ForegroundLayer" type="CanvasLayer" parent="." unique_id=1449940769]
 unique_name_in_owner = true
@@ -137,7 +138,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
-[node name="WinScreen" type="Control" parent="ForegroundLayer" unique_id=1027942051]
+[node name="NextLevelScreen" type="Control" parent="ForegroundLayer" unique_id=1027942051]
 unique_name_in_owner = true
 visible = false
 layout_mode = 3
@@ -148,17 +149,94 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="ForegroundLayer/WinScreen" unique_id=2080459148]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CenterContainer" type="CenterContainer" parent="ForegroundLayer/NextLevelScreen" unique_id=2080459148]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ForegroundLayer/WinScreen/CenterContainer" unique_id=2003198146]
+[node name="PanelContainer" type="PanelContainer" parent="ForegroundLayer/NextLevelScreen/CenterContainer" unique_id=1167634269]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer" unique_id=1375271893]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer" unique_id=2003198146]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="NextLevelLabel" type="Label" parent="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1542310415]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "You Win !"
+horizontal_alignment = 1
+
+[node name="NextLevelButton" type="Button" parent="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=593442724]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Next Level"
+
+[node name="BackMenuButton" type="Button" parent="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=840384599]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back to menu"
+
+[node name="WinScreen" type="Control" parent="ForegroundLayer" unique_id=2009216383]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="ForegroundLayer/WinScreen" unique_id=686037548]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ForegroundLayer/WinScreen/CenterContainer" unique_id=958757345]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ForegroundLayer/WinScreen/CenterContainer/PanelContainer" unique_id=83671569]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ForegroundLayer/WinScreen/CenterContainer/PanelContainer/MarginContainer" unique_id=1602145690]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="WinMessageLabel" type="Label" parent="ForegroundLayer/WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1252412945]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "HURRAY ! You win !
+Thanks for playing our game <3
+made with love by people
+have a wonderful day !"
+horizontal_alignment = 1
+
+[node name="BackMenuButton" type="Button" parent="ForegroundLayer/WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1838466497]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Back to Menu"
 
 [node name="LooseScreen" type="Control" parent="ForegroundLayer" unique_id=1729187580]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -167,7 +245,46 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="CenterContainer" type="CenterContainer" parent="ForegroundLayer/LooseScreen" unique_id=1216784922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ForegroundLayer/LooseScreen/CenterContainer" unique_id=1882234771]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ForegroundLayer/LooseScreen/CenterContainer/PanelContainer" unique_id=1364970074]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ForegroundLayer/LooseScreen/CenterContainer/PanelContainer/MarginContainer" unique_id=2023416521]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="LooseLabel" type="Label" parent="ForegroundLayer/LooseScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=644594770]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "You Loose"
+horizontal_alignment = 1
+
+[node name="TryAgainButton" type="Button" parent="ForegroundLayer/LooseScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1003705978]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Try again"
+
+[node name="BackMenuButton" type="Button" parent="ForegroundLayer/LooseScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=184670681]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back to menu"
+
 [node name="BaseView" type="CanvasLayer" parent="." unique_id=408365964]
+unique_name_in_owner = true
 
 [node name="BaseViewer" parent="BaseView" unique_id=526506978 node_paths=PackedStringArray("player") instance=ExtResource("2_4wyf3")]
 size_flags_horizontal = 3
@@ -293,6 +410,7 @@ script = ExtResource("10_w7kh3")
 controlling_base = NodePath("../BaseManager")
 
 [node name="PathVisualizer" parent="." unique_id=292417664 node_paths=PackedStringArray("base") instance=ExtResource("7_i7141")]
+unique_name_in_owner = true
 width = 10.0
 gradient = SubResource("Gradient_i7141")
 texture = ExtResource("7_4mrxx")
@@ -309,3 +427,7 @@ bus = &"Music"
 
 [connection signal="pressed" from="ForegroundLayer/StartScreen/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ForegroundLayer/StartScreen/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]
+[connection signal="pressed" from="ForegroundLayer/WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]
+[connection signal="pressed" from="ForegroundLayer/LooseScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TryAgainButton" to="." method="_on_try_again_button_pressed"]

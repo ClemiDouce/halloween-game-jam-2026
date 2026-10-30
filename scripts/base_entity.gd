@@ -29,7 +29,7 @@ func set_data() -> void:
 func _on_entity_hitbox_hurt(attacker: EntityData) -> void:
 	var damage = AttackCalculator.get_attack_damage(attacker, base_data)
 	health = max(0, health - damage)
-	print("%s received %s damage from %s. Current health : %s" % [base_data.unit_name, damage, attacker.unit_name, health])
+	#print("%s received %s damage from %s. Current health : %s" % [base_data.unit_name, damage, attacker.unit_name, health])
 	if health <= 0:
 		#TODO Death Animation
 		destroyed.emit(base_data)

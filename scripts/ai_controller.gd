@@ -17,7 +17,10 @@ func _ready() -> void:
 
 func start_controller():
 	started = true
-	
+
+func stop_controller():
+	started = false
+
 func select_random_path():
 	var random_index = randi_range(0, controlling_base.paths.size())
 	controlling_base.select_path_by_index(random_index)

@@ -152,6 +152,8 @@ func _play_sound(stream: AudioStream) -> void:
 	audio_player.play()
 
 func _physics_process(delta: float) -> void:
+	if dead:
+		return
 	match(state):
 		UnitState.IDLE:
 			pass
@@ -274,16 +276,19 @@ func _process_animation(delta: float) -> void:
 func _on_hitbox_hurt(attacker: EntityData) -> void:
 	var damage = AttackCalculator.get_attack_damage(attacker, unit_data)
 	health = max(0, health - damage)
-	print("%s received %s damage from %s. Current health : %s" % [unit_data.unit_name, damage, attacker.unit_name, health])
+	#print("%s received %s damage from %s. Current health : %s" % [unit_data.unit_name, damage, attacker.unit_name, health])
 	if health <= 0:
 		if dead:
 			return
-		dead = true
-		hitbox.monitorable = false
-		hitbox.monitoring = false
-		death_animation()
+		death()
 	else:
 		flash_component.flash()
+
+func death():
+	dead = true
+	hitbox.monitorable = false
+	hitbox.monitoring = false
+	death_animation()
 
 func death_animation():
 	animation_player.stop()
