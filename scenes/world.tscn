@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1ahgx2mjnkd5" path="res://scripts/game_manager.gd" id="1_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://dk1sgrxi5yepn" path="res://scenes/base_view.tscn" id="2_4wyf3"]
-[ext_resource type="PackedScene" uid="uid://cthj6pcpappnu" path="res://scenes/overworld.tscn" id="2_i7141"]
+[ext_resource type="PackedScene" uid="uid://r7wqexatj2b8" path="res://scenes/levels/level_1.tscn" id="2_7iits"]
 [ext_resource type="PackedScene" uid="uid://ckowbcd1f1paw" path="res://scenes/demo_level.tscn" id="3_pm21f"]
 [ext_resource type="PackedScene" uid="uid://bfhkwvoxpdo70" path="res://scenes/card_test.tscn" id="4_7r4gi"]
 [ext_resource type="Texture2D" uid="uid://cqwrurfstykui" path="res://assets/art/icons/requistion.png" id="6_e3hyu"]
@@ -89,7 +89,7 @@ Vector2i(6, 5): {
 
 [node name="GameManager" type="Node" unique_id=1617731920 node_paths=PackedStringArray("main_menu_focus", "next_level_focus", "win_screen_focus", "loose_screen_focus")]
 script = ExtResource("1_o8fc1")
-level_list = Array[PackedScene]([ExtResource("2_i7141"), ExtResource("2_i7141")])
+level_list = Array[PackedScene]([ExtResource("2_7iits")])
 demo_scene = ExtResource("3_pm21f")
 main_menu_focus = NodePath("ForegroundLayer/StartScreen/VBoxContainer/PlayButton")
 next_level_focus = NodePath("ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/NextLevelButton")

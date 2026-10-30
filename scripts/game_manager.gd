@@ -139,12 +139,12 @@ func clean_level():
 
 
 func _on_back_menu_button_pressed() -> void:
-	spawn_demo_level()
-	player_controller.active = false
 	path_visualizer.clear()
 	next_level_screen.hide()
 	win_screen.hide()
 	loose_screen.hide()
+	await spawn_demo_level()
+	player_controller.active = false
 	start_screen.show()
 	main_menu_focus.grab_focus()
 	
