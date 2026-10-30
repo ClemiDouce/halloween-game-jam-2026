@@ -3,11 +3,15 @@
 [ext_resource type="Script" uid="uid://b1ahgx2mjnkd5" path="res://scripts/game_manager.gd" id="1_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://dk1sgrxi5yepn" path="res://scenes/base_view.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://r7wqexatj2b8" path="res://scenes/levels/level_1.tscn" id="2_7iits"]
+[ext_resource type="PackedScene" uid="uid://bo771x06jnqx8" path="res://scenes/levels/level_2.tscn" id="3_oo54l"]
 [ext_resource type="PackedScene" uid="uid://ckowbcd1f1paw" path="res://scenes/demo_level.tscn" id="3_pm21f"]
 [ext_resource type="PackedScene" uid="uid://bfhkwvoxpdo70" path="res://scenes/card_test.tscn" id="4_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://c2eprw1xu4fnn" path="res://scenes/levels/level_3.tscn" id="4_kpybi"]
+[ext_resource type="PackedScene" uid="uid://cncf17xwbf5jf" path="res://scenes/levels/level_4.tscn" id="5_ctatt"]
 [ext_resource type="Texture2D" uid="uid://cqwrurfstykui" path="res://assets/art/icons/requistion.png" id="6_e3hyu"]
 [ext_resource type="Script" uid="uid://bdtv5mduj172k" path="res://scripts/player_resources_container.gd" id="6_q5onr"]
 [ext_resource type="Texture2D" uid="uid://y8ep32g2xixa" path="res://assets/art/tiles/overworld/crystal.png" id="6_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://d2i48suo2efbg" path="res://scenes/levels/level_5.tscn" id="6_xgqkh"]
 [ext_resource type="Texture2D" uid="uid://bira2ai2dy0pu" path="res://assets/art/path_selection_line.png" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bg7fo8ea46gcr" path="res://scenes/path_selection_line.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="9_7r4gi"]
@@ -89,7 +93,7 @@ Vector2i(6, 5): {
 
 [node name="GameManager" type="Node" unique_id=1617731920 node_paths=PackedStringArray("main_menu_focus", "next_level_focus", "win_screen_focus", "loose_screen_focus")]
 script = ExtResource("1_o8fc1")
-level_list = Array[PackedScene]([ExtResource("2_7iits")])
+level_list = Array[PackedScene]([ExtResource("2_7iits"), ExtResource("3_oo54l"), ExtResource("4_kpybi"), ExtResource("5_ctatt"), ExtResource("6_xgqkh")])
 demo_scene = ExtResource("3_pm21f")
 main_menu_focus = NodePath("ForegroundLayer/StartScreen/VBoxContainer/PlayButton")
 next_level_focus = NodePath("ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/NextLevelButton")
