@@ -209,7 +209,7 @@ func _physics_process(delta: float) -> void:
 			else:
 				if self.global_position.distance_to(attack_target.global_position) > shape.radius - (unit_data.speed * delta):
 					global_position = global_position.move_toward(attack_target.global_position, unit_data.speed * delta)
-				root.rotation = lerp_angle(root.rotation, global_position.direction_to(attack_target.global_position).angle(), delta * 10)
+				root.rotation = lerp_angle(root.rotation, global_position.direction_to(attack_target.sprite.global_position).angle(), delta * 10)
 				attack_timer += delta
 				if attack_timer >= unit_data.rate_of_fire:
 					attack_timer -= unit_data.rate_of_fire
@@ -219,7 +219,6 @@ func _physics_process(delta: float) -> void:
 					_play_sound_rand(_sounds_attack)
 		UnitState.GATHERING:
 			if !is_instance_valid(attack_target):
-				#TODO: reset visuals and go moving
 				state = UnitState.MOVING
 				bolts.hide()
 				gathering_time = 0.
