@@ -56,6 +56,7 @@ func _process(delta: float) -> void:
 func launch_level(level_index: int):
 	if level_index < 0 or level_index >= level_list.size():
 		return
+	_unpause()
 	
 	await foreground_layer.fade_out()
 	if current_level != null:
@@ -133,15 +134,18 @@ func _on_player_win():
 	#TODO: Affichage ecran de victoire
 	if current_level_id + 1 >= level_list.size():
 		#TODO Score de fin
+		_pause()
 		win_screen.show()
 		win_screen_focus.grab_focus()
 	else:
 		#TODO: Passage au niveau suivant
+		_pause()
 		next_level_screen.show()
 		next_level_focus.grab_focus()
 	
 func _on_player_loose():
 	clean_level()
+	_pause()
 	loose_screen.show()
 	loose_screen_focus.grab_focus()
 	
@@ -161,7 +165,7 @@ func clean_level():
 func toggle_paused() -> void:
 	_paused = not _paused
 	if _paused:
-		get_tree().paused = true
+		_pause()
 		pause_screen.show()
 		pause_screen_focus.grab_focus()
 	else:
@@ -171,6 +175,9 @@ func _unpause() -> void:
 	_paused = false
 	get_tree().paused = false
 	pause_screen.hide()
+
+func _pause() -> void:
+	get_tree().paused = true
 
 func _on_back_menu_button_pressed() -> void:
 	_unpause()
