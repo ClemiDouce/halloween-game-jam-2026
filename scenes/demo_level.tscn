@@ -6,10 +6,9 @@
 [ext_resource type="Script" uid="uid://dlpfa2ms4acpk" path="res://scripts/data/base_data.gd" id="4_pe5t1"]
 [ext_resource type="Script" uid="uid://b53fi0c8w7xjc" path="res://scripts/path/unit_path.gd" id="5_0s3ox"]
 [ext_resource type="Script" uid="uid://cgyk0r65c3y0b" path="res://scripts/ai_controller.gd" id="6_oif02"]
-[ext_resource type="Resource" uid="uid://ddwexcejudwcx" path="res://data/waves/level_1.tres" id="7_y6sut"]
+[ext_resource type="Resource" uid="uid://wuni4duica3h" path="res://data/waves/demo_waves.tres" id="7_88xa8"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="8_i2ok4"]
-[ext_resource type="Texture2D" uid="uid://y8ep32g2xixa" path="res://assets/art/tiles/overworld/crystal.png" id="9_t3uk0"]
-[ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="10_iqpg7"]
+[ext_resource type="PackedScene" uid="uid://dqboevq7un3ij" path="res://scenes/mineral_chunk.tscn" id="9_88xa8"]
 
 [sub_resource type="Resource" id="Resource_x7n8s"]
 script = ExtResource("4_pe5t1")
@@ -103,7 +102,7 @@ unique_name_in_owner = true
 [node name="AIController" type="Node" parent="." unique_id=2074779689 node_paths=PackedStringArray("controlling_base", "base_entity") groups=["controller", "hostile"]]
 script = ExtResource("6_oif02")
 controlling_base = NodePath("../AIBaseManager")
-wave = ExtResource("7_y6sut")
+wave = ExtResource("7_88xa8")
 base_entity = NodePath("../HostileBase")
 
 [node name="AIBaseManager" type="Node" parent="." unique_id=1355608685]
@@ -113,7 +112,7 @@ metadata/_custom_type_script = "uid://d3nq8uvycb5nh"
 [node name="AIController2" type="Node" parent="." unique_id=424812212 node_paths=PackedStringArray("controlling_base", "base_entity") groups=["controller", "hostile"]]
 script = ExtResource("6_oif02")
 controlling_base = NodePath("../AIBaseManager2")
-wave = ExtResource("7_y6sut")
+wave = ExtResource("7_88xa8")
 base_entity = NodePath("../PlayerBase")
 team = 0
 
@@ -121,13 +120,53 @@ team = 0
 script = ExtResource("8_i2ok4")
 metadata/_custom_type_script = "uid://d3nq8uvycb5nh"
 
-[node name="Crystals" type="Node2D" parent="." unique_id=1097973060]
+[node name="Crystals2" type="Node2D" parent="." unique_id=905690073]
+position = Vector2(1248, 726)
 
-[node name="Sprite2D" type="Sprite2D" parent="Crystals" unique_id=1854512514]
-position = Vector2(1104, 736)
-texture = ExtResource("9_t3uk0")
+[node name="MineralChunk10" parent="Crystals2" unique_id=1502715303 instance=ExtResource("9_88xa8")]
+position = Vector2(2, -4)
+capacity = 5
 
-[node name="EntityHitbox" parent="Crystals/Sprite2D" unique_id=957708440 node_paths=PackedStringArray("sprite") instance=ExtResource("10_iqpg7")]
-position = Vector2(-96, -2)
-collision_layer = 64
-sprite = NodePath("..")
+[node name="MineralChunk16" parent="Crystals2" unique_id=390706142 instance=ExtResource("9_88xa8")]
+position = Vector2(-7, 6)
+capacity = 5
+
+[node name="MineralChunk17" parent="Crystals2" unique_id=301255239 instance=ExtResource("9_88xa8")]
+position = Vector2(-727, -118)
+capacity = 5
+
+[node name="MineralChunk18" parent="Crystals2" unique_id=454656192 instance=ExtResource("9_88xa8")]
+position = Vector2(-731, -102)
+capacity = 5
+
+[node name="MineralChunk19" parent="Crystals2" unique_id=1872629090 instance=ExtResource("9_88xa8")]
+position = Vector2(-720, -106)
+capacity = 5
+
+[node name="MineralChunk20" parent="Crystals2" unique_id=832254123 instance=ExtResource("9_88xa8")]
+position = Vector2(-719, -94)
+capacity = 5
+
+[node name="MineralChunk21" parent="Crystals2" unique_id=1407655464 instance=ExtResource("9_88xa8")]
+position = Vector2(-731, -88)
+capacity = 5
+
+[node name="MineralChunk11" parent="Crystals2" unique_id=1850691380 instance=ExtResource("9_88xa8")]
+position = Vector2(-8, -10)
+capacity = 5
+
+[node name="MineralChunk12" parent="Crystals2" unique_id=1487597832 instance=ExtResource("9_88xa8")]
+position = Vector2(12, -6)
+capacity = 5
+
+[node name="MineralChunk13" parent="Crystals2" unique_id=2128773997 instance=ExtResource("9_88xa8")]
+position = Vector2(24, -4)
+capacity = 5
+
+[node name="MineralChunk14" parent="Crystals2" unique_id=1861016183 instance=ExtResource("9_88xa8")]
+position = Vector2(-16, 0)
+capacity = 5
+
+[node name="MineralChunk15" parent="Crystals2" unique_id=1753436615 instance=ExtResource("9_88xa8")]
+position = Vector2(16, 6)
+capacity = 5
