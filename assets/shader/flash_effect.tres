@@ -4,3 +4,4 @@
 
 [resource]
 shader = ExtResource("1_kk73v")
+shader_parameter/some_color = Color(1, 0.76625115, 0.7247617, 1)

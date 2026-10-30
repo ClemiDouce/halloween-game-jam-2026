@@ -5,6 +5,8 @@ extends Node2D
 @onready var attack_shape : CollisionShape2D = %AttackShape
 @onready var shape : CircleShape2D = attack_shape.shape
 @onready var hitbox: Hitbox = %Hitbox
+@onready var flash_component: FlashComponent = %FlashComponent
+@onready var boing_component: BoingComponent = %BoingComponent
 
 @export var base_data : BaseData
 @export var texture: Dictionary[CombatData.Team, Texture]
@@ -35,8 +37,8 @@ func _on_entity_hitbox_hurt(attacker: EntityData) -> void:
 		destroyed.emit(base_data)
 		queue_free()
 	else:
-		#TODO Hurt Animation
-		pass
+		flash_component.flash()
+		boing_component.boing()
 	
 func _process(delta: float) -> void:
 	

@@ -2,6 +2,7 @@
 class_name FlashComponent
 extends Node
 
+@export var flash_material : ShaderMaterial
 # The flash component uses a flash material. I chose to preload this into a constant
 # But you could also export a material instead to allow the component to use a variety
 # of different materials
@@ -30,7 +31,7 @@ func _ready() -> void:
 # This is the function we can use to activate this component
 func flash():
 	# Set the sprite's material to the flash material
-	sprite.material = FLASH_MATERIAL
+	sprite.material = flash_material
 	
 	# Start the timer (passing in the flash duration)
 	timer.start(flash_duration)

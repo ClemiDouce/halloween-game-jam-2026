@@ -5,9 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://dk8dorljy2rx6" path="res://assets/art/processed_units/base_blue.png" id="3_qga7x"]
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="3_qtj7x"]
 [ext_resource type="Texture2D" uid="uid://bv3p18np2hhd6" path="res://assets/art/processed_units/base_red.png" id="4_qtj7x"]
+[ext_resource type="Script" uid="uid://dj2pkpuo0ajdu" path="res://scripts/component/flash_component.gd" id="6_0g3pn"]
+[ext_resource type="Shader" uid="uid://d1pxlvjbvuy4l" path="res://scenes/unit_entity.gdshader" id="7_6ecdm"]
+[ext_resource type="Script" uid="uid://c0vd5v6f8kgwq" path="res://scripts/boing_component.gd" id="7_bikfn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gcnxr"]
 radius = 25.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5tcjy"]
+shader = ExtResource("7_6ecdm")
+shader_parameter/some_color = Color(1, 0.40392157, 0.3254902, 1)
 
 [node name="BaseEntity" type="Node2D" unique_id=72275687]
 script = ExtResource("1_gcnxr")
@@ -19,6 +26,7 @@ texture = Dictionary[int, Texture]({
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1063533838]
+unique_name_in_owner = true
 texture = ExtResource("3_qga7x")
 
 [node name="Hitbox" parent="." unique_id=957708440 node_paths=PackedStringArray("sprite") instance=ExtResource("3_qtj7x")]
@@ -34,6 +42,19 @@ monitorable = false
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_gcnxr")
 debug_color = Color(0.90472734, 0.2984467, 0.1780119, 0.41960785)
+
+[node name="FlashComponent" type="Node" parent="." unique_id=511577244 node_paths=PackedStringArray("sprite")]
+unique_name_in_owner = true
+script = ExtResource("6_0g3pn")
+flash_material = SubResource("ShaderMaterial_5tcjy")
+sprite = NodePath("../Sprite2D")
+flash_duration = 0.1
+metadata/_custom_type_script = "uid://dj2pkpuo0ajdu"
+
+[node name="BoingComponent" type="Node" parent="." unique_id=1940676004 node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+script = ExtResource("7_bikfn")
+target = NodePath("../Sprite2D")
 
 [connection signal="hurt" from="Hitbox" to="." method="_on_entity_hitbox_hurt"]
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]

@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://chda8h4ts6bjh" path="res://assets/sound/explosive_weapon_2.wav" id="13_u4npn"]
 [ext_resource type="AudioStream" uid="uid://6d1h14ds4atp" path="res://assets/sound/explosive_weapon_3.wav" id="14_qbex1"]
 [ext_resource type="AudioStream" uid="uid://bjdbykc20e1ol" path="res://assets/sound/explosive_weapon_4.wav" id="15_j5rxa"]
+[ext_resource type="Material" uid="uid://c8y2rekjpxh4t" path="res://assets/shader/flash_effect.tres" id="22_qbex1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbjl1"]
 atlas = ExtResource("2_7opfq")
@@ -174,6 +175,7 @@ metadata/_custom_type_script = "uid://th76u6xf6i43"
 [node name="FlashComponent" type="Node" parent="." unique_id=1678577812 node_paths=PackedStringArray("sprite")]
 unique_name_in_owner = true
 script = ExtResource("6_mcm0o")
+flash_material = ExtResource("22_qbex1")
 sprite = NodePath("../Root/Sprite2D")
 flash_duration = 0.1
 metadata/_custom_type_script = "uid://dj2pkpuo0ajdu"

@@ -24,7 +24,6 @@ func _ready() -> void:
 			. switch_to_clip_by_name(music_track)
 		)
 
-
 func setup_level():
 	for ai: BaseManager in ai_list:
 		ai.connect_to_level(paths, entity_parent)
