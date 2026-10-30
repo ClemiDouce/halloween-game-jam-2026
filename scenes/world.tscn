@@ -113,7 +113,7 @@ Vector2i(6, 5): {
 script = ExtResource("1_o8fc1")
 level_list = Array[PackedScene]([ExtResource("2_7iits"), ExtResource("3_oo54l"), ExtResource("4_kpybi"), ExtResource("5_ctatt"), ExtResource("6_xgqkh"), ExtResource("7_munwf"), ExtResource("2_ts3gi"), ExtResource("3_0nbtd"), ExtResource("10_fh13f"), ExtResource("11_rup4s"), ExtResource("3_4kbfs")])
 demo_scene = ExtResource("3_pm21f")
-main_menu_focus = NodePath("ForegroundLayer/StartScreen/VBoxContainer/PlayButton")
+main_menu_focus = NodePath("ForegroundLayer/StartScreen/VBoxContainer2/VBoxContainer/PlayButton")
 next_level_focus = NodePath("ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/NextLevelButton")
 win_screen_focus = NodePath("ForegroundLayer/WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackMenuButton")
 loose_screen_focus = NodePath("ForegroundLayer/LooseScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TryAgainButton")
@@ -144,33 +144,54 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("12_navra")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ForegroundLayer/StartScreen" unique_id=1394861464]
+[node name="VBoxContainer2" type="VBoxContainer" parent="ForegroundLayer/StartScreen" unique_id=151268043]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -872.0
-offset_top = -231.0
-offset_right = -50.0
-offset_bottom = -86.0
-grow_horizontal = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ForegroundLayer/StartScreen/VBoxContainer2" unique_id=1394861464]
+layout_mode = 2
 alignment = 2
 metadata/_edit_group_ = true
 
-[node name="TextureRect" type="TextureRect" parent="ForegroundLayer/StartScreen/HBoxContainer" unique_id=979242484]
+[node name="TextureRect" type="TextureRect" parent="ForegroundLayer/StartScreen/VBoxContainer2/HBoxContainer" unique_id=979242484]
 layout_mode = 2
 texture = ExtResource("12_37qwj")
 stretch_mode = 5
 
-[node name="Title" type="Label" parent="ForegroundLayer/StartScreen/HBoxContainer" unique_id=497607906]
+[node name="Title" type="Label" parent="ForegroundLayer/StartScreen/VBoxContainer2/HBoxContainer" unique_id=497607906]
 layout_mode = 2
 theme_override_constants/outline_size = 24
 theme_override_font_sizes/font_size = 64
 text = "Blazing
 HotKeys"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ForegroundLayer/StartScreen/VBoxContainer2" unique_id=1182973284]
+layout_mode = 2
+theme_override_constants/separation = 30
+metadata/_edit_group_ = true
+
+[node name="PlayButton" type="Button" parent="ForegroundLayer/StartScreen/VBoxContainer2/VBoxContainer" unique_id=740696924]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="ForegroundLayer/StartScreen/VBoxContainer2/VBoxContainer" unique_id=1948900921]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"
 
 [node name="Label" type="Label" parent="ForegroundLayer/StartScreen" unique_id=301528310]
 layout_mode = 1
@@ -186,34 +207,6 @@ theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 32
 text = "Created by Layla and Clementine
 Music by Erin and Jordan"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ForegroundLayer/StartScreen" unique_id=1182973284]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -376.0
-offset_top = -28.0
-offset_right = -48.0
-offset_bottom = 108.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/separation = 30
-metadata/_edit_group_ = true
-
-[node name="PlayButton" type="Button" parent="ForegroundLayer/StartScreen/VBoxContainer" unique_id=740696924]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Play"
-
-[node name="QuitButton" type="Button" parent="ForegroundLayer/StartScreen/VBoxContainer" unique_id=1948900921]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Quit"
 
 [node name="NextLevelScreen" type="Control" parent="ForegroundLayer" unique_id=1027942051]
 unique_name_in_owner = true
@@ -513,8 +506,8 @@ volume_db = -8.0
 autoplay = true
 bus = &"Music"
 
-[connection signal="pressed" from="ForegroundLayer/StartScreen/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="ForegroundLayer/StartScreen/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ForegroundLayer/StartScreen/VBoxContainer2/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ForegroundLayer/StartScreen/VBoxContainer2/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
 [connection signal="pressed" from="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]
 [connection signal="pressed" from="ForegroundLayer/WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]
