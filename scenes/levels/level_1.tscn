@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://b53fi0c8w7xjc" path="res://scripts/path/unit_path.gd" id="5_iwr0g"]
 [ext_resource type="Script" uid="uid://cgyk0r65c3y0b" path="res://scripts/ai_controller.gd" id="6_bahl2"]
 [ext_resource type="Script" uid="uid://lqgxp7i3sre7" path="res://scripts/data/game_rules.gd" id="6_mkypq"]
-[ext_resource type="Resource" uid="uid://rm3lj24ljsux" path="res://data/buildings/airport.tres" id="6_ndtll"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="8_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://dqboevq7un3ij" path="res://scenes/mineral_chunk.tscn" id="9_gmpev"]
 [ext_resource type="Texture2D" uid="uid://rg1utyof3hhv" path="res://assets/art/tab.png" id="10_mkypq"]
@@ -24,7 +23,7 @@
 
 [sub_resource type="Resource" id="Resource_iav0o"]
 script = ExtResource("6_mkypq")
-enabled_buildings = Array[ExtResource("3_np2pn")]([ExtResource("4_v6ha0"), ExtResource("5_gmpev"), ExtResource("6_ndtll")])
+enabled_buildings = Array[ExtResource("3_np2pn")]([ExtResource("4_v6ha0"), ExtResource("5_gmpev")])
 metadata/_custom_type_script = "uid://lqgxp7i3sre7"
 
 [sub_resource type="Resource" id="Resource_x7n8s"]
