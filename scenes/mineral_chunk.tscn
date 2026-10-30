@@ -4,16 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://ck7a5eya7khbg" path="res://scenes/entity_hitbox.tscn" id="2_sh4bd"]
 [ext_resource type="Script" uid="uid://djh1jxos8uofd" path="res://scenes/mineral_chunk.gd" id="2_xvpv3"]
 
-[node name="Node2D" type="Node2D" unique_id=1502715303]
+[node name="MineralChunk" type="Node2D" unique_id=1502715303]
 script = ExtResource("2_xvpv3")
 
-[node name="ResourceSprite" type="Sprite2D" parent="." unique_id=394123282]
+[node name="Root" type="Node2D" parent="." unique_id=7271033]
 unique_name_in_owner = true
+
+[node name="ResourceSprite" type="Sprite2D" parent="Root" unique_id=394123282]
+unique_name_in_owner = true
+scale = Vector2(2, 2)
 texture = ExtResource("1_ibceh")
 
 [node name="EntityHitbox" parent="." unique_id=957708440 node_paths=PackedStringArray("sprite") instance=ExtResource("2_sh4bd")]
-position = Vector2(0.7750244, 0.7750244)
+position = Vector2(0.97217655, 1.992959)
 collision_layer = 64
-sprite = NodePath("../ResourceSprite")
+sprite = NodePath("../Root/ResourceSprite")
 
 [connection signal="hurt" from="EntityHitbox" to="." method="_on_entity_hitbox_hurt"]

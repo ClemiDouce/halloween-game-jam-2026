@@ -136,7 +136,8 @@ offset_right = 478.0
 offset_bottom = -11.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
-text = "made by layla and clementine"
+text = "made by layla and clementine
+music by Erin and Jordan"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ForegroundLayer/StartScreen" unique_id=1182973284]
 layout_mode = 1

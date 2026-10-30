@@ -219,6 +219,13 @@ func _physics_process(delta: float) -> void:
 					animation_player.play("squish")
 					_play_sound_rand(_sounds_attack)
 		UnitState.GATHERING:
+			if !is_instance_valid(attack_target):
+				#TODO: reset visuals and go moving
+				state = UnitState.MOVING
+				bolts.hide()
+				gathering_time = 0.
+				return
+			
 			root.rotation = lerp_angle(root.rotation, global_position.direction_to(attack_target.global_position).angle(), delta * 10)
 			gather_bolt_left.points = [Vector2.ZERO, gather_bolt_left.to_local(attack_target.global_position)]
 			gather_bolt_right.points = [Vector2.ZERO, gather_bolt_right.to_local(attack_target.global_position)]
@@ -228,8 +235,8 @@ func _physics_process(delta: float) -> void:
 				bolts.hide()
 				gathering_time = 0.
 				have_mineral = true
+				attack_target.get_damage(self.unit_data)
 				path_dir *= -1
-				#path_index = clamp(path_index, 0, path.point_list.size() - 1)
 				target_position = path.get_next_point(path_index, path_dir)
 				if target_position == Vector2.INF:
 					if path_dir < 0:
