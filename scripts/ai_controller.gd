@@ -20,6 +20,7 @@ func start_controller():
 
 func stop_controller():
 	started = false
+	controlling_base.reset_base()
 
 func select_random_path():
 	var random_index = randi_range(0, controlling_base.paths.size())

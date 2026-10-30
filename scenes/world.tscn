@@ -87,10 +87,14 @@ Vector2i(6, 5): {
 }
 }
 
-[node name="GameManager" type="Node" unique_id=1617731920]
+[node name="GameManager" type="Node" unique_id=1617731920 node_paths=PackedStringArray("main_menu_focus", "next_level_focus", "win_screen_focus", "loose_screen_focus")]
 script = ExtResource("1_o8fc1")
 level_list = Array[PackedScene]([ExtResource("2_i7141"), ExtResource("2_i7141")])
 demo_scene = ExtResource("3_pm21f")
+main_menu_focus = NodePath("ForegroundLayer/StartScreen/VBoxContainer/PlayButton")
+next_level_focus = NodePath("ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/NextLevelButton")
+win_screen_focus = NodePath("ForegroundLayer/WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackMenuButton")
+loose_screen_focus = NodePath("ForegroundLayer/LooseScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TryAgainButton")
 
 [node name="ForegroundLayer" type="CanvasLayer" parent="." unique_id=1449940769]
 unique_name_in_owner = true
@@ -98,6 +102,7 @@ layer = 20
 script = ExtResource("15_xo05s")
 
 [node name="FadeRect" type="ColorRect" parent="ForegroundLayer" unique_id=691542163]
+z_index = 500
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

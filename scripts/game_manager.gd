@@ -23,8 +23,15 @@ var current_level : Level = null
 @export var demo_scene : PackedScene
 var is_demo := false
 
+@export_category("Focus")
+@export var main_menu_focus: Control
+@export var next_level_focus: Control
+@export var win_screen_focus: Control
+@export var loose_screen_focus: Control
+
 func _ready():
 	spawn_demo_level()
+	main_menu_focus.grab_focus()
 
 func launch_level(level_index: int):
 	if level_index < 0 or level_index >= level_list.size():
@@ -107,13 +114,16 @@ func _on_player_win():
 	if current_level_id + 1 >= level_list.size():
 		#TODO Score de fin
 		win_screen.show()
+		win_screen_focus.grab_focus()
 	else:
 		#TODO: Passage au niveau suivant
 		next_level_screen.show()
+		next_level_focus.grab_focus()
 	
 func _on_player_loose():
 	clean_level()
 	loose_screen.show()
+	loose_screen_focus.grab_focus()
 	
 func clean_level():
 	get_tree().call_group("freed", "death")
@@ -136,6 +146,7 @@ func _on_back_menu_button_pressed() -> void:
 	win_screen.hide()
 	loose_screen.hide()
 	start_screen.show()
+	main_menu_focus.grab_focus()
 	
 
 
