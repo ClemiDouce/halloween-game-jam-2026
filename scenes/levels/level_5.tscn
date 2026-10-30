@@ -11,11 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://sowlhrxuy5vt" path="res://scenes/base_entity.tscn" id="10_004to"]
 [ext_resource type="Script" uid="uid://dlpfa2ms4acpk" path="res://scripts/data/base_data.gd" id="11_e0v1o"]
 [ext_resource type="Script" uid="uid://b53fi0c8w7xjc" path="res://scripts/path/unit_path.gd" id="12_idth2"]
+[ext_resource type="Resource" uid="uid://bflwcbl4urljg" path="res://data/waves/level_5.tres" id="13_0y7y4"]
 [ext_resource type="Script" uid="uid://cgyk0r65c3y0b" path="res://scripts/ai_controller.gd" id="13_gg75w"]
-[ext_resource type="Script" uid="uid://bi1eu5ukriokg" path="res://scripts/data/wave.gd" id="14_n1pyt"]
-[ext_resource type="Script" uid="uid://fbut4bbknh6e" path="res://scripts/ai_action.gd" id="15_t4lb3"]
-[ext_resource type="Resource" uid="uid://l0m3pssrbkug" path="res://data/units/gun_soldier.tres" id="16_ninaw"]
-[ext_resource type="Resource" uid="uid://kablufsx8dxc" path="res://data/units/gatherer.tres" id="17_2vq5a"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="18_ieqpx"]
 [ext_resource type="PackedScene" uid="uid://dqboevq7un3ij" path="res://scenes/mineral_chunk.tscn" id="19_ips30"]
 
@@ -33,25 +30,6 @@ attack_range = 50.0
 rate_of_fire = 2.0
 body_type = 2
 metadata/_custom_type_script = "uid://dlpfa2ms4acpk"
-
-[sub_resource type="Resource" id="Resource_kpybi"]
-script = ExtResource("15_t4lb3")
-count = 3
-unit = ExtResource("16_ninaw")
-metadata/_custom_type_script = "uid://fbut4bbknh6e"
-
-[sub_resource type="Resource" id="Resource_ctatt"]
-script = ExtResource("15_t4lb3")
-unit = ExtResource("17_2vq5a")
-metadata/_custom_type_script = "uid://fbut4bbknh6e"
-
-[sub_resource type="Resource" id="Resource_oo54l"]
-script = ExtResource("14_n1pyt")
-unit_spawn_chance = Dictionary[ExtResource("15_t4lb3"), float]({
-SubResource("Resource_kpybi"): 1.0,
-SubResource("Resource_ctatt"): 0.1
-})
-metadata/_custom_type_script = "uid://bi1eu5ukriokg"
 
 [node name="Level_5" type="Node2D" unique_id=45434250 node_paths=PackedStringArray("paths", "entity_parent", "ai_list")]
 script = ExtResource("1_sfnul")
@@ -161,9 +139,9 @@ unique_name_in_owner = true
 [node name="AIController" type="Node" parent="." unique_id=2074779689 node_paths=PackedStringArray("controlling_base", "base_entity") groups=["controller", "hostile"]]
 script = ExtResource("13_gg75w")
 controlling_base = NodePath("../AIBaseManager")
-wave = SubResource("Resource_oo54l")
+wave = ExtResource("13_0y7y4")
 base_entity = NodePath("../HostileBase")
-start_delay = 5.0
+decision_delay = 1.5
 
 [node name="AIBaseManager" type="Node" parent="." unique_id=1355608685]
 script = ExtResource("18_ieqpx")

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://cgwo120i7nlec"]
+
+[ext_resource type="Script" uid="uid://bi1eu5ukriokg" path="res://scripts/data/wave.gd" id="1_2lqfb"]
+[ext_resource type="Script" uid="uid://fbut4bbknh6e" path="res://scripts/ai_action.gd" id="2_f7wfk"]
+[ext_resource type="Resource" uid="uid://l0m3pssrbkug" path="res://data/units/gun_soldier.tres" id="3_nt5ff"]
+[ext_resource type="Resource" uid="uid://kablufsx8dxc" path="res://data/units/gatherer.tres" id="4_t4raa"]
+[ext_resource type="Resource" uid="uid://jxlk5ecgk1cq" path="res://data/units/missile_launcher.tres" id="5_f7wfk"]
+
+[sub_resource type="Resource" id="Resource_kpybi"]
+script = ExtResource("2_f7wfk")
+count = 3
+unit = ExtResource("3_nt5ff")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_ctatt"]
+script = ExtResource("2_f7wfk")
+unit = ExtResource("4_t4raa")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_7kqe7"]
+script = ExtResource("2_f7wfk")
+count = 3
+unit = ExtResource("5_f7wfk")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[resource]
+script = ExtResource("1_2lqfb")
+unit_spawn_chance = Dictionary[ExtResource("2_f7wfk"), float]({
+SubResource("Resource_kpybi"): 1.0,
+SubResource("Resource_ctatt"): 0.1,
+SubResource("Resource_7kqe7"): 0.25
+})
+metadata/_custom_type_script = "uid://bi1eu5ukriokg"

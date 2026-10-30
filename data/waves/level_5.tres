@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://bflwcbl4urljg"]
+
+[ext_resource type="Script" uid="uid://bi1eu5ukriokg" path="res://scripts/data/wave.gd" id="1_2rtmt"]
+[ext_resource type="Script" uid="uid://fbut4bbknh6e" path="res://scripts/ai_action.gd" id="2_3ipmf"]
+[ext_resource type="Resource" uid="uid://l0m3pssrbkug" path="res://data/units/gun_soldier.tres" id="3_nmmr1"]
+[ext_resource type="Resource" uid="uid://kablufsx8dxc" path="res://data/units/gatherer.tres" id="4_6heb8"]
+[ext_resource type="Resource" uid="uid://jxlk5ecgk1cq" path="res://data/units/missile_launcher.tres" id="5_sdqub"]
+[ext_resource type="Resource" uid="uid://dm0mjpsku7osy" path="res://data/units/light_tank.tres" id="6_h5q2f"]
+[ext_resource type="Resource" uid="uid://6cqe7pn2dasa" path="res://data/units/heavy_tank.tres" id="7_65v6r"]
+
+[sub_resource type="Resource" id="Resource_kpybi"]
+script = ExtResource("2_3ipmf")
+count = 3
+unit = ExtResource("3_nmmr1")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_ctatt"]
+script = ExtResource("2_3ipmf")
+unit = ExtResource("4_6heb8")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_wtsxs"]
+script = ExtResource("2_3ipmf")
+count = 3
+unit = ExtResource("5_sdqub")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_baojg"]
+script = ExtResource("2_3ipmf")
+count = 4
+unit = ExtResource("6_h5q2f")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_7yssn"]
+script = ExtResource("2_3ipmf")
+unit = ExtResource("7_65v6r")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[resource]
+script = ExtResource("1_2rtmt")
+unit_spawn_chance = Dictionary[ExtResource("2_3ipmf"), float]({
+SubResource("Resource_kpybi"): 1.0,
+SubResource("Resource_ctatt"): 0.1,
+SubResource("Resource_wtsxs"): 0.25,
+SubResource("Resource_baojg"): 0.25,
+SubResource("Resource_7yssn"): 0.1
+})
+metadata/_custom_type_script = "uid://bi1eu5ukriokg"

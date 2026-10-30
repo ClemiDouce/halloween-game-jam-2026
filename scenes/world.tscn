@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://b1ahgx2mjnkd5" path="res://scripts/game_manager.gd" id="1_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://dk1sgrxi5yepn" path="res://scenes/base_view.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://r7wqexatj2b8" path="res://scenes/levels/level_1.tscn" id="2_7iits"]
+[ext_resource type="PackedScene" uid="uid://cyxq0k0esdmxs" path="res://scenes/levels/level_7.tscn" id="2_ts3gi"]
+[ext_resource type="PackedScene" uid="uid://rghr8kah1x6i" path="res://scenes/levels/level_8.tscn" id="3_0nbtd"]
+[ext_resource type="PackedScene" uid="uid://dv147iklje4m1" path="res://scenes/levels/level_11.tscn" id="3_4kbfs"]
 [ext_resource type="PackedScene" uid="uid://bo771x06jnqx8" path="res://scenes/levels/level_2.tscn" id="3_oo54l"]
 [ext_resource type="PackedScene" uid="uid://ckowbcd1f1paw" path="res://scenes/demo_level.tscn" id="3_pm21f"]
 [ext_resource type="PackedScene" uid="uid://bfhkwvoxpdo70" path="res://scenes/card_test.tscn" id="4_7r4gi"]
@@ -14,17 +17,32 @@
 [ext_resource type="PackedScene" uid="uid://d2i48suo2efbg" path="res://scenes/levels/level_5.tscn" id="6_xgqkh"]
 [ext_resource type="Texture2D" uid="uid://bira2ai2dy0pu" path="res://assets/art/path_selection_line.png" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bg7fo8ea46gcr" path="res://scenes/path_selection_line.tscn" id="7_i7141"]
+[ext_resource type="PackedScene" uid="uid://b3b836t0pdsyb" path="res://scenes/levels/level_6.tscn" id="7_munwf"]
 [ext_resource type="Script" uid="uid://d3nq8uvycb5nh" path="res://scripts/base_building/base_manager.gd" id="9_7r4gi"]
 [ext_resource type="Script" uid="uid://tdmlob0kb6yb" path="res://scripts/resource_notification.gd" id="9_jhx03"]
+[ext_resource type="PackedScene" uid="uid://d2w11rpsnweth" path="res://scenes/levels/level_9.tscn" id="10_fh13f"]
 [ext_resource type="AudioStream" uid="uid://80neqrtbjq6u" path="res://assets/sound/music/Drum.wav" id="10_jhx03"]
 [ext_resource type="Script" uid="uid://cu76jeby58c7o" path="res://scripts/player_controller.gd" id="10_w7kh3"]
 [ext_resource type="AudioStream" uid="uid://b1joikdc4ie8t" path="res://assets/sound/music/Menu - Muted.wav" id="11_o8fc1"]
+[ext_resource type="PackedScene" uid="uid://d225jtn11qhub" path="res://scenes/levels/level_10.tscn" id="11_rup4s"]
+[ext_resource type="Texture2D" uid="uid://cd0i6i37d1bfq" path="res://assets/art/sun_and_moon_outline.png" id="12_37qwj"]
+[ext_resource type="Theme" uid="uid://dpm5wu2ch3jt6" path="res://data/simple_theme.tres" id="12_navra"]
 [ext_resource type="AudioStream" uid="uid://cx3gxoxww1mlf" path="res://assets/sound/music/Menu - unuted.wav" id="12_o8fc1"]
 [ext_resource type="AudioStream" uid="uid://3642eq3eleuj" path="res://assets/sound/music/Main - Low.wav" id="12_xo05s"]
 [ext_resource type="AudioStream" uid="uid://deesei76b2kt7" path="res://assets/sound/music/Main - High.wav" id="13_dss4m"]
+[ext_resource type="Texture2D" uid="uid://cteyyqquvb2qt" path="res://assets/art/icons/red_icon.png" id="14_luhhm"]
 [ext_resource type="Script" uid="uid://ceq4uysn1h6dk" path="res://scripts/foreground_layer.gd" id="15_xo05s"]
 [ext_resource type="AudioStream" uid="uid://cxfnialt3pvs" path="res://assets/sound/music/clemiRTS_intro.wav" id="19_2lf6f"]
 [ext_resource type="AudioStream" uid="uid://deewjv8n2d7p5" path="res://assets/sound/music/clemiRTS_loop.wav" id="20_7iits"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_navra"]
+texture = ExtResource("14_luhhm")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [sub_resource type="Gradient" id="Gradient_i7141"]
 offsets = PackedFloat32Array(0, 0.6893204, 1)
@@ -93,7 +111,7 @@ Vector2i(6, 5): {
 
 [node name="GameManager" type="Node" unique_id=1617731920 node_paths=PackedStringArray("main_menu_focus", "next_level_focus", "win_screen_focus", "loose_screen_focus")]
 script = ExtResource("1_o8fc1")
-level_list = Array[PackedScene]([ExtResource("2_7iits"), ExtResource("3_oo54l"), ExtResource("4_kpybi"), ExtResource("5_ctatt"), ExtResource("6_xgqkh")])
+level_list = Array[PackedScene]([ExtResource("2_7iits"), ExtResource("3_oo54l"), ExtResource("4_kpybi"), ExtResource("5_ctatt"), ExtResource("6_xgqkh"), ExtResource("7_munwf"), ExtResource("2_ts3gi"), ExtResource("3_0nbtd"), ExtResource("10_fh13f"), ExtResource("11_rup4s"), ExtResource("3_4kbfs")])
 demo_scene = ExtResource("3_pm21f")
 main_menu_focus = NodePath("ForegroundLayer/StartScreen/VBoxContainer/PlayButton")
 next_level_focus = NodePath("ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/NextLevelButton")
@@ -124,15 +142,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("12_navra")
 
-[node name="Title" type="Label" parent="ForegroundLayer/StartScreen" unique_id=497607906]
-layout_mode = 0
-offset_left = 1334.0
-offset_top = 62.0
-offset_right = 1828.0
-offset_bottom = 150.0
+[node name="HBoxContainer" type="HBoxContainer" parent="ForegroundLayer/StartScreen" unique_id=1394861464]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -872.0
+offset_top = -231.0
+offset_right = -50.0
+offset_bottom = -86.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ForegroundLayer/StartScreen/HBoxContainer" unique_id=979242484]
+layout_mode = 2
+texture = ExtResource("12_37qwj")
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="ForegroundLayer/StartScreen/HBoxContainer" unique_id=497607906]
+layout_mode = 2
+theme_override_constants/outline_size = 24
 theme_override_font_sizes/font_size = 64
-text = "Blazing HotKeys"
+text = "Blazing
+HotKeys"
 
 [node name="Label" type="Label" parent="ForegroundLayer/StartScreen" unique_id=301528310]
 layout_mode = 1
@@ -144,24 +182,26 @@ offset_top = -56.0
 offset_right = 478.0
 offset_bottom = -11.0
 grow_vertical = 0
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 32
-text = "made by layla and clementine
-music by Erin and Jordan"
+text = "Created by Layla and Clementine
+Music by Erin and Jordan"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ForegroundLayer/StartScreen" unique_id=1182973284]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 6
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -381.0
-offset_top = -839.0
-offset_right = -91.0
-offset_bottom = -703.0
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -28.0
+offset_right = -48.0
+offset_bottom = 108.0
 grow_horizontal = 0
-grow_vertical = 0
+grow_vertical = 2
 theme_override_constants/separation = 30
+metadata/_edit_group_ = true
 
 [node name="PlayButton" type="Button" parent="ForegroundLayer/StartScreen/VBoxContainer" unique_id=740696924]
 unique_name_in_owner = true
@@ -185,6 +225,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("12_navra")
 
 [node name="CenterContainer" type="CenterContainer" parent="ForegroundLayer/NextLevelScreen" unique_id=2080459148]
 layout_mode = 1
@@ -211,7 +252,7 @@ theme_override_constants/separation = 30
 [node name="NextLevelLabel" type="Label" parent="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1542310415]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "You Win !"
+text = "VICTORY"
 horizontal_alignment = 1
 
 [node name="NextLevelButton" type="Button" parent="ForegroundLayer/NextLevelScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=593442724]
@@ -234,6 +275,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("12_navra")
 
 [node name="CenterContainer" type="CenterContainer" parent="ForegroundLayer/WinScreen" unique_id=686037548]
 layout_mode = 1
@@ -282,6 +324,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("12_navra")
 
 [node name="CenterContainer" type="CenterContainer" parent="ForegroundLayer/LooseScreen" unique_id=1216784922]
 layout_mode = 1
@@ -293,6 +336,7 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="ForegroundLayer/LooseScreen/CenterContainer" unique_id=1882234771]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_navra")
 
 [node name="MarginContainer" type="MarginContainer" parent="ForegroundLayer/LooseScreen/CenterContainer/PanelContainer" unique_id=1364970074]
 layout_mode = 2
@@ -308,7 +352,7 @@ theme_override_constants/separation = 30
 [node name="LooseLabel" type="Label" parent="ForegroundLayer/LooseScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=644594770]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "You Loose"
+text = "DEFEAT"
 horizontal_alignment = 1
 
 [node name="TryAgainButton" type="Button" parent="ForegroundLayer/LooseScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1003705978]
@@ -323,6 +367,7 @@ text = "Back to menu"
 
 [node name="BaseView" type="CanvasLayer" parent="." unique_id=408365964]
 unique_name_in_owner = true
+visible = false
 
 [node name="BaseViewer" parent="BaseView" unique_id=526506978 node_paths=PackedStringArray("player") instance=ExtResource("2_4wyf3")]
 size_flags_horizontal = 3
@@ -429,11 +474,16 @@ horizontal_alignment = 1
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=869438757]
 layer = -64
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="BackgroundLayer" unique_id=947556380]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

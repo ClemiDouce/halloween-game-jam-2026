@@ -14,7 +14,9 @@ var started := false
 func _ready() -> void:
 	controlling_base.team = team
 	base_entity.destroyed.connect(func(_base): started = false)
-	started = true
+	get_tree().create_timer(start_delay).timeout.connect(func():
+		started = true
+	)
 
 func start_controller():
 	get_tree().create_timer(start_delay).timeout.connect(func():

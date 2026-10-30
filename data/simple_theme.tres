@@ -1,0 +1,58 @@
+[gd_resource type="Theme" format=3 uid="uid://dpm5wu2ch3jt6"]
+
+[ext_resource type="Texture2D" uid="uid://buk3ugop4ljdx" path="res://assets/art/icons/empty_icon.png" id="1_m5e7v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apdqq"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 4
+border_color = Color(0.5647059, 0.61960787, 0.8666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id74a"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.75686276, 0.8509804, 0.9490196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5e7v"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfoq3"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.16078432, 0.19607843, 0.40784314, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fh13f"]
+texture = ExtResource("1_m5e7v")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_apdqq")
+Button/styles/hover = SubResource("StyleBoxFlat_id74a")
+Button/styles/normal = SubResource("StyleBoxFlat_m5e7v")
+Button/styles/pressed = SubResource("StyleBoxFlat_vfoq3")
+Label/constants/outline_size = 16
+Panel/styles/panel = SubResource("StyleBoxTexture_fh13f")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_fh13f")

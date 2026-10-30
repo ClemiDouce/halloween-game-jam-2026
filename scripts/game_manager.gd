@@ -33,6 +33,13 @@ func _ready():
 	spawn_demo_level()
 	main_menu_focus.grab_focus()
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("fullscreen"):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+
 func launch_level(level_index: int):
 	if level_index < 0 or level_index >= level_list.size():
 		return
@@ -143,6 +150,7 @@ func _on_back_menu_button_pressed() -> void:
 	next_level_screen.hide()
 	win_screen.hide()
 	loose_screen.hide()
+	music_player.get_stream_playback().switch_to_clip_by_name("Intro Loop")
 	await spawn_demo_level()
 	player_controller.active = false
 	start_screen.show()

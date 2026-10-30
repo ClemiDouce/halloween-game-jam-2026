@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://c8gqno67n81px"]
+
+[ext_resource type="Script" uid="uid://bi1eu5ukriokg" path="res://scripts/data/wave.gd" id="1_uscjy"]
+[ext_resource type="Script" uid="uid://fbut4bbknh6e" path="res://scripts/ai_action.gd" id="2_yrkne"]
+[ext_resource type="Resource" uid="uid://cf1vttkdudacb" path="res://data/units/helicopter.tres" id="3_1tf2c"]
+[ext_resource type="Resource" uid="uid://l0m3pssrbkug" path="res://data/units/gun_soldier.tres" id="4_3xfmn"]
+[ext_resource type="Resource" uid="uid://dm0mjpsku7osy" path="res://data/units/light_tank.tres" id="5_5w8ip"]
+[ext_resource type="Resource" uid="uid://jxlk5ecgk1cq" path="res://data/units/missile_launcher.tres" id="6_uqqr2"]
+[ext_resource type="Resource" uid="uid://6cqe7pn2dasa" path="res://data/units/heavy_tank.tres" id="7_x7wtq"]
+[ext_resource type="Resource" uid="uid://sbwwjkh3p6dy" path="res://data/units/airplane.tres" id="8_kvh2j"]
+[ext_resource type="Resource" uid="uid://kablufsx8dxc" path="res://data/units/gatherer.tres" id="9_elbnr"]
+
+[sub_resource type="Resource" id="Resource_ddsaq"]
+script = ExtResource("2_yrkne")
+count = 4
+unit = ExtResource("4_3xfmn")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_fl3qw"]
+script = ExtResource("2_yrkne")
+count = 3
+unit = ExtResource("5_5w8ip")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_2yowa"]
+script = ExtResource("2_yrkne")
+count = 3
+unit = ExtResource("6_uqqr2")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_8donn"]
+script = ExtResource("2_yrkne")
+unit = ExtResource("7_x7wtq")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_1tf2c"]
+script = ExtResource("2_yrkne")
+unit = ExtResource("8_kvh2j")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_3xfmn"]
+script = ExtResource("2_yrkne")
+count = 2
+unit = ExtResource("9_elbnr")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[sub_resource type="Resource" id="Resource_fh13f"]
+script = ExtResource("2_yrkne")
+count = 4
+unit = ExtResource("3_1tf2c")
+metadata/_custom_type_script = "uid://fbut4bbknh6e"
+
+[resource]
+script = ExtResource("1_uscjy")
+unit_spawn_chance = Dictionary[ExtResource("2_yrkne"), float]({
+SubResource("Resource_ddsaq"): 1.0,
+SubResource("Resource_fl3qw"): 0.25,
+SubResource("Resource_2yowa"): 0.25,
+SubResource("Resource_8donn"): 0.25,
+SubResource("Resource_1tf2c"): 0.01,
+SubResource("Resource_3xfmn"): 0.1,
+SubResource("Resource_fh13f"): 1.0
+})
+metadata/_custom_type_script = "uid://bi1eu5ukriokg"
