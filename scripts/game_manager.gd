@@ -1,6 +1,9 @@
 class_name GameManager 
 extends Node
 
+signal fade_in
+signal fade_out
+
 @onready var foreground_layer: CanvasLayer = %ForegroundLayer
 @onready var base_manager: BaseManager = $BaseManager
 @onready var music_player: AudioStreamPlayer = %MusicPlayer
@@ -18,6 +21,7 @@ var current_level : Level = null
 @onready var win_screen: Control = %WinScreen
 @onready var loose_screen: Control = %LooseScreen
 @onready var next_level_screen: Control = %NextLevelScreen
+@onready var pause_screen: Control = %PauseScreen
 
 # Demo level
 @export var demo_scene : PackedScene
@@ -28,8 +32,14 @@ var is_demo := false
 @export var next_level_focus: Control
 @export var win_screen_focus: Control
 @export var loose_screen_focus: Control
+@export var pause_screen_focus: Control
+
+var _paused: bool = false
 
 func _ready():
+	foreground_layer.faded_in.connect(fade_in.emit)
+	foreground_layer.faded_out.connect(fade_out.emit)
+	
 	spawn_demo_level()
 	main_menu_focus.grab_focus()
 
@@ -39,10 +49,14 @@ func _process(delta: float) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	if Input.is_action_just_pressed("ui_cancel"):
+		if not next_level_screen.visible and not win_screen.visible and not loose_screen.visible and not start_screen.visible:
+			toggle_paused()
 
 func launch_level(level_index: int):
 	if level_index < 0 or level_index >= level_list.size():
 		return
+	_unpause()
 	
 	await foreground_layer.fade_out()
 	if current_level != null:
@@ -120,15 +134,18 @@ func _on_player_win():
 	#TODO: Affichage ecran de victoire
 	if current_level_id + 1 >= level_list.size():
 		#TODO Score de fin
+		_pause()
 		win_screen.show()
 		win_screen_focus.grab_focus()
 	else:
 		#TODO: Passage au niveau suivant
+		_pause()
 		next_level_screen.show()
 		next_level_focus.grab_focus()
 	
 func _on_player_loose():
 	clean_level()
+	_pause()
 	loose_screen.show()
 	loose_screen_focus.grab_focus()
 	
@@ -145,18 +162,35 @@ func clean_level():
 #endregion
 
 
+func toggle_paused() -> void:
+	_paused = not _paused
+	if _paused:
+		_pause()
+		pause_screen.show()
+		pause_screen_focus.grab_focus()
+	else:
+		_unpause()
+
+func _unpause() -> void:
+	_paused = false
+	get_tree().paused = false
+	pause_screen.hide()
+
+func _pause() -> void:
+	get_tree().paused = true
+
 func _on_back_menu_button_pressed() -> void:
+	_unpause()
 	path_visualizer.clear()
 	next_level_screen.hide()
 	win_screen.hide()
 	loose_screen.hide()
 	music_player.get_stream_playback().switch_to_clip_by_name("Intro Loop")
-	await spawn_demo_level()
+	spawn_demo_level()
+	await fade_out
 	player_controller.active = false
 	start_screen.show()
 	main_menu_focus.grab_focus()
-	
-
 
 func _on_try_again_button_pressed() -> void:
 	launch_level(current_level_id)

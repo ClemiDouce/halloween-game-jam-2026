@@ -33,6 +33,7 @@ var _selected_path: UnitPath:
 		return _selected_path
 
 func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_PAUSABLE
 	self.unit_queue.unit_ready.connect(generate_unit)
 	
 	_generate_building_slots()
@@ -113,4 +114,5 @@ func reset_base():
 	for slot in building_slots:
 		slot.destroy()
 		slot_updated.emit.call_deferred(slot)
+	unit_queue.clear_queue()
 	

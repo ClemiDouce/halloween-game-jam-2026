@@ -44,6 +44,7 @@ func get_selected() -> BuildingSlot:
 	return _selected_building
 
 func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_PAUSABLE
 	controlling_base.team = CombatData.Team.PLAYER
 
 
