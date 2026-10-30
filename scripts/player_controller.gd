@@ -6,7 +6,8 @@ extends Node
 signal building_selected(building: BuildingSlot, pos: Vector2i)
 signal selection_stage_changed(stage: SelectionStage)
 signal building_built(building: Building)
-signal unit_queued(unit: UnitEntity)
+signal unit_queued(unit: UnitResource)
+signal unit_failed(unit: UnitResource)
 signal action_triggered(action_name: String)
 
 var active : bool = false
@@ -80,8 +81,11 @@ func _handle_selected_building_slot(event: InputEvent) -> void:
 				and event.is_pressed()
 				and event.echo == false
 			):
-				_selected_building.queue_unit(unit)
-				unit_queued.emit(unit)
+				var result = _selected_building.queue_unit(unit)
+				if result:
+					unit_queued.emit(unit)
+				else:
+					unit_failed.emit(unit)
 				self._selection_stage = SelectionStage.NONE
 
 		if Input.is_action_just_pressed("destroy_building"):
