@@ -106,6 +106,17 @@ func _ready() -> void:
 				tween.tween_property(_selected_sprite, "scale", _building_scale, 0.125/2.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 				break
 	)
+	player.unit_failed.connect(func(unit: UnitResource):
+		for button in _hotkey_buttons:
+			if button.assigned_data == unit:
+				print(unit.unit_name)
+				#TODO: Add error sound _play_sound_rand(sound_hotkey_sounds)
+				print(button)
+				var error_tween = create_tween().set_loops(2)
+				error_tween.tween_property(button, "modulate", Color.RED, 0.05)
+				error_tween.tween_property(button, "modulate", Color.WHITE, 0.05)
+				break
+	)
 	player.action_triggered.connect(func(action_name: String):
 		for button in _hotkey_buttons:
 			if button.assigned_data is String and button.assigned_data == action_name:
