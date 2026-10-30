@@ -19,13 +19,15 @@
 [ext_resource type="AudioStream" uid="uid://3642eq3eleuj" path="res://assets/sound/music/Main - Low.wav" id="12_xo05s"]
 [ext_resource type="AudioStream" uid="uid://deesei76b2kt7" path="res://assets/sound/music/Main - High.wav" id="13_dss4m"]
 [ext_resource type="Script" uid="uid://ceq4uysn1h6dk" path="res://scripts/foreground_layer.gd" id="15_xo05s"]
+[ext_resource type="AudioStream" uid="uid://cxfnialt3pvs" path="res://assets/sound/music/clemiRTS_intro.wav" id="19_2lf6f"]
+[ext_resource type="AudioStream" uid="uid://deewjv8n2d7p5" path="res://assets/sound/music/clemiRTS_loop.wav" id="20_7iits"]
 
 [sub_resource type="Gradient" id="Gradient_i7141"]
 offsets = PackedFloat32Array(0, 0.6893204, 1)
 colors = PackedColorArray(0.9019608, 0.9019608, 0.9019608, 1, 0.9019608, 0.9019608, 0.9019608, 0.8666667, 1, 1, 1, 0)
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_jhx03"]
-clip_count = 5
+clip_count = 7
 clip_0/name = &"Drum"
 clip_0/stream = ExtResource("10_jhx03")
 clip_0/auto_advance = 1
@@ -45,6 +47,13 @@ clip_4/name = &"Main High"
 clip_4/stream = ExtResource("13_dss4m")
 clip_4/auto_advance = 1
 clip_4/next_clip = 3
+clip_5/name = &"Jordan Intro"
+clip_5/stream = ExtResource("19_2lf6f")
+clip_5/auto_advance = 1
+clip_5/next_clip = 6
+clip_6/name = &"Jordan Loop"
+clip_6/stream = ExtResource("20_7iits")
+clip_6/auto_advance = 0
 _transitions = {
 Vector2i(0, 2): {
 "fade_beats": 1.0,
@@ -57,6 +66,18 @@ Vector2i(1, 2): {
 "fade_mode": 4,
 "from_time": 1,
 "to_time": 0
+},
+Vector2i(6, 4): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(6, 5): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
 }
 }
 
