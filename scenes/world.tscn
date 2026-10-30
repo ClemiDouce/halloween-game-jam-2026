@@ -83,6 +83,7 @@ Vector2i(6, 5): {
 [node name="GameManager" type="Node" unique_id=1617731920]
 script = ExtResource("1_o8fc1")
 level_list = Array[PackedScene]([ExtResource("2_i7141")])
+metadata/_edit_horizontal_guides_ = [742.0]
 
 [node name="ForegroundLayer" type="CanvasLayer" parent="." unique_id=1449940769]
 unique_name_in_owner = true
@@ -216,18 +217,21 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 64.0
 offset_top = 748.0
-offset_right = 580.0
+offset_right = 279.0
 offset_bottom = 835.0
 script = ExtResource("6_q5onr")
 
 [node name="CenterContainer" type="CenterContainer" parent="BaseView/Resources" unique_id=160827732]
-layout_mode = 0
-offset_right = 519.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PlayerResourcesContainer" type="HBoxContainer" parent="BaseView/Resources/CenterContainer" unique_id=74056325]
 layout_mode = 2
-theme_override_constants/separation = 152
+theme_override_constants/separation = 97
 
 [node name="RequisitionContainer" type="VBoxContainer" parent="BaseView/Resources/CenterContainer/PlayerResourcesContainer" unique_id=1451281895]
 unique_name_in_owner = true
@@ -238,6 +242,20 @@ theme_override_constants/separation = 5
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("6_e3hyu")
+
+[node name="RequisitionNotification" type="Label" parent="BaseView/Resources/CenterContainer/PlayerResourcesContainer/RequisitionContainer/TextureRect" unique_id=829290552]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+text = "+50"
+script = ExtResource("9_jhx03")
 
 [node name="RequisitionAmountLabel" type="Label" parent="BaseView/Resources/CenterContainer/PlayerResourcesContainer/RequisitionContainer" unique_id=16884813]
 unique_name_in_owner = true
@@ -255,31 +273,25 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("6_w7kh3")
 
+[node name="CrystalNotification" type="Label" parent="BaseView/Resources/CenterContainer/PlayerResourcesContainer/CrystalContainer/TextureRect" unique_id=116539015]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -36.0
+offset_right = 20.0
+offset_bottom = -13.0
+grow_horizontal = 2
+text = "+50"
+script = ExtResource("9_jhx03")
+
 [node name="CrystalAmountLabel" type="Label" parent="BaseView/Resources/CenterContainer/PlayerResourcesContainer/CrystalContainer" unique_id=1286129447]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
-
-[node name="CrystalNotification" type="Label" parent="BaseView/Resources" unique_id=116539015]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 358.0
-offset_top = -32.0
-offset_right = 398.0
-offset_bottom = -9.0
-text = "+50"
-script = ExtResource("9_jhx03")
-
-[node name="RequisitionNotification" type="Label" parent="BaseView/Resources" unique_id=829290552]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 161.0
-offset_top = -32.0
-offset_right = 201.0
-offset_bottom = -9.0
-text = "+50"
-script = ExtResource("9_jhx03")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=869438757]
 layer = -64
@@ -297,6 +309,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("9_7r4gi")
 
 [node name="PlayerController" type="Node" parent="." unique_id=1060732579 node_paths=PackedStringArray("controlling_base")]
+unique_name_in_owner = true
 script = ExtResource("10_w7kh3")
 controlling_base = NodePath("../BaseManager")
 
