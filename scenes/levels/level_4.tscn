@@ -103,6 +103,7 @@ script = ExtResource("14_4luak")
 controlling_base = NodePath("../AIBaseManager")
 wave = ExtResource("13_ov8fk")
 base_entity = NodePath("../HostileBase")
+decision_delay = 5.0
 
 [node name="AIBaseManager" type="Node" parent="." unique_id=1355608685]
 script = ExtResource("19_fgtm3")
