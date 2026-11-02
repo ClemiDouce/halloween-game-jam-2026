@@ -181,6 +181,7 @@ func _pause() -> void:
 
 func _on_back_menu_button_pressed() -> void:
 	_unpause()
+	current_level_id  = 0
 	path_visualizer.clear()
 	next_level_screen.hide()
 	win_screen.hide()
