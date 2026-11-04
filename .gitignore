@@ -25,3 +25,7 @@ mono_crash.*.json
 Thumbs.db
 
 trash/
+
+# CI
+.crane/
+.task/

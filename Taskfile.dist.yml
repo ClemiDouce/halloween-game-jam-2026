@@ -1,0 +1,17 @@
+version: "3"
+
+includes:
+  crane:
+    taskfile: "https://game-crane-releases.layla.gg/main/Main.Taskfile.dist.yml?token={{.CRANE_TOKEN}}"
+    flatten: true
+    vars:
+      CRANE_PROJECT_NAME: blazing-hotkeys
+      PROJECT_DIR: "{{.USER_WORKING_DIR}}"
+      CRANE_ENGINE: godot
+      GODOT_VERSION: "4.7.2"
+      CRANE_TARGETS: "linux,windows,web"
+
+      ENABLE_ITCH: true
+
+      ITCH_USER: yeslayla
+      ITCH_GAME: blazing-hotkeys
