@@ -30,5 +30,7 @@ jobs:
       - name: Package
         run: game-crane package:all
 
-      - name: Publish artifact
+      - name: Publish Release
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
         run: game-crane publish:release
